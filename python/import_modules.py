@@ -8,5 +8,9 @@ a_random_number = random.randint(0,9)
 print(a_random_number)
 
 # another option
-from math import *.
-print(PI)
+from math import *
+print(pi)
+
+# or just improt module path from os and use alias
+from os import path as ospath
+print(ospath.abspath('.'))
