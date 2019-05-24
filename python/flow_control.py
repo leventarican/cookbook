@@ -16,3 +16,6 @@ coffee = 3
 while coffee > 0:
     print('code...')
     coffee = coffee - 1
+
+for i in range(10):
+    print(i)
