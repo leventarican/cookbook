@@ -29,8 +29,8 @@ void draw() {
 
 void drawPattern(int[][] pattern) {
   pushMatrix();
-  for (int i=0; i<3; i++) {
-    for (int j=0; j<4; j++) {
+  for (int i=0; i<pattern.length; i++) {
+    for (int j=0; j<pattern[i].length; j++) {
       if (pattern[i][j] == 1) {
         fill(0);
       } else {
