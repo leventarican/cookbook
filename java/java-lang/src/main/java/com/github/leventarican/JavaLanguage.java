@@ -8,5 +8,8 @@ public class JavaLanguage {
 
         LambdaExpression lambdaExpression = new LambdaExpression();
         lambdaExpression.exec();
+
+        Collections collections = new Collections();
+        collections.exec();
     }
 }
