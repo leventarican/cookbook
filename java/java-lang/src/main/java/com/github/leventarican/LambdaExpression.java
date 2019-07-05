@@ -11,33 +11,40 @@ public class LambdaExpression {
 
     public void exec() {
         init();
-        process();
-        end();
-
-        devs.forEach( dev -> {
-            System.out.println("asd");
-        });
+        withoutLambda();
+        withLambda();
     }
 
     private void init() {
         devs.add(new Developer("java"));
         devs.add(new Developer("kotlin"));
+        devs.add(new Developer("basic"));
+        devs.add(new Developer("python"));
+        devs.add(new Developer("smalltalk"));
+        devs.add(new Developer("cpp"));
+
     }
 
-    private void process() {
+    private void withoutLambda() {
+        System.out.println("without lambda:");
         Collections.sort(devs, new Comparator<Developer>() {
             @Override
             public int compare(Developer o1, Developer o2) {
-                if (o1.getProgrammingLanguage().equals("java")) {
-                    return 0;
-                } else {
-                    return 1;
-                }
+                return o1.getProgrammingLanguage().length() - o2.getProgrammingLanguage().length();
             }
+        });
+        devs.forEach( dev -> {
+            System.out.println(dev.getProgrammingLanguage());
         });
     }
 
-    private void end() {
-
+    private void withLambda() {
+        System.out.println("with lambda:");
+        for (Developer developer : devs.stream()
+                .filter(dev -> "java".equals(dev.getProgrammingLanguage()))
+                .sorted(Comparator.comparing(Developer::getProgrammingLanguage))
+                .toArray(Developer[]::new)) {
+            System.out.println(developer.getProgrammingLanguage());
+        }
     }
 }
