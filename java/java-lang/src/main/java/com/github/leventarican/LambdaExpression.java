@@ -1,5 +1,9 @@
 package com.github.leventarican;
 
+import com.github.leventarican.model.Developer;
+import com.github.leventarican.model.DeveloperFactory;
+import com.github.leventarican.model.ProgrammingLanguage;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,21 +30,22 @@ public class LambdaExpression {
         Collections.sort(developers, new Comparator<Developer>() {
             @Override
             public int compare(Developer o1, Developer o2) {
-                return o1.getProgrammingLanguage().length() - o2.getProgrammingLanguage().length();
+                return o1.getProgrammingLanguages().size() - o2.getProgrammingLanguages().size();
             }
         });
         developers.forEach( dev -> {
-            System.out.println(dev.getProgrammingLanguage());
+            List<ProgrammingLanguage> pl = dev.getProgrammingLanguages();
+            pl.forEach( lang -> System.out.println(lang.getName()));
         });
     }
 
     private void withLambda() {
         System.out.println("with lambda:");
-        for (Developer developer : developers.stream()
-                .filter(dev -> "java".equals(dev.getProgrammingLanguage()))
-                .sorted(Comparator.comparing(Developer::getProgrammingLanguage))
-                .toArray(Developer[]::new)) {
-            System.out.println(developer.getProgrammingLanguage());
-        }
+//        for (Developer developer : developers.stream()
+//                .filter(dev -> "java".equals(dev.getProgrammingLanguages()))
+//                .sorted(Comparator.comparing(Developer::getProgrammingLanguage))
+//                .toArray(Developer[]::new)) {
+//            System.out.println(developer.getProgrammingLanguage());
+//        }
     }
 }
