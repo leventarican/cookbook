@@ -22,7 +22,7 @@ public class LambdaExpression {
 
     private void init() {
         DeveloperFactory factory = new DeveloperFactory();
-        developers = factory.getDevelopers();
+        developers = factory.getSampleData();
     }
 
     private void withoutLambda() {

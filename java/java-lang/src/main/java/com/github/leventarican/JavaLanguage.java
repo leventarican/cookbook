@@ -11,5 +11,21 @@ public class JavaLanguage {
 
         Collections collections = new Collections();
         collections.exec();
+
+        Loops loops = new Loops();
+        loops.exec();
+
+        new Clazz().new MemberClass();
+        Clazz.StaticClass.whoami();
+        /*
+        inner class: LocalClass
+        inner class: anonymous
+        inner class: MemberClass
+        inner class: StaticClass
+        */
+
+        Exceptions exceptions = new Exceptions();
+        exceptions.exec();
+
     }
 }

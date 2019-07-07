@@ -2,6 +2,7 @@ package com.github.leventarican;
 
 import com.github.leventarican.model.Developer;
 import com.github.leventarican.model.DeveloperFactory;
+import com.github.leventarican.model.ProgrammingLanguage;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,6 +16,14 @@ public class Collections {
         Collection<Developer> c = new ArrayList<>();
         c.toArray();
         c.toArray(new Developer[c.size()]);
+
+        List<Developer> l = new ArrayList<>();
+        DeveloperFactory factory = new DeveloperFactory();
+        List<Developer> sampleData = factory.getSampleData();
+        sampleData.forEach( developer -> {
+            System.out.println(developer.getProgrammingLanguages());
+        });
+
 
 //        List<Developer> l = new ArrayList<>();
 //        l.add(DeveloperFactory.java);
