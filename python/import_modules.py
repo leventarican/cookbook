@@ -11,6 +11,10 @@ print(a_random_number)
 from math import *
 print(pi)
 
+# import a function
+from math import cos
+print(cos(1))
+
 # or just improt module path from os and use alias
 from os import path as ospath
 print(ospath.abspath('.'))
