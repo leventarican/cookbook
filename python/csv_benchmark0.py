@@ -7,10 +7,12 @@ import pandas as pd
 # time: 0.6401224136352539s
 
 def csv_dictreader():
+    array = []
     with open("random.csv") as csvfile:
         data = csv.DictReader(csvfile, delimiter=';')
         for row in data:
-            pass
+            array.append(float(row['H']))
+    return array
 
 def csv_pandas():
     data = pd.read_csv("random.csv")
@@ -18,7 +20,8 @@ def csv_pandas():
         pass
 
 start = time.time()
-csv_dictreader()
+array = csv_dictreader()
+print(len(array))
 print("time: {}s".format(time.time() - start))
 
 start = time.time()
