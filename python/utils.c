@@ -16,3 +16,13 @@ long benchmark() {
   }
   return result;
 }
+
+int readcsv() {
+  FILE* stream = fopen("/home/dev/root/cookbook/python/100000salesrecords.csv", "r");
+  char line[1024];
+  int line_count = 0;
+  while (fgets(line, 1024, stream)) {
+    line_count++;
+  }
+  return line_count;
+}

@@ -1,5 +1,6 @@
 import ctypes
 import time
+import csv
 
 # python3 utils.py
 #
@@ -28,6 +29,18 @@ def benchmark_py():
         result = (result * result) % 3
     return 'benchmark [python]: ' + str(result)
 
+def readcsv_c():
+    result = utils.readcsv()
+    return 'benchmark read csv [c]: ' + str(result)
+
+def readcsv_py():
+    linecount = 0
+    with open('100000salesrecords.csv', newline='') as csvfile:
+        csvreader = csv.reader(csvfile, delimiter=',')
+        for row in csvreader:
+            linecount += 1
+    return 'benchmark read csv [python]: ' + str(linecount)
+
 print(square_c(10))
 
 start = time.time()
@@ -37,3 +50,11 @@ print("time [c]: {}s".format(time.time() - start))
 start = time.time()
 print(benchmark_py())
 print("time [python]: {}s".format(time.time() - start))
+
+start = time.time()
+print(readcsv_c())
+print("time [c]: {}s".format(time.time() - start))
+
+start = time.time()
+print(readcsv_py())
+print("time [c]: {}s".format(time.time() - start))
