@@ -32,6 +32,7 @@ public class Konsole {
         }
 
         ArrayList<TimerTask> timerTasks = new ArrayList<>();
+        Timer threadsafeTimer = new Timer();
 
         while (true) {
             String input = console.readLine("# ");
@@ -45,11 +46,11 @@ public class Konsole {
                     System.out.println("##########");
                     System.out.println("#pomodoro#");
                     System.out.println("##########");
-                } else if (input.equals("create")) {
+                } else if (input.equals("create") || input.equals("c")) {
                     System.out.println("create task");
                     PomodoreTask task = new PomodoreTask();
                     timerTasks.add(task);
-                    new Timer().scheduleAtFixedRate(task, 0, 1000);
+                    threadsafeTimer.scheduleAtFixedRate(task, 0, 1000);
                 } else if (input.equals("list")) {
                     timerTasks.forEach(timerTask -> {
                         long s = (new Date().getTime() - timerTask.scheduledExecutionTime()) / 1000;
@@ -70,12 +71,24 @@ public class Konsole {
     private static class PomodoreTask extends TimerTask {
         int untilSeconds = 3;
         int counter = 0;
+
         @Override
         public void run() {
-//            System.out.println(untilSeconds - counter + "s left");
             if (counter++ > untilSeconds) {
+                System.out.println("\nDONE");
                 cancel();
+            } else if (counter == 1) {
+                System.out.println(repeat("", "-", untilSeconds));
+            } else {
+                System.out.print(">");
             }
         }
+    }
+
+    public static String repeat(String str, String con, int count) {
+        for (int i = 0; i < count; i++) {
+            str = str.concat(con);
+        }
+        return str;
     }
 }

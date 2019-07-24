@@ -27,5 +27,7 @@ public class JavaLanguage {
         Exceptions exceptions = new Exceptions();
         exceptions.exec();
 
+        BitsBytes bits = new BitsBytes();
+        bits.exec();
     }
 }
