@@ -1,7 +1,7 @@
 package com.github.leventarican;
 
 public class JavaLanguage {
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws Exception {
         System.out.println( "#############" );
         System.out.println( "java language" );
         System.out.println( "#############\n" );
@@ -29,5 +29,8 @@ public class JavaLanguage {
 
         BitsBytes bits = new BitsBytes();
         bits.exec();
+
+        Objects objs = new Objects();
+        objs.exec();
     }
 }
