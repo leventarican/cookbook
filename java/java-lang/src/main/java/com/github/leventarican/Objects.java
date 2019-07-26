@@ -35,21 +35,5 @@ public class Objects {
             Objects obj = new Objects();
             obj = null;
         }
-
-        // memory leaks
-        {
-            int size = 1_000_000;
-            Objects[] references = new Objects[size];
-            for (int i=0; i<size; i++) {
-                references[i] = new Objects(field0 + i);
-            }
-
-            // program is running,
-            // objects are referenced but not used
-            // GC cant delete objects!
-            while (true) {
-                Thread.sleep(10);
-            }
-        }
     }
 }
