@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * limit your heap size. e.g. set maximum Java heap size to 1024 to force a memory exception
- *
  * create objects, reference it but don't use it --> memory leak
+ * use visualvm (visualvm.exe --jdkhome) for memory monitoring. also with a usual task memory manager you can see the memory rising
  */
 public class MemoryLeak {
 	public static void main(String args[]) {
@@ -14,6 +14,9 @@ public class MemoryLeak {
 		int size = Integer.MAX_VALUE / 25;
 		for (int i=0; i<size; i++) {
 			references.add(new Integer(314));
+
+			// force GC to clean up will eventually prevent rising memory
+//			System.gc();
 		}
 	}
 }

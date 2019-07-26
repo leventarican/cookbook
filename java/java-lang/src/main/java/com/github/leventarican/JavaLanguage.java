@@ -32,5 +32,8 @@ public class JavaLanguage {
 
         Objects objs = new Objects();
         objs.exec();
+
+        Network network = new Network();
+        network.exec();
     }
 }

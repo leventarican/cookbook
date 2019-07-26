@@ -21,7 +21,7 @@ public class Objects {
 //        * create
 //        * destroy objects
 //        `;
-        System.out.println("Objects: create, destroy, memory leaks");
+        System.out.println("Objects: create, destroy");
 
         // reference a will be cleared from GC (garbage collector) after leaving scope
         {
