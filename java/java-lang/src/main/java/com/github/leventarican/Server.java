@@ -1,8 +1,6 @@
 package com.github.leventarican;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -23,10 +21,15 @@ public class Server {
     }
 
     private static void responseTo(Socket client) throws IOException {
-        Scanner in = new Scanner(client.getInputStream(), StandardCharsets.UTF_8.name());
-        String factor1 = in.nextLine();
-        String factor2 = in.nextLine();
+        InputStream inputStream = client.getInputStream();
+        Scanner in = new Scanner(inputStream, StandardCharsets.UTF_8.name());
+
+        byte[] buffer = new byte[inputStream.available()];
+        inputStream.read(buffer);
+        OutputStream outStream = new FileOutputStream(new File("server.file"));
+        outStream.write(buffer);
+
         PrintWriter out = new PrintWriter(new OutputStreamWriter(client.getOutputStream(), StandardCharsets.UTF_8.name()), true);
-        out.println(new BigInteger(factor1).multiply(new BigInteger(factor2)));
+        out.println("file received");
     }
 }
