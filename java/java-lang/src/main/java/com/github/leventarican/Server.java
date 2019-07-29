@@ -4,6 +4,10 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * run this; then {@class Client}
+ * server will save the file from client
+ */
 public class Server {
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(5050)) {
