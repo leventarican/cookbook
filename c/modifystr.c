@@ -23,6 +23,7 @@ int replace1(char * str) {
 int main(int argc, char const *argv[]) {
 
   char pi[] = "3,14";
+  char *cpi = "3,14"; // segmentation fault; cant manipulate (memory)
   replace0(pi);
 
   return 0;
