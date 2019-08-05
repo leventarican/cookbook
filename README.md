@@ -34,3 +34,28 @@ curl https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data --
 rmdir /S    // delete folder
 move source-folder .    // move folder to current folder
 ```
+
+# h2 database (embedded / payara)
+* start database: ```asadmin start-database```
+* stop database: ```asadmin stop-database```
+* sql connect (e.g. payara5\h2db\bin): ```java -cp h2.jar org.h2.tools.Shell```
+* create database (take default settings):
+```
+JDBC URL: jdbc:h2:~/test
+Database/Schema: ~/test
+```
+* show tables
+```
+sql> show tables;
+TABLE_NAME | TABLE_SCHEMA
+DEVELOPER  | PUBLIC
+```
+* create table
+```
+CREATE TABLE PUBLIC.DEVELOPER (
+	NAME VARCHAR(10),
+	PROGRAMMING_LANGUAGE VARCHAR(10),
+	CONSTRAINT DEVELOPER_PK PRIMARY KEY (ID)
+);
+```
+* quit from sql shell: ```quit```
