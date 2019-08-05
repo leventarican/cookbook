@@ -10,9 +10,11 @@ for line in inputfile:
     for token in tokens:
         try:
             signals.append(float(token.replace(',', '.')))
+            # signals.append(token.replace(',', '.'))
+            # signals.append(token)
         except Exception as e:
             pass
 
-print(signals)
+# print(signals)
 
 inputfile.close()

@@ -5,6 +5,19 @@ print('lan' in dev.keys())
 print('python' in dev.values())
 print(dev.get('exp'))
 
+root = {}
+root['id'] = 0
+root['programminglanguage'] = 'java'
+datatypes = []
+root['datatypes'] = datatypes
+syntax = []
+root['syntax'] = syntax
+syntax.append(['System.out.println()', 'class Foobar'])
+datatypes.append('Integer')
+datatypes.append('String')
+datatypes.append('Double')
+print(root)
+
 def wordcount(fname):
     try:
         fhand = open(fname)
