@@ -17,5 +17,9 @@ while coffee > 0:
     print('code...')
     coffee = coffee - 1
 
+programminglanguages = ['python', 'java', 'kotlin']
+for lang in programminglanguages:
+    print(lang)
+
 for i in range(10):
     print(i)

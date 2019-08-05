@@ -26,6 +26,12 @@ CTRL + ALT + L  // reformat code (Android Studio)
 # cheatsheet: linux
 ```
 curl https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data --output iris.data
+
+split -l 50 file.csv  // split file to multiple files for given line number
+
+grep -n 'search' file.csv // line numbers occurence
+
+sed -n '/pattern/=' file.csv  // line numbers occurence
 ```
 
 # cheatsheet: windows
