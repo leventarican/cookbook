@@ -1,5 +1,7 @@
 package com.github.leventarican;
 
+import com.github.leventarican.algorithm.SelectionSort;
+
 import java.io.File;
 
 public class JavaLanguage {
@@ -37,8 +39,14 @@ public class JavaLanguage {
 //
 //        Network network = new Network();
 //        network.exec();
+//
+//        FileCreator file = new FileCreator();
+//        file.exec();
+//
+//        SelectionSort selectionSort = new SelectionSort();
+//        selectionSort.exec();
 
-        FileCreator file = new FileCreator();
-        file.exec();
+        LoggingJUL jul = new LoggingJUL();
+        jul.exec();
     }
 }
