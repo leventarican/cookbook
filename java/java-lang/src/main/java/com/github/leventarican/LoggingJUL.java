@@ -29,7 +29,7 @@ public class LoggingJUL {
 
     void configuration() {
         // -Djava.util.logging.config.file=logging.properties
-        System.setProperty("java.util.logging.config.file", "logging.properties");
+        System.setProperty("java.util.logging.config.file", "src/main/resources/logging.properties");
         try {
             LogManager.getLogManager().readConfiguration();
         } catch (Exception e) {
