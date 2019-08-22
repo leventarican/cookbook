@@ -46,7 +46,7 @@ ln -s apache-maven-3.6.1 maven
 ln -s zulu8.40.0.25-ca-jdk8.0.222-linux_x64 jdk
 ```
 
-* config the environment variable PATH
+* config the environment variable PATH. Put that in ~/.profile (restart)
 ```
 # jdk, maven, netbeans, ...
 PATH="$HOME/development/jdk/bin:$PATH"
@@ -57,6 +57,21 @@ PATH="$HOME/development/netbeans/bin:$PATH"
 * iso to usb stick
 ```
 sudo dd if=linux.iso of=/dev/sda bs=1M && sync
+```
+
+* battery lifetime / runtime with TLP
+```
+sudo tlp-stat -s	// manual start
+sudo tlp-stat -b	// show battery info
+
+/sys/class/power_supply/BAT0/cycle_count                    =      3
+/sys/class/power_supply/BAT0/energy_full_design             =  57020 [mWh]
+/sys/class/power_supply/BAT0/energy_full                    =  57660 [mWh]
+/sys/class/power_supply/BAT0/energy_now                     =  47530 [mWh]
+/sys/class/power_supply/BAT0/power_now                      =   7446 [mW]
+/sys/class/power_supply/BAT0/status                         = Discharging
+Charge                                                      =   82.4 [%]
+Capacity                                                    =  101.1 [%]
 ```
 
 ## ubuntu
