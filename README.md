@@ -24,6 +24,56 @@ CTRL + ALT + L  // reformat code (Android Studio)
 ```
 
 # cheatsheet: linux
+
+* unpack compressed tar gz files
+```
+tar xfv ../Downloads/zulu8.40.0.25-ca-jdk8.0.222-linux_x64.tar.gz
+unzip netbeans.zip
+unzip -l netbeans.zip	// list files
+```
+
+* setup git configuration
+```
+touch ~/.gitconfig
+git config --global user.name "leventarican"
+git config --global user.email "levent@protonmail.com"
+git config --global -l 
+```
+
+* create symbolic links
+```
+ln -s apache-maven-3.6.1 maven
+ln -s zulu8.40.0.25-ca-jdk8.0.222-linux_x64 jdk
+```
+
+* config the environment variable PATH
+```
+# jdk, maven, netbeans, ...
+PATH="$HOME/development/jdk/bin:$PATH"
+PATH="$HOME/development/maven/bin:$PATH"
+PATH="$HOME/development/netbeans/bin:$PATH"
+```
+
+* iso to usb stick
+```
+sudo dd if=linux.iso of=/dev/sda bs=1M && sync
+```
+
+## ubuntu
+* shortcuts
+```
+ALT + SHIFT + T		// open terminal
+CTRL + SHIFT + T	// terminal: open tab
+```
+
+* update, upgrade, install software
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install git
+```
+
+## other
 ```
 curl https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data --output iris.data
 
