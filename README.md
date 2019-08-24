@@ -74,6 +74,11 @@ Charge                                                      =   82.4 [%]
 Capacity                                                    =  101.1 [%]
 ```
 
+* show / change display brightness / backlight
+```
+cat /sys/class/backlight/amdgpu_bl0/brightness
+```
+
 ## ubuntu
 * shortcuts
 ```
