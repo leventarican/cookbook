@@ -8,14 +8,16 @@ package com.github.leventarican.mock;
 public class ClassUnderTest {
 
     private DependenyClass dc;
+    private SpyClass sc;
 
-    public ClassUnderTest(DependenyClass dc) {
-        this.dc = dc;
+    public ClassUnderTest() {
+        this.dc = new DependenyClass();
+        this.sc = new SpyClass();
     }
 
     public String ping() {
         if (dc.debug()) {
-            System.out.println("DEBUG on: pong");
+            System.out.println("ClassUnderTest - DEBUG: " + dc.debug());
         }
         return "pong";
     }

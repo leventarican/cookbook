@@ -1,9 +1,10 @@
 package com.github.leventarican.neuronalnetwork;
 
-import java.util.List;
+import com.github.leventarican.JavaLanguage;
 
 /**
  * simple neuronal network: perceptron model.
+ * see Unit: {@link JavaLanguageTest}
  */
 public class Perceptron {
     private int numberOfInput;

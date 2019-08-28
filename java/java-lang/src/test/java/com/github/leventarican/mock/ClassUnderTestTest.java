@@ -1,11 +1,13 @@
 package com.github.leventarican.mock;
 
-import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+import static org.junit.Assert.assertEquals;
 
 /**
  *
@@ -16,31 +18,27 @@ public class ClassUnderTestTest {
     @Mock
     DependenyClass dc;
     
+    @Spy
+    SpyClass sc;
+    
     @InjectMocks
     ClassUnderTest cut;
     
-//    @Before
-//    public void init() {
-//        cut = new ClassUnderTest();
-//        cut.init(dc);
-//    }
-    
-//    @Test
-    public void testPing() {
-        Mockito.when(dc.debug()).thenReturn(Boolean.TRUE);
-        
-        String expResult = "pong";
-        String result = cut.ping();
-        assertEquals(expResult, result);
+    @Before
+    public void init() {
+        MockitoAnnotations.initMocks(this);
     }
     
     @Test
-    public void testConstructor() {
-        System.out.println("testConsructor");
-        
+    public void testMock() {
         Mockito.when(dc.debug()).thenReturn(Boolean.TRUE);
-        
         String result = cut.ping();
-        System.out.println(result);
+        assertEquals(result, "pong");
+    }
+    
+    @Test
+    public void testSpy() {
+        String result = sc.password();
+        assertEquals(result, "code");
     }
 }
