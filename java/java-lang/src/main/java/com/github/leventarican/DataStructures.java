@@ -1,7 +1,9 @@
 package com.github.leventarican;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +17,7 @@ public class DataStructures {
     
     public void exec() {
         list();
+        set();
     }
     
     private void list() {
@@ -28,5 +31,14 @@ public class DataStructures {
         for (String pl : programminglang) {
             log.log(Level.INFO, pl);
         }
+    }
+    
+    private void set() {
+        log.log(Level.INFO, "set");
+        
+        Set unique = new HashSet();
+        unique.add("java");
+        unique.add("java");
+        log.log(Level.INFO, "expected:2 - actual:{0}", unique.size());
     }
 }
