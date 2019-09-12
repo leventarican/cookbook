@@ -1,3 +1,5 @@
+# string can be enconded either text or bytes.
+
 raw_string = r'raw string will ignore escape \n characters.'
 print(raw_string)
 
