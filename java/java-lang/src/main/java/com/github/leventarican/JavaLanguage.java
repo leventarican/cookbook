@@ -1,8 +1,11 @@
 package com.github.leventarican;
 
-import com.github.leventarican.algorithm.SelectionSort;
+import com.github.leventarican.designpattern.factory.TheFactory;
+import com.github.leventarican.designpattern.TheImmutable;
+import com.github.leventarican.designpattern.iterator.TheIterator;
+import com.github.leventarican.designpattern.factory.Car;
+import com.github.leventarican.designpattern.iterator.IteratorDemo;
 
-import java.io.File;
 
 public class JavaLanguage {
     public static void main( String[] args ) throws Exception {
@@ -46,7 +49,24 @@ public class JavaLanguage {
 //        SelectionSort selectionSort = new SelectionSort();
 //        selectionSort.exec();
 
-        LoggingJUL jul = new LoggingJUL();
-        jul.exec();
+//        LoggingJUL jul = new LoggingJUL();
+//        jul.exec();
+
+//        DataStructures ds = new DataStructures();
+//        ds.exec();
+//        
+//        TheImmutable im = new TheImmutable("python");
+//        im.getProgrammingLang();
+//        System.out.println(im.isJVMcomptabile());
+//        
+//        Car car = TheFactory.build();
+//        System.out.println(car);
+//        
+//        IteratorDemo demo = new IteratorDemo();
+//        demo.exec();
+
+        DataTypes dt = new DataTypes();
+        dt.exec();
+        
     }
 }
