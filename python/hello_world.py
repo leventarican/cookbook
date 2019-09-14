@@ -11,3 +11,17 @@ a.append(7)
 print(b)
 
 print(id("a"))  # memoty location
+
+# integers
+i = 7
+exponent = i ** 2
+u = 5_000_000
+x,y = 3,4
+print(exponent)
+print(x)
+print(y)
+
+# floats
+f = i + 0.14
+print(f)
+print(f**2)

@@ -18,3 +18,7 @@ print(cos(1))
 # or just improt module path from os and use alias
 from os import path as ospath
 print(ospath.abspath('.'))
+
+# or import __our__ function
+import functions
+functions.printPI()
