@@ -4,6 +4,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from enemy import Enemy
 
 class Space:
     def __init__(self):
@@ -16,6 +17,8 @@ class Space:
         pygame.display.set_caption('space')
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self.enemies = pygame.sprite.Group()
+        self._create_enemies()
 
     def run(self):
         while True:
@@ -46,11 +49,16 @@ class Space:
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        self.enemies.draw(self.screen)
         pygame.display.flip()
 
     def _fire_bullet(self):
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        bullet = Bullet(self)
+        self.bullets.add(bullet)
+
+    def _create_enemies(self):
+        enemy = Enemy(self)
+        self.enemies.add(enemy)
 
 if __name__ == '__main__':
     space = Space()
