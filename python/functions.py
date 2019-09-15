@@ -11,6 +11,19 @@ def printPI():
 def ping(pong):
     print('pong: {}'.format(pong))
 
-printLanguages()
-printPI()
-ping('foobar')
+# pass arbitary number of arguments
+def arbitary(*programminglanguages):
+    # programminglanuages is a tuple
+    for pl in programminglanguages:
+        print(f'- {pl}')
+
+JAVA = 'java'
+PY = 'python'
+CPP = 'c++'
+
+# printLanguages()
+# printPI()
+# ping('foobar')
+
+arbitary(JAVA)
+arbitary(CPP, PY)
