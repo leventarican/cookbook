@@ -25,6 +25,7 @@ class Space:
             self._check_events()
             self.ship.update()
             self.bullets.update()
+            self._update_enemies()
             self._update_screen()
 
     def _check_events(self):
@@ -59,6 +60,21 @@ class Space:
     def _create_enemies(self):
         enemy = Enemy(self)
         self.enemies.add(enemy)
+
+    def _update_enemies(self):
+        self.enemies.update()
+        self._check_enemy_edges()
+
+    def _check_enemy_edges(self):
+        for enemy in self.enemies.sprites():
+            if enemy.check_edges():
+                self._change_enemy_direction()
+                break
+
+    def _change_enemy_direction(self):
+        for enemy in self.enemies.sprites():
+            enemy.rect.y += self.settings.enemy_drop_speed
+        self.settings.enemy_direction *= 1
 
 if __name__ == '__main__':
     space = Space()

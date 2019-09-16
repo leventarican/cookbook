@@ -10,3 +10,7 @@ class Settings:
         self.bullet_width = 5
         self.bullet_height = 25
         self.bullet_color = (60, 230, 60)
+
+        self.enemy_speed = 1.0
+        self.enemy_drop_speed = 10
+        self.enemy_direction = 1    # 1: right
