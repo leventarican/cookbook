@@ -24,7 +24,7 @@ class Space:
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
+            self._update_bullet()
             self._update_enemies()
             self._update_screen()
 
@@ -56,6 +56,10 @@ class Space:
     def _fire_bullet(self):
         bullet = Bullet(self)
         self.bullets.add(bullet)
+
+    def _update_bullet(self):
+        self.bullets.update()
+        collision = pygame.sprite.groupcollide(self.bullets, self.enemies, True, True)
 
     def _create_enemies(self):
         enemy = Enemy(self)
