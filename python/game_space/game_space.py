@@ -53,6 +53,9 @@ class Space:
         self.enemies.draw(self.screen)
         pygame.display.flip()
 
+    # #########################################################################
+    # bullet
+    # #########################################################################
     def _fire_bullet(self):
         bullet = Bullet(self)
         self.bullets.add(bullet)
@@ -61,24 +64,37 @@ class Space:
         self.bullets.update()
         collision = pygame.sprite.groupcollide(self.bullets, self.enemies, True, True)
 
+    # #########################################################################
+    # enemy
+    # #########################################################################
     def _create_enemies(self):
         enemy = Enemy(self)
-        self.enemies.add(enemy)
+        enemy_width = enemy.rect.width
+        available_space_x = self.settings.screen_width - (2 * enemy_width)
+        number_enemy_x = available_space_x // (2 * enemy_width)
+
+        for enemy_number in range(number_enemy_x):
+            enemy = Enemy(self)
+            enemy.x = enemy_width + 2 * enemy_width * enemy_number
+            enemy.rect.x = enemy.x
+            self.enemies.add(enemy)
 
     def _update_enemies(self):
         self.enemies.update()
         self._check_enemy_edges()
 
+    # if enemy reaches edge then change direction
     def _check_enemy_edges(self):
         for enemy in self.enemies.sprites():
             if enemy.check_edges():
                 self._change_enemy_direction()
                 break
 
+    # enemy to next line an change direction (right / left)
     def _change_enemy_direction(self):
         for enemy in self.enemies.sprites():
             enemy.rect.y += self.settings.enemy_drop_speed
-        self.settings.enemy_direction *= 1
+        self.settings.enemy_direction *= -1
 
 if __name__ == '__main__':
     space = Space()

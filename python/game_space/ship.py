@@ -12,9 +12,9 @@ class Ship:
 
     def update(self):
         if self.moving_right:
-            self.rect.x += 10
+            self.rect.x += 3
         if self.moving_left:
-            self.rect.x -= 10
+            self.rect.x -= 3
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
