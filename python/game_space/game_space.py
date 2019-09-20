@@ -10,6 +10,7 @@ class Space:
     def __init__(self):
         pygame.init()
         self.settings = Settings()
+        # our surface for drawing (like images, ...)
         self.screen = pygame.display.set_mode((
             self.settings.screen_width,
             self.settings.screen_height
@@ -58,7 +59,13 @@ class Space:
     # #########################################################################
     def _fire_bullet(self):
         bullet = Bullet(self)
+        bullet_right = Bullet(self)
+        bullet_left = Bullet(self)
+        bullet_right.right()
+        bullet_left.left()
         self.bullets.add(bullet)
+        self.bullets.add(bullet_right)
+        self.bullets.add(bullet_left)
 
     def _update_bullet(self):
         self.bullets.update()

@@ -19,4 +19,5 @@ class Ship:
                 self.rect.x -= 3
 
     def blitme(self):
+        # draw images on pygame surface
         self.screen.blit(self.image, self.rect)

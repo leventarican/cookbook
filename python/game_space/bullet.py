@@ -13,6 +13,13 @@ class Bullet(Sprite):
 
         self.y = float(self.rect.y)
 
+    def right(self):
+        # print('{};{}'.format(self.rect.midtop[0], self.rect.midtop[1]))
+        self.rect.midtop = (self.rect.midtop[0] + 100, self.rect.midtop[1])
+
+    def left(self):
+        self.rect.midtop = (self.rect.midtop[0] - 100, self.rect.midtop[1])
+
     def update(self):
         self.y -= self.settings.bullet_speed
         self.rect.y = self.y
