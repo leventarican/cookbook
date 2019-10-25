@@ -1,24 +1,46 @@
 import pygame
 import time
+import sys
+
+# you can use this as template.
+
+# everthing in pixels
 
 WIDTH = 500
 HEIGHT = 500
-GREEN = (0, 200, 0)
+GREEN = (0, 200, 0) # RGB (0-255, 0-255, 0-255)
 
-init = pygame.init()
-screen = pygame.display.set_mode([WIDTH, HEIGHT])
+pygame.init()
+surface = pygame.display.set_mode([WIDTH, HEIGHT])  # this returns a surface object
+pygame.display.set_caption('form scratch')
 
-box_x = 200
-box_y = 100
-box = pygame.Rect(box_x, box_y, 20, 20)
+box_pos_x = 200
+box_pos_y = 100
+box = pygame.Rect(box_pos_x, box_pos_y, 20, 20)
+# Rect object attributes
+# -----------------------
+# box.right = 220
+# box.left = 200
+# box.top = 100
+# box.bottom = 120
+# box.size = (20, 20)
 
+shoot = pygame.Rect(box_pos_x+50, box_pos_y, 10, 10)
+
+# game loop
+# ---------
+# handle events
+# update game state
+# draw game state to surface
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
 
-    pygame.draw.rect(screen, GREEN, box)
+    pygame.draw.rect(surface, GREEN, box)
 
-    pygame.display.update()
+    pygame.draw.rect(surface, GREEN, shoot)
+
+    pygame.display.update() # display the surface object
     time.sleep(0.1)
