@@ -1,8 +1,13 @@
 import pygame
 import sys
+import time
 
 SCREEN_WIDTH = 500
 SCREEN_HEIGHT = 500
+
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
 
 class Main(object):
     def __init__(self, id):
@@ -11,17 +16,45 @@ class Main(object):
         self.surface = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
         print('init done.')
 
+    def whoami(self):
+        print(f"main id: {self.id}")
+
+    def change_background(self, color):
+        self.surface.fill(color)
+
+    # box_pos: a tuble with x and y (left and top position of the rectangle)
+    def create_box(self, box_pos):
+        # box_pos = (200, 200)
+        box_size = (20, 20)
+        return pygame.Rect(box_pos, box_size)
+
+    def draw_primitives(self):
+        box_0 = self.create_box((200, 100))
+        box_1 = self.create_box((200, 200))
+        box_2 = self.create_box((200, 300))
+
+        pygame.draw.rect(self.surface, RED, box_0)
+        pygame.draw.rect(self.surface, GREEN, box_1)
+        pygame.draw.rect(self.surface, BLUE, (200, 300, 20, 20))
+
+        pygame.draw.line(self.surface, RED, (10, 10), (490, 10), 5)
+        pygame.draw.line(self.surface, GREEN, (10, 490), (490, 490), 1)
+
+        pygame.draw.circle(self.surface, BLUE, (300,50), 10, 0)
+        pygame.draw.circle(self.surface, GREEN, (300,50), 20, 1)
+
+        pygame.draw.ellipse(self.surface, GREEN, (10, 300, 10, 70), 1)
+
     def run(self):
+        self.draw_primitives()
+
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-    def whoami(self):
-        print(f"main id: {self.id}")
-
-    def change_background(color):
-        self.surface.fill(color)
+            pygame.display.update()
+            time.sleep(0.1)
 
 if __name__ == "__main__":
     main = Main(0)
