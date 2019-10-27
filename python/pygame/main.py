@@ -28,7 +28,7 @@ class Main(object):
         box_size = (20, 20)
         return pygame.Rect(box_pos, box_size)
 
-    def draw_primitives(self):
+    def draw_rectangle(self):
         box_0 = self.create_box((200, 100))
         box_1 = self.create_box((200, 200))
         box_2 = self.create_box((200, 300))
@@ -37,13 +37,37 @@ class Main(object):
         pygame.draw.rect(self.surface, GREEN, box_1)
         pygame.draw.rect(self.surface, BLUE, (200, 300, 20, 20))
 
+    def draw_line(self):
+        # (x, y) startpoint, (x, y) endpoint, width
         pygame.draw.line(self.surface, RED, (10, 10), (490, 10), 5)
         pygame.draw.line(self.surface, GREEN, (10, 490), (490, 490), 1)
 
+    def draw_circle(self):
+        # (x,y), radius, width [0 = fill; > 0 width]
         pygame.draw.circle(self.surface, BLUE, (300,50), 10, 0)
-        pygame.draw.circle(self.surface, GREEN, (300,50), 20, 1)
+        pygame.draw.circle(self.surface, GREEN, (300,50), 20, 2)
 
+    def draw_ellipse(self):
+        # (x, y, width, height)
         pygame.draw.ellipse(self.surface, GREEN, (10, 300, 10, 70), 1)
+
+    def draw_pixels(self):
+        pixels = pygame.PixelArray(self.surface)
+        for i in range(220,250):
+            # [pos x][pos y]
+            pixels[400][i] = GREEN
+        del pixels
+
+    def draw_polygon(self):
+        pygame.draw.polygon(self.surface, GREEN, ((200, 400), (300, 400), (250, 300)))
+
+    def draw_primitives(self):
+        self.draw_rectangle()
+        self.draw_line()
+        self.draw_circle()
+        self.draw_ellipse()
+        self.draw_pixels()
+        self.draw_polygon()
 
     def run(self):
         self.draw_primitives()
