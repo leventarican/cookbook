@@ -55,7 +55,7 @@ class Main(object):
         pixels = pygame.PixelArray(self.surface)
         for i in range(220,250):
             # [pos x][pos y]
-            pixels[400][i] = GREEN
+            pixels[400+(220-i)][i] = GREEN
         del pixels
 
     def draw_polygon(self):
