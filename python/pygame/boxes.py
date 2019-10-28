@@ -1,10 +1,11 @@
 import pygame
 import sys
-import time
+import random
 
 GRAY = (200, 200, 200)
 GREEN = (0, 255, 0)
-SCREEN_SIZE = 500
+BLUE = (0, 0, 255)
+SCREEN_SIZE = 700
 NUMBER_BOX = 4
 BOX_SIZE = SCREEN_SIZE / NUMBER_BOX
 
@@ -13,7 +14,24 @@ surface = pygame.display.set_mode([SCREEN_SIZE, SCREEN_SIZE])
 
 boxes = []
 boxes_selected = [-1]*2
-boxes_flip = False
+boxes_value = {}
+
+# TODO: peristent when found matching boxes
+
+# generate random colors for boxes
+def generate_box():
+    global boxes_value
+    grid = NUMBER_BOX*NUMBER_BOX
+    shuffle = [i for i in range(0,grid)]
+    random.shuffle(shuffle)
+    count = 0
+    value = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+    for key in shuffle:
+        count += 1
+        if count % 2 == 0:
+            value = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+        # print(f"{key}:{value}")
+        boxes_value[key] = value
 
 def select_box(mousex, mousey):
     global boxes_selected
@@ -29,6 +47,8 @@ def main():
     
     mousex = 0
     mousey = 0
+
+    generate_box()
 
     for x in range(0, NUMBER_BOX):
         for y in range(0, NUMBER_BOX):
@@ -49,7 +69,7 @@ def main():
 
         for index, box in enumerate(boxes):
             if index in boxes_selected:
-                pygame.draw.rect(surface, GREEN, box)
+                pygame.draw.rect(surface, boxes_value.get(index), box)
             else:
                 pygame.draw.rect(surface, GRAY, box)
 
