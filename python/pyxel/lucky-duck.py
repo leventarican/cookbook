@@ -1,70 +1,114 @@
+from random import randint
+
 import pyxel
 
-SCREEN_SIZE = 32
-IMAGE_BANK = 0
-VELOCITY = 5
-TRANSPARENT_COLOR = 14
 
-# max width and height of screen is 256
-# pyxel.init(256, 256, caption='load resource example', scale=1)
-pyxel.init(SCREEN_SIZE*2, SCREEN_SIZE, caption='luckyduck', scale=10)
+class App:
+    def __init__(self):
+        pyxel.init(160, 120, caption="Pyxel Jump")
 
-pyxel.load("assets/luckyduck.pyxres")
+        pyxel.load("assets/luckyduck0.pyxres")
 
-player_x = 0
-player_y = 0
+        self.score = 0
+        self.player_x = 16
+        self.player_y = 16*6
+        self.player_vy = 0
+        self.player_jump = False
+        self.player_is_alive = True
+        self.player_gravity = 0
 
-allmyducks = "c2d2e2f2 g2g2g2g2 a2a2a2a2 g2g2g2g2 a2a2a2a2 g2g2g2g2 f2f2f2f2 e2e2e2e2 d2d2d2d2 c2c2c2c2 r"
-pyxel.sound(0).set(note=allmyducks, tone="t", volume="5", effect=("n"), speed=30)
-pyxel.play(0, 0, loop=True)
+        self.fruit = [(i * 60, randint(0, 104), randint(0, 2), True) for i in range(4)]
 
-def update():
-    global player_x
-    global player_y
+        # pyxel.playm(0, loop=True)
 
-    if pyxel.btnp(pyxel.KEY_Q):
-        pyxel.quit()
-    if pyxel.btn(pyxel.KEY_LEFT):
-        if player_x > 0:
-            player_x -= VELOCITY
-    if pyxel.btn(pyxel.KEY_RIGHT):
-        if player_x+VELOCITY+8 < SCREEN_SIZE*2:
-            player_x += VELOCITY
-    if pyxel.btn(pyxel.KEY_UP):
-        if player_y > 0:
-            player_y -= VELOCITY
-    if pyxel.btn(pyxel.KEY_DOWN):
-        if player_y+VELOCITY+8 < SCREEN_SIZE:
-            player_y += VELOCITY
+        allmyducks = "c2d2e2f2 g2g2g2g2 a2a2a2a2 g2g2g2g2 a2a2a2a2 g2g2g2g2 f2f2f2f2 e2e2e2e2 d2d2d2d2 c2c2c2c2 r"
+        pyxel.sound(0).set(note=allmyducks, tone="t", volume="5", effect=("n"), speed=20)
+        pyxel.play(0, 0, loop=True)
 
-def draw():
-    global player_x
-    global player_y
+        # print(pyxel.height)   = 120
+        # print(pyxel.width)    = 160
 
-    pyxel.cls(0)
+        pyxel.run(self.update, self.draw)
 
-    # blt(x, y, img, u, v, w, h, [colkey])
+    def update(self):
+        if pyxel.btnp(pyxel.KEY_Q):
+            pyxel.quit()
 
-    # 256x256 sized 3 image banks
+        self.update_player()
 
-    # draw the ground
-    pyxel.blt(0, 18, IMAGE_BANK, 8, 8, 8, 8, TRANSPARENT_COLOR)
+        for i, v in enumerate(self.fruit):
+            self.fruit[i] = self.update_fruit(*v)
 
-    # draw the water
-    for column in range(0, SCREEN_SIZE*2, 8):
-        pyxel.blt(column, 0, IMAGE_BANK, 0, 8, 8, 8, TRANSPARENT_COLOR)
-        pyxel.blt(column, 8, IMAGE_BANK, 0, 8, 8, 8, TRANSPARENT_COLOR)
-        pyxel.blt(column, 16, IMAGE_BANK, 0, 8, 8, 8, TRANSPARENT_COLOR)
-        pyxel.blt(column, 24, IMAGE_BANK, 0, 8, 8, 8, TRANSPARENT_COLOR)
+    def update_player(self):
+        if pyxel.btn(pyxel.KEY_SPACE):
+            self.player_jump = True
 
-    # draw the sun
-    pyxel.blt(40, 10, IMAGE_BANK, 16, 0, 8, 8, TRANSPARENT_COLOR)
+        print(self.player_gravity)
 
-    # draw some trees
-    pyxel.blt(20, 0, IMAGE_BANK, 16, 8, 8, 8, TRANSPARENT_COLOR)
-    pyxel.blt(30, 0, IMAGE_BANK, 16, 8, 8, 8, TRANSPARENT_COLOR)
-    
-    pyxel.blt(player_x, player_y, IMAGE_BANK, 8, 0, 8, 8, TRANSPARENT_COLOR)
+        if self.player_jump:
+            self.player_gravity += min(self.player_gravity+1, 16)
 
-# call update and draw function
-pyxel.run(update, draw)
+        if self.player_y <= 40:
+            self.player_gravity -= max(0, self.player_gravity+1)
+            self.player_jump = False
+
+        self.player_y -= self.player_gravity
+
+        if self.player_y > 96:
+            self.player_y = 96
+            self.player_gravity = 0
+
+    def update_fruit(self, x, y, kind, is_active):
+        if is_active and abs(x - self.player_x) < 12 and abs(y - self.player_y) < 12:
+            is_active = False
+            self.score += (kind + 1) * 100
+            pyxel.play(3, 4)
+
+        x -= 2
+
+        if x < -40:
+            x += 240
+            y = randint(0, 104)
+            kind = randint(0, 2)
+            is_active = True
+
+        return (x, y, kind, is_active)
+
+    def draw(self):
+        pyxel.cls(12)
+
+        # draw sky
+        pyxel.blt(0, 88, 0, 0, 88, 160, 32)
+
+        # draw mountain
+        pyxel.blt(0, 88, 0, 0, 64, 160, 24, 12)
+
+        # draw forest
+        offset = pyxel.frame_count % 160
+        for i in range(2):
+            pyxel.blt(i * 160 - offset, 104, 0, 0, 48, 160, 16, 12)
+
+        # draw fruits
+        for x, y, kind, is_active in self.fruit:
+            if is_active:
+                pyxel.blt(x, y, 0, 32 + kind * 16, 0, 16, 16, 12)
+
+        # draw player
+        pyxel.blt(
+            self.player_x,
+            self.player_y,
+            0,
+            16 if self.player_gravity > 0 else 0,
+            0,
+            16,
+            16,
+            12,
+        )
+
+        # draw score
+        s = "SCORE {:>4}".format(self.score)
+        pyxel.text(5, 4, s, 1)
+        pyxel.text(4, 4, s, 7)
+
+
+App()
