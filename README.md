@@ -30,6 +30,7 @@ CTRL + ALT + L  // reformat code (Android Studio)
 tar xfv ../Downloads/zulu8.40.0.25-ca-jdk8.0.222-linux_x64.tar.gz
 unzip netbeans.zip
 unzip -l netbeans.zip	// list files
+unzip netbeans.zip -d specific-dir/		// extract to dir specific dir
 ```
 
 * setup git configuration
