@@ -34,8 +34,8 @@ public class JavaLanguage {
 //        Exceptions exceptions = new Exceptions();
 //        exceptions.exec();
 //
-//        BitsBytes bits = new BitsBytes();
-//        bits.exec();
+        BitsBytes bits = new BitsBytes();
+        bits.exec();
 //
 //        Objects objs = new Objects();
 //        objs.exec();
@@ -65,8 +65,8 @@ public class JavaLanguage {
 //        IteratorDemo demo = new IteratorDemo();
 //        demo.exec();
 
-        DataTypes dt = new DataTypes();
-        dt.exec();
+//        DataTypes dt = new DataTypes();
+//        dt.exec();
         
     }
 }

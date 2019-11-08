@@ -1,7 +1,5 @@
 package com.github.leventarican;
 
-import java.util.ArrayList;
-
 public class Objects {
 
     String field0 = "every objects is based on class Object.";
