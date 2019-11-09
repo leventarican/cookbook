@@ -13,6 +13,9 @@ def start_stop_step():
     print(s.step)
     print(x[s])
 
+    revert = 'python'
+    print(revert[::-1])
+
 def start_stop():
     x = (0,1,2,3,4,5,6,7,8,9)
     print(x[:])
