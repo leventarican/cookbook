@@ -29,6 +29,10 @@ for lang in programminglanguages:
 for i in range(10):
     print(i)
 
+for i in (0,4):
+    for i in (1,10):
+        print(i)
+
 if 'java' in programminglanguages:
     print('java found')
 elif 'cpp' in programminglanguages:
