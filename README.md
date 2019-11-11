@@ -105,6 +105,27 @@ grep -n 'search' file.csv // line numbers occurence
 sed -n '/pattern/=' file.csv  // line numbers occurence
 ```
 
+# encrypted connections
+For an secure connection between two nodes (e.g. client / server) we can use TLS (SSL). In order to accomblish this we need a few artifacts.
+
+First of all we need a _SSL certificate_.
+
+__Signed certificate__: In order to obtain a _signed_ SSL certificate we can create a private key and a _CSR_ with _OpenSSL_.
+
+With the _key_ file we create the CSR. And with the CSR in turn we can request a signed digital certificate from an _CA_.
+
+For the key generation you can use a common public-key cryptosystem provided in OpenSSL.
+
+
+__Self-signed certificate__ is the counterpart of the CA signed certificate.
+
+Here you just create your private key and your certificate. And use it for secure connection.
+
+## terminology
+* private key file
+* CSR: Certificate Signing Request
+* CA: certificate authority
+
 # cheatsheet: windows
 
 ```
