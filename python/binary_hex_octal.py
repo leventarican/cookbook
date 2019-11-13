@@ -19,3 +19,21 @@ print(octal)
 
 converted_bin = bin(1134)
 print('convert int (1234) to binary as string: {}'.format(converted_bin))
+
+# ##############################################################################
+# bit manipulation: https://wiki.python.org/moin/BitManipulation
+
+bit_value = '0b00000010'
+int_value = int(bit_value, base=2)
+print(f'bit value: {bit_value}; int value: {int_value}')
+print(str(0b00000010))
+
+# ##############################################################################
+# bitwise operations
+
+a = 0b0000_0010
+b = 0b0000_0010
+print(f'AND: {bin(a and b)}')
+print(f'OR: {bin(a or b)}')
+print(f'XOR: {bin(a ^ b)}')
+print(f'NOT: {bin(~a)}')
