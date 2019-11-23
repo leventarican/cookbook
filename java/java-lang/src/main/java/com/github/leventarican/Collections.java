@@ -1,34 +1,32 @@
 package com.github.leventarican;
 
-import com.github.leventarican.model.Developer;
-import com.github.leventarican.model.DeveloperFactory;
-import com.github.leventarican.model.ProgrammingLanguage;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+/**
+ * Java Collections: fundamental data structures.
+ * 
+ * Cover newer approach introduces with Java 8:
+ * Streams API and Lambda Expressions.
+ * 
+ * Because of the history java syntax can't be such concise as kotlin, ...
+ * 
+ * @author Levent
+ */
 public class Collections {
-
-    public void exec() {
-        System.out.println("\nCollections:");
-
-        Collection<Developer> c = new ArrayList<>();
-        c.toArray();
-        c.toArray(new Developer[c.size()]);
-
-        List<Developer> l = new ArrayList<>();
-        DeveloperFactory factory = new DeveloperFactory();
-        List<Developer> sampleData = factory.getSampleData();
-        sampleData.forEach( developer -> {
-            System.out.println(developer.getProgrammingLanguages());
-        });
-
-
-//        List<Developer> l = new ArrayList<>();
-//        l.add(DeveloperFactory.java);
-//        l.add(DeveloperFactory.scala);
-//        l.set(1, DeveloperFactory.kotlin);
-//        l.forEach(dev -> System.out.println(dev.getProgrammingLanguage()));
+    
+    void filter() {
+        String[] input = {"java", "kotlin", "Java", "c++"};
+        var programmingLanguages = Arrays.asList(input);
+        var result = programmingLanguages.stream()
+                .filter(pl -> pl.equalsIgnoreCase("java"))
+                .collect(Collectors.joining(";"));
+        
+        System.out.println(result);
+    }
+    
+    public static void main(String[] args) {
+        var app = new Collections();
+        app.filter();
     }
 }
