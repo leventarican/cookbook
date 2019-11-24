@@ -76,6 +76,8 @@ public class LambdaExpression {
             }
         });
         
+        // forget the class ProgrammingLanguage
+        // just implement the method code().
         app.compile(() -> {
             System.out.println("code >= Java 8.");
         });

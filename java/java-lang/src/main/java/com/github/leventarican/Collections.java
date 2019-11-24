@@ -1,7 +1,10 @@
 package com.github.leventarican;
 
+import java.io.StringWriter;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Java Collections: fundamental data structures.
@@ -10,6 +13,9 @@ import java.util.stream.Collectors;
  * Streams API and Lambda Expressions.
  * 
  * Because of the history java syntax can't be such concise as kotlin, ...
+ * 
+ * Collection: List / Set
+ * Map: SortedMap / WeakHashMap / Hashtable / HashMap
  * 
  * @author Levent
  */
@@ -36,63 +42,43 @@ public class Collections {
         }
     }
     
-    void generic() {
-//        Generics sind nicht kovariant, sie sind invariant. 
-        Number x = Integer.valueOf(3);
-        Number y = Double.valueOf(3.3);
+    void handson() {
+        // Collection<E>: <E> the type of elements in this collection
+        Collection<Integer> c = Arrays.asList(7, 4, 900, 7, 4, 0);
+        int max = c.stream().flatMapToInt( x -> {
+            return IntStream.of(x);
+        }).distinct().max().getAsInt();
+        System.out.println(max);
         
-//        Typ Double[] ist vom Typ Number[]: das nennt sich kovariant.
-        Number[] numbers = new Double[2];
-//        numbers[0] = 3;
-        numbers[1] = 3.3;
+        var min = Arrays.asList("java", "kotlin", "c", "c++")
+                .stream()
+                .map( x -> { return x.length(); })
+                .mapToInt(m -> m)
+                .min()
+                .getAsInt();
+        System.out.println(min);
         
-//        wildcard typ ?: ein unbekannter typ
-        Computer<Java> j = new Java(10);
+        var s = "JAVA";
+        var codepoints = s.codePoints();
+//        codepoints.forEach(System.out::println);
+    }
+
+    void generateAtoZ() {
+        var start = 65; // A
+        var end = start + 26;    // alphabet has 26 letters
+        var box = IntStream.builder();
+        IntStream.range(start, end).forEach((value) -> {
+            box.add(value);
+        });
+        var atoz = new StringWriter();
+        box.build().forEach(atoz::write);
+        System.out.println(atoz);   // ABCDEFGHIJKLMNOPQRSTUVWXYZ
     }
     
     public static void main(String[] args) {
         var app = new Collections();
         app.filter();
-        app.generic();
-    }
-}
-
-/**
- * excursion in generics
- * 
- * ?: Wildcard-Typ
- * ? extends Typ: Upper-bounded Wildcard-Typ
- * ? super Typ: Lower-bounded Wildcard-Typ
- */
-
-class Computer<T extends ProgrammingLanguage> {
-    private T value;
-    public Computer(T value) {
-        this.value = value;
-    }
-    public T get() {
-        return this.value;
-    }
-}
-
-class ProgrammingLanguage {
-    private int id;
-    public ProgrammingLanguage(int id) {
-        this.id = id;
-    }
-    public int getId() {
-        return id;
-    }
-}
-
-class Java extends ProgrammingLanguage {
-    public Java(int id) {
-        super(id);
-    }
-}
-
-class Kotlin extends Java {
-    public Kotlin(int id) {
-        super(id);
+        app.handson();
+        app.generateAtoZ();
     }
 }
