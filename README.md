@@ -48,11 +48,13 @@ unzip netbeans.zip -d specific-dir/		// extract to dir specific dir
 ```
 
 * network / linux / openwrt
-* `arp`	// list MAC adress to IP adress
-* `cat /var/dhcp.leases`	// show IP adress, hostname, MAC adress
-* `nmap -v ip.adress`	// fast simple scan for default ports
-* `sudo service dnsmasq restart`	// restart dnsmasq: DCHP server (usually this is installed on openwrt)
-* `dmesg`	// display kernel ring buffer (data structure of messages operated by kernel)
+```
+arp	// list MAC adress to IP adress
+cat /var/dhcp.leases	// show IP adress, hostname, MAC adress
+nmap -v ip.adress	// fast simple scan for default ports
+sudo service dnsmasq restart	// restart dnsmasq: DCHP server (usually this is installed on openwrt)
+dmesg	// display kernel ring buffer (data structure of messages operated by kernel)
+```
 
 * create symbolic links
 ```
