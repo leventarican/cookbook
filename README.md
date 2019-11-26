@@ -1,3 +1,17 @@
+# electricity
+
+https://www.youtube.com/watch?v=6WReFkfrUIk
+
+* power-bus in breadboard (+ and - lines)
+* red cable is +
+* black cable is -
+* integrated circuit (IC) = chips comes with DIP (dual in-line package) for the middle gab in breadboard
+
+https://www.cyberciti.biz/hardware/5-linux-unix-commands-for-connecting-to-the-serial-console/
+
+* connect to serial
+
+
 # cheatsheet: intellij / android studio
 
 ```
@@ -33,18 +47,22 @@ unzip -l netbeans.zip	// list files
 unzip netbeans.zip -d specific-dir/		// extract to dir specific dir
 ```
 
-* setup git configuration
-```
-touch ~/.gitconfig
-git config --global user.name "leventarican"
-git config --global user.email "levent@protonmail.com"
-git config --global -l 
-```
+* network / linux / openwrt
+`arp`	// list MAC adress to IP adress
+`cat /var/dhcp.leases`	// show IP adress, hostname, MAC adress
+`nmap -v ip.adress`	// fast simple scan for default ports
+`sudo service dnsmasq restart`	// restart dnsmasq: DCHP server (usually this is installed on openwrt)
+`dmesg`	// display kernel ring buffer (data structure of messages operated by kernel)
 
 * create symbolic links
 ```
 ln -s apache-maven-3.6.1 maven
 ln -s zulu8.40.0.25-ca-jdk8.0.222-linux_x64 jdk
+```
+
+* remove symbolic link
+```
+rm jdk
 ```
 
 * config the environment variable PATH. Put that in ~/.profile (restart)
