@@ -1,16 +1,33 @@
 # electricity
-
-https://www.youtube.com/watch?v=6WReFkfrUIk
-
 * power-bus in breadboard (+ and - lines)
 * red cable is +
 * black cable is -
 * integrated circuit (IC) = chips comes with DIP (dual in-line package) for the middle gab in breadboard
 
-https://www.cyberciti.biz/hardware/5-linux-unix-commands-for-connecting-to-the-serial-console/
+__Atmel ATTiny85__
 
-* connect to serial
+```
+Reset	1	8	VCC (5V)
+		2	7	SCK
+		3	6	MISO
+GND		4	5	MOSI
+```
 
+__Serial Peripheral Interface__
+* SCK: Serial Clock
+* MOSI: Master Output Slave Input
+* MISO: Master Input Slace Output
+
+__USB to TTL Serialadapter__
+* check connection with `dmesg`
+* connect with `minicom`
+* convert TTL logic to RS232
+* USB serial converter
+
+__ISP AVR__
+* 10 or 6 pins
+* In System Programming
+* use with: `avrdude -p attiny85 -c avrispmkII`
 
 # cheatsheet: intellij / android studio
 
