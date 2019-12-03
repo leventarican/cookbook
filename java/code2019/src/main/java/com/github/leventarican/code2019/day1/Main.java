@@ -1,6 +1,8 @@
 package com.github.leventarican.code2019.day1;
 
 /**
+ * What is the sum of the fuel requirements for all of the modules on your spacecraft?
+ * 
  * @author Levent
  */
 public class Main {
@@ -21,9 +23,11 @@ public class Main {
     
     void solution() {
         int[] input = {12, 14, 1969, 100756};
+        var sum = 0;
         for (int i : input) {
-            calculateFuelForModule(i);
+            sum += calculateFuelForModule(i);
         }
+        System.out.println("solution: " + sum);
     }
     
     public static void main(String[] args) {
