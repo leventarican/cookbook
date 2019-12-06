@@ -1,34 +1,3 @@
-# electricity
-* power-bus in breadboard (+ and - lines)
-* red cable is +
-* black cable is -
-* integrated circuit (IC) = chips comes with DIP (dual in-line package) for the middle gab in breadboard
-
-__Atmel ATTiny85__
-
-```
-Reset	1	8	VCC (5V)
-		2	7	SCK
-		3	6	MISO
-GND		4	5	MOSI
-```
-
-__Serial Peripheral Interface__
-* SCK: Serial Clock
-* MOSI: Master Output Slave Input
-* MISO: Master Input Slace Output
-
-__USB to TTL Serialadapter__
-* check connection with `dmesg`
-* connect with `minicom`
-* convert TTL logic to RS232
-* USB serial converter
-
-__ISP AVR__
-* 10 or 6 pins
-* In System Programming
-* use with: `avrdude -p attiny85 -c avrispmkII`
-
 # cheatsheet: intellij / android studio
 
 ```
@@ -85,19 +54,31 @@ rm jdk
 ```
 
 * config the environment variable PATH. Put that in ~/.profile (restart)
+
+## jdk, maven, netbeans, ...
+
 ```
-# jdk, maven, netbeans, ...
 PATH="$HOME/development/jdk/bin:$PATH"
 PATH="$HOME/development/maven/bin:$PATH"
 PATH="$HOME/development/netbeans/bin:$PATH"
 ```
 
-* iso to usb stick
+## general
+
+__image resize__
+```
+# imagemagic must installed
+convert -resize 70% sketch.png sketch-.png
+```
+
+__iso to usb stick__
+
 ```
 sudo dd if=linux.iso of=/dev/sda bs=1M && sync
 ```
 
-* battery lifetime / runtime with TLP
+__battery lifetime / runtime with TLP__
+
 ```
 sudo tlp-stat -s	// manual start
 sudo tlp-stat -b	// show battery info
@@ -112,9 +93,20 @@ Charge                                                      =   82.4 [%]
 Capacity                                                    =  101.1 [%]
 ```
 
-* show / change display brightness / backlight
+__show / change display brightness / backlight__
 ```
 cat /sys/class/backlight/amdgpu_bl0/brightness
+```
+
+__file operation__
+```
+curl https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data --output iris.data
+
+split -l 50 file.csv  // split file to multiple files for given line number
+
+grep -n 'search' file.csv // line numbers occurence
+
+sed -n '/pattern/=' file.csv  // line numbers occurence
 ```
 
 ## ubuntu
@@ -129,17 +121,6 @@ CTRL + SHIFT + T	// terminal: open tab
 sudo apt update
 sudo apt upgrade
 sudo apt install git
-```
-
-## other
-```
-curl https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data --output iris.data
-
-split -l 50 file.csv  // split file to multiple files for given line number
-
-grep -n 'search' file.csv // line numbers occurence
-
-sed -n '/pattern/=' file.csv  // line numbers occurence
 ```
 
 # encrypted connections
