@@ -1,5 +1,7 @@
 package com.github.leventarican;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -19,6 +21,16 @@ public class Streams {
                 .forEach( (i) -> 
                         Stream.of(data).sorted().forEach( (s) -> System.out.println(s) )
                 );
+        
+        // reverse sort
+        List<Integer> list = Arrays.asList(1,2,3,4);
+        list.stream()
+            .sorted(java.util.Collections.reverseOrder())
+            .forEach(System.out::println);
+        
+        // int to array
+        int i = 1234;
+        int[] digits = Integer.toString(i).chars().map(c -> c-'0').toArray();
     }
     
     public static void main(String[] args) {
