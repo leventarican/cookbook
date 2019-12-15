@@ -23,6 +23,12 @@ SHIFT + ALT + left/right    // switch design / text tab in layout
 CTRL + ALT + L  // reformat code (Android Studio)
 ```
 
+# virtualbox
+```
+vboxmanage list vms
+"WinDev1910Eval" {...}
+```
+
 # cheatsheet: linux
 
 * unpack compressed tar gz files
