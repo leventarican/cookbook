@@ -2,6 +2,7 @@ package com.github.leventarican;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -11,6 +12,13 @@ import java.util.stream.Stream;
  * @author Levent
  */
 public class Streams {
+    void line() {
+        var line = IntStream.range(0, 80)
+                .mapToObj(i -> "#")
+                .collect(Collectors.joining());
+        System.out.println(line);
+    }
+    
     void code() {
         // we have an array
         String[] data = { "java", "kotlin", "c++" };
@@ -31,10 +39,41 @@ public class Streams {
         // int to array
         int i = 1234;
         int[] digits = Integer.toString(i).chars().map(c -> c-'0').toArray();
+        
+        line();
+        
+        String []string= "java java kotlin java".split(" ");
+        Arrays.stream(string)
+                .distinct()
+                .forEach(System.out::println);
+    }
+    
+    void search() {
+        line();
+        
+        var firstValue = IntStream.of(4, 9, 100, 30)
+                .findFirst()
+                .orElse(-1);
+        System.out.println("first value: " + firstValue);
+        
+        var sortedFirstValue = IntStream.of(400, 9, 100, 30)
+                .sorted()
+                .findFirst()
+                .orElse(-1);
+        System.out.println("sorted first value: " + sortedFirstValue);
+        
+        var match100 = IntStream.of(400, 9, 100, 30)
+                .anyMatch(i -> i == 100);
+        System.out.println("match 100: " + match100);
+        
+        var allMatch100 = IntStream.of(400, 9, 100, 30)
+                .allMatch(i -> i == 100);
+        System.out.println("all match 100: " + allMatch100);
     }
     
     public static void main(String[] args) {
         var app = new Streams();
         app.code();
+        app.search();
     }
 }
