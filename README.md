@@ -37,6 +37,14 @@ tar xfv ../Downloads/zulu8.40.0.25-ca-jdk8.0.222-linux_x64.tar.gz
 unzip netbeans.zip
 unzip -l netbeans.zip	// list files
 unzip netbeans.zip -d specific-dir/		// extract to dir specific dir
+zip -r -0 -s 900m archive-0.zip folder-to-archive/    // split zip each 900MB; just archive no compress; recursivly.
+```
+
+* copy
+```
+cp -v folder/file-* .   // copy all files with file-* to current folder. verbose on.
+for i in {1..100}; do cp free.ogg "free$i.ogg"; done    // copy files multible times
+df -h . // free disk space; human readable
 ```
 
 * network / linux / openwrt
@@ -48,15 +56,11 @@ sudo service dnsmasq restart	// restart dnsmasq: DCHP server (usually this is in
 dmesg	// display kernel ring buffer (data structure of messages operated by kernel)
 ```
 
-* create symbolic links
+* symbolic links
 ```
 ln -s apache-maven-3.6.1 maven
 ln -s zulu8.40.0.25-ca-jdk8.0.222-linux_x64 jdk
-```
-
-* remove symbolic link
-```
-rm jdk
+rm jdk  // remove symbolic link
 ```
 
 * config the environment variable PATH. Put that in ~/.profile (restart)
