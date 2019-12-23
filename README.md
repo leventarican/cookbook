@@ -81,8 +81,13 @@ guest:x:1001:
 ```
 * modify user: `usermod --expiredate 2020-01-01 guest`
 
+* set password: `passwd guest`
+
+* delete user: `userdel --remove guest`. will also delete `/var/mail/guest` and `/home/guest`
+
 __group management__
-* display group, add group, add user to group
+* display, add, delete group
+* add user to group
 ```
 $ groups guest
 guest : guest
@@ -98,6 +103,13 @@ $ usermod -aG restricted guest
 
 $ groups guest
 guest : guest restricted
+
+$ chmod 440 open.txt
+
+$ ls -l open.txt 
+-r--r----- 1 guest restricted 18 Dez 24 00:37 open.txt
+
+groupdel restricted
 ```
 
 ## jdk, maven, netbeans, ...
