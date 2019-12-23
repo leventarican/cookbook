@@ -47,7 +47,7 @@ for i in {1..100}; do cp free.ogg "free$i.ogg"; done    // copy files multible t
 df -h . // free disk space; human readable
 ```
 
-* network / linux / openwrt
+* network / openwrt
 ```
 arp	// list MAC adress to IP adress
 cat /var/dhcp.leases	// show IP adress, hostname, MAC adress
@@ -64,6 +64,41 @@ rm jdk  // remove symbolic link
 ```
 
 * config the environment variable PATH. Put that in ~/.profile (restart)
+
+__user management__
+* create user: `useradd guest`
+* check user account information _passwd_: `cat /etc/passwd | grep guest`
+```
+guest:x:1001:1001::/home/guest:/bin/sh 
+
+[username]:[x]:[UID]:[GID]:[Comment]:[Home directory]:[Default shell]
+```
+* check group account information _group_: `cat /etc/group | grep guest`
+```
+guest:x:1001:
+
+[Group name]:[Group password]:[GID]:[Group members]
+```
+* modify user: `usermod --expiredate 2020-01-01 guest`
+
+__group management__
+* display group, add group, add user to group
+```
+$ groups guest
+guest : guest
+
+$ groupadd restricted
+
+$ chown guest:restricted open.txt 
+
+$ ls -l open.txt 
+-rw-r--r-- 1 guest restricted 15 Dez 23 23:50 open.txt
+
+$ usermod -aG restricted guest
+
+$ groups guest
+guest : guest restricted
+```
 
 ## jdk, maven, netbeans, ...
 
