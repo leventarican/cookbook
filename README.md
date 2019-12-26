@@ -92,7 +92,11 @@ __group management__
 $ groups guest
 guest : guest
 
-$ groupadd restricted
+$ groupadd restricted	# will take the next free gid usually 1001 
+$ groupadd -g 2000 restricted	# we specify the gid (= 2000)
+
+$ cat /etc/group | grep restricted
+restricted:x:2000:
 
 $ chown guest:restricted open.txt 
 
@@ -109,7 +113,7 @@ $ chmod 440 open.txt
 $ ls -l open.txt 
 -r--r----- 1 guest restricted 18 Dez 24 00:37 open.txt
 
-groupdel restricted
+$ groupdel restricted
 ```
 
 ## jdk, maven, netbeans, ...

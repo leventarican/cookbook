@@ -3,7 +3,7 @@ import socket
 # list host by name and ip address in local network (=lan)
 
 unknown_hosts = []
-subnet = '192.168.1.{}'
+subnet = '192.168.178.{}'
 for i in range(255):
     ip = subnet.format(i)
     try:
