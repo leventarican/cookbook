@@ -30,8 +30,17 @@ $ sudo make install
 -- Installing: /usr/local/lib/libglfw3.a
 ```
 
-* hello world
+## GLFW and OpenGL examples
+* sourcecode example: `d.cpp, e.cpp, f.cpp, g.cpp`
 
+# OpenGL with freeglut (GLUT)
+* sourcecode example: `c.cpp`
+* you need freeglut3 and freeglut3-dev on linux
+* also OpenGL for sure. check you version with: `$ glxinfo | grep OpenGL`
+
+# OpenGL with SFML
+* sourcecode example: `b.cpp`
+* you need SFML libs. Under linux (debian based): `sudo apt install libsfml-dev` 
 
 # code c++ with geany
 * the editor based on scintilla (= fast)
