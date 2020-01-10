@@ -184,7 +184,20 @@ sudo apt upgrade
 sudo apt install git
 ```
 
-# encrypted connections
+# cryptography
+* encryption / ciphering / encoding
+* we need encryption when ever we send information over unsafe networks.
+* main target of cryptography: Confidentiality, Integrity, Availability
+* encrypt a plaintext with a key and algorithm: `plaintext -> chiphertext`
+
+## symmetric / asymmetric encryption
+* symmetric encryption (algorithms): only _one key_ for encryption and decryption
+    * problem: both user has to know the key
+* asymmetric encryption / _public key cryptography_ : key pair (private key and public key)
+    * the information can decrypted with private key
+    * encryption with public key
+
+## certificates: encrypted connections
 For an secure connection between two nodes (e.g. client / server) we can use TLS (SSL). In order to accomblish this we need a few artifacts.
 
 First of all we need a _SSL certificate_.
