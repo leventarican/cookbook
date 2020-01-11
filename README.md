@@ -187,8 +187,23 @@ sudo apt install git
 # cryptography
 * encryption / ciphering / encoding
 * we need encryption when ever we send information over unsafe networks.
-* main target of cryptography: Confidentiality, Integrity, Availability
+* main target of cryptography
+    * Confidentiality: only authorized person can read protected information
+    * Authentication: you talk to the right person. you can trust.
+    * Integrity: the message hasnt been changed
 * encrypt a plaintext with a key and algorithm: `plaintext -> chiphertext`
+
+## hashing
+* a one-way function / fingerprint
+* used e.g. for passwords. the hash of it is stored then stored.
+
+_example: python MD5_
+```
+>>> hashlib.md5(b'bob').hexdigest()
+'9f9d51bc70ef21ca5c14f307980a29d8'
+>>> hashlib.md5(b'bob').hexdigest()
+'9f9d51bc70ef21ca5c14f307980a29d8'
+```
 
 ## symmetric / asymmetric encryption
 * symmetric encryption (algorithms): only _one key_ for encryption and decryption

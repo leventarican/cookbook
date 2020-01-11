@@ -1,5 +1,15 @@
-cookbook: python
+# cookbook: python
 ================
+
+## create virtual environment
+```
+python3 -m venv foobar
+```
+* active environment with: `source foobar/bin/activate`
+* deactivate env with: `deactivate`
+
+##
+
 * basics
 * flow control
 * import modules
