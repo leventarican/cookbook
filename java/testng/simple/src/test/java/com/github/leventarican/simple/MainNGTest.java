@@ -1,6 +1,7 @@
 package com.github.leventarican.simple;
 
 import static org.testng.Assert.*;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
@@ -41,13 +42,32 @@ public class MainNGTest {
      */
     @Test(dependsOnGroups = "regression")
     public void approvalTest() {
+        System.out.println("this test case will never executed until groups regression is successful.");
         assertEquals(1, 1);
-    }    
+    }
+    
+    @DataProvider(name = "data-provider")
+    public Object[][] data() {
+        return new Object[][] {
+            {"JUnit"},
+            {"TestNG"}
+        };
+    }
+    
+    @Test(dataProvider = "data-provider")
+    public void dataTest(String testFramework) {
+        System.out.println("test framework: " + testFramework);
+    }
+    
+    @Test(invocationCount = 3)
+    public void bunch() {
+        System.out.println("###");
+    }
 
     /**
      * Test of binarySearch method, of class Main.
      */
-    @Test(enabled = true)
+    @Test
     public void testBinarySearch() {
         System.out.println("binarySearch");
         int[] numbers = {5, 3, 8};
