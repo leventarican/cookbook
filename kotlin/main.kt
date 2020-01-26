@@ -6,6 +6,15 @@ run:        kotlin MainKt
 or:         kotlinc main.kt && kotlin MainKt
 */
 
+fun label() {
+    step0@ for (i in 0..10) {
+        println(i)
+        for (j in 0..5) {
+            if (j == 1) break@step0    
+        }
+    }
+}
+
 fun collections() {
     val numbers = listOf(0, 1, 2, 3, 4);
     val even = numbers.filter { it % 2 == 0 }
@@ -49,4 +58,6 @@ fun main() {
 
     loops()
     collections()
+
+    label()
 }
