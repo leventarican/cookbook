@@ -2,10 +2,28 @@
 
 <!-- includeantruntime="false" to prevent ant including own runtime -->
 <project name="main" default="compile">
-    <target name="compile">
+
+    <target name="init">
+        <!-- task for creating output directories -->
+        <mkdir dir="build/classes" />
+        <mkdir dir="dist" />
+    </target>
+
+    <target name="compile" depends="init">
         <!-- element javac will call the java compiler -->
         <!-- with srcdir . all java files in current and subdirectories will compiled -->
-        <javac srcdir="." includeantruntime="false" />
+        <javac srcdir="." destdir="build/classes" includeantruntime="false" />
         <echo>compilation complete</echo>
     </target>
+
+    <target name="archive" depends="compile">
+        <!-- create a jar -->
+        <jar destfile="dist/app.jar" basedir="build/classes" />
+    </target>
+
+    <target name="clean" depends="init">
+        <delete dir="build" />
+        <delete dir="dist" />
+    </target>
+
 </project>

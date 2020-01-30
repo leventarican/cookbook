@@ -13,3 +13,12 @@ BUILD SUCCESSFUL
 Total time: 0 seconds
 ```
 * an ant build file consists of targets and tasks (like javac, echo, ...)
+* to execute a specific target call with: `ant <target>` or multiple targets: `ant clean compile`
+
+## run from command line
+```
+java -cp build/classes/ com.github.leventarican.ant.Main c c++
+Ant
+arg-0: c
+arg-1: c++
+```
