@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<!-- includeantruntime="false" to prevent ant including own runtime -->
+<project name="start" default="compile">
+    <target name="compile">
+        <javac srcdir="." includeantruntime="false" />
+        <echo>compilation complete</echo>
+    </target>
+</project>
