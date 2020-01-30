@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 
 <!-- includeantruntime="false" to prevent ant including own runtime -->
-<project name="start" default="compile">
+<project name="main" default="compile">
     <target name="compile">
+        <!-- element javac will call the java compiler -->
+        <!-- with srcdir . all java files in current and subdirectories will compiled -->
         <javac srcdir="." includeantruntime="false" />
         <echo>compilation complete</echo>
     </target>
