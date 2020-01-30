@@ -3,27 +3,69 @@
 <!-- includeantruntime="false" to prevent ant including own runtime -->
 <project name="main" default="compile">
 
-    <target name="init">
+    <!-- a task must not be in a target -->
+    <echo>ant is building project main</echo>
+
+    <property name="build.classes.dir" location="build/classes" />
+
+    <!-- example for the path (ant) datatype -->
+    <path id="compile.classpath">
+        <fileset dir="lib" includes="*.jar" />
+    </path>
+
+    <path id="run.classpath">
+        <path refid="compile.classpath"/>
+        <pathelement location="${build.classes.dir}"/>
+        <!-- log4j.properties is the default property file name for log4j -->
+        <pathelement location="res"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="build" />
+        <delete dir="dist" />
+    </target>
+
+    <target name="init" depends="clean">
         <!-- task for creating output directories -->
-        <mkdir dir="build/classes" />
+        <mkdir dir="${build.classes.dir}" />
         <mkdir dir="dist" />
     </target>
 
     <target name="compile" depends="init">
-        <!-- element javac will call the java compiler -->
-        <!-- with srcdir . all java files in current and subdirectories will compiled -->
-        <javac srcdir="." destdir="build/classes" includeantruntime="false" />
-        <echo>compilation complete</echo>
+        <echo>element javac will call the java compiler</echo>
+        <echo>with srcdir . all java files in current and subdirectories will compiled</echo>
+        <javac srcdir="src" 
+            destdir="${build.classes.dir}" 
+            includeantruntime="false" >
+            <!-- the classpath for the compiler -->
+            <classpath refid="compile.classpath"/>
+        </javac>
     </target>
 
     <target name="archive" depends="compile">
-        <!-- create a jar -->
-        <jar destfile="dist/app.jar" basedir="build/classes" />
+        <echo>create a jar</echo>
+        <jar destfile="dist/app.jar" basedir="${build.classes.dir}" />
     </target>
 
-    <target name="clean" depends="init">
-        <delete dir="build" />
-        <delete dir="dist" />
+    <target name="execute" depends="compile" description="run the app">
+        <java 
+        classname="com.github.leventarican.ant.Main"
+        classpath="${build.classes.dir}">
+            <arg value="c"/>
+            <arg value="c++"/>
+            <!-- get absolute file location -->
+            <arg file="."/>
+        </java>
+    </target>
+
+    <target name="run" description="includes libs to classpath">
+        <java 
+        classname="com.github.leventarican.ant.Main" 
+        classpathref="run.classpath" >
+            <arg value="c++" />
+            <arg file="." />
+            <arg path="${user.home};/" />
+        </java>
     </target>
 
 </project>
