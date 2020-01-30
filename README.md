@@ -264,3 +264,17 @@ CREATE TABLE PUBLIC.DEVELOPER (
 );
 ```
 * quit from sql shell: ```quit```
+
+# testing terms
+_source: ant in action _
+* _Unit tests_ test a piece of a program, such as a class, a module, or a single method.
+They can identify problems in a small part of the application, and often you can
+run them without deploying the application.
+* _System tests_ verify that a system as a whole works. A server-side application
+would be deployed first; the tests would be run against that deployed system,
+and may simulate client behavior. Another term for this is functional testing.
+* _Acceptance tests_ verify that the entire system/application meets the customers’
+acceptance criteria. Performance, memory consumption, and other criteria may
+be included above the simple “does it work” assessment. These are also some-
+times called functional tests, just to cause extra confusion.
+* _Regression testing_ means testing a program to see that a change has not broken
