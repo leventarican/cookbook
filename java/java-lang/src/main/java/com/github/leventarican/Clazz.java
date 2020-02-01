@@ -1,9 +1,21 @@
 package com.github.leventarican;
 
-public class Clazz {
+import java.lang.reflect.Method;
 
+/**
+ * access class object with getClass()
+ * 
+ * @author levent
+ */
+public class Clazz {
+   
     Clazz() {
         System.out.println("\nClass:");
+        
+        Method[] m = getClass().getMethods();
+        for (Method method : m) {
+            System.out.println("method: " + method);
+        }
 
         class LocalClass {
             LocalClass() {

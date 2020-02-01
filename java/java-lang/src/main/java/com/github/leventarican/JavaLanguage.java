@@ -22,8 +22,8 @@ public class JavaLanguage {
 //        Loops loops = new Loops();
 //        loops.exec();
 //
-//        new Clazz().new MemberClass();
-//        Clazz.StaticClass.whoami();
+        new Clazz().new MemberClass();
+        Clazz.StaticClass.whoami();
 //        /*
 //        inner class: LocalClass
 //        inner class: anonymous
@@ -34,8 +34,8 @@ public class JavaLanguage {
 //        Exceptions exceptions = new Exceptions();
 //        exceptions.exec();
 //
-        BitsBytes bits = new BitsBytes();
-        bits.exec();
+//        BitsBytes bits = new BitsBytes();
+//        bits.exec();
 //
 //        Objects objs = new Objects();
 //        objs.exec();
