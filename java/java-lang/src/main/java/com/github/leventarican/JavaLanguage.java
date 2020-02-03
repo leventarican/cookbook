@@ -22,8 +22,8 @@ public class JavaLanguage {
 //        Loops loops = new Loops();
 //        loops.exec();
 //
-        new Clazz().new MemberClass();
-        Clazz.StaticClass.whoami();
+//        new Clazz().new MemberClass();
+//        Clazz.StaticClass.whoami();
 //        /*
 //        inner class: LocalClass
 //        inner class: anonymous
@@ -68,5 +68,7 @@ public class JavaLanguage {
 //        DataTypes dt = new DataTypes();
 //        dt.exec();
         
+        Concurrency con = new Concurrency();
+        con.exec();
     }
 }
