@@ -10,3 +10,6 @@
 sh script.sh
 bash script.sh
 ```
+
+## commands
+* date - print date and time
