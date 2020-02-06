@@ -20,5 +20,22 @@ expr 40 + 2
 let x=44-2
 echo $x
 
+# arrays
+array[2]=400
+array[0]=10
+echo $array
+echo ${array[2]}
+
+# arguments: $1 $2 ...
+echo $1
+echo $0 # script itself
+echo $# # number of arguments
+echo $@ # all arguments
+
+if [ $# -lt 1 ] # ensure to have space between brackets 
+    then
+    echo 'no arguments? ok ...'
+fi
+
 # script end. [n] is optional. 0 = ok, 1-255 = error code
 exit 0
