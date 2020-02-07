@@ -37,5 +37,15 @@ if [ $# -lt 1 ] # ensure to have space between brackets
     echo 'no arguments? ok ...'
 fi
 
+# eq, ne, lt, gt, le (=less), ge (= greater equal)
+if [ 0 -ne 1 ]; then echo not equal; fi
+
+function ping() {
+    echo pong
+}
+
+ping
+unset ping  # delete function ping
+
 # script end. [n] is optional. 0 = ok, 1-255 = error code
 exit 0
