@@ -17,7 +17,7 @@ public class GenerateFilesTest {
             System.out.println(ex);
         }
         
-        Path testEnvironment = FileSystems.getDefault().getPath("test-env");
+        Path testEnvironment = FileSystems.getDefault().getPath(GenerateFiles.WORKING_DIR);
         
         // use GenerateFiles.generateDates() or update set from now + 2 days
         Set<String> expected = Set.of("20200213", "20200214", "20200215");
