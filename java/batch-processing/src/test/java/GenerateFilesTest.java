@@ -9,8 +9,8 @@ import static org.junit.Assert.*;
 
 public class GenerateFilesTest {
     
-    @Test
-    public void testSomeMethod() {
+//    @Test
+    public void test_case_0() {
         try {
             GenerateFiles.generateFolders();
         } catch (IOException ex) {
@@ -38,5 +38,10 @@ public class GenerateFilesTest {
         } catch (IOException ex) {
             System.out.println(ex); // e.g. java.nio.file.NoSuchFileException: WORKING_DIR
         }
-    }    
+    }
+    
+    @Test
+    public void test_case_1() {
+        GenerateFiles.prototype();
+    }
 }
