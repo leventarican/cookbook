@@ -12,8 +12,6 @@ public class App {
     public static void main(String[] args) throws IOException {
         App app = new App();
         
-        GenerateFiles.generateFolders();
-        
 //        MachineThing machine = new MachineThing();
 //        machine.process();
 //        machine.toString();

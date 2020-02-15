@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.NoSuchAlgorithmException;
 import java.util.Set;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -40,8 +41,17 @@ public class GenerateFilesTest {
         }
     }
     
+    /**
+     * for a negative test change a byte in simple.file and the test will fail.
+     */
     @Test
     public void test_case_1() {
-        GenerateFiles.prototype();
+        try {
+            String expected = "DA7FC1BCB764F91AA94067BB48419D17";
+            String actual = GenerateFiles.checksum();
+            assertEquals(expected, actual);
+        } catch (NoSuchAlgorithmException ex) {
+            System.out.println(ex);
+        }
     }
 }
