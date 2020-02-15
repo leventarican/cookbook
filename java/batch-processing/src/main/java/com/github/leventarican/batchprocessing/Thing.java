@@ -15,4 +15,5 @@ public abstract class Thing<T> {
     private T data;
 
     public abstract void process();
+    public abstract void store();
 }
