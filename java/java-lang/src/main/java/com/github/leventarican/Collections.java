@@ -1,10 +1,13 @@
 package com.github.leventarican;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * Java Collections: fundamental data structures.
@@ -75,10 +78,33 @@ public class Collections {
         System.out.println(atoz);   // ABCDEFGHIJKLMNOPQRSTUVWXYZ
     }
     
+    /**
+     * make foobar to barfoo.
+     */
+    void reverse() {
+        List<String> letters = new ArrayList<>();
+        letters.add("f");
+        letters.add("o");
+        letters.add("o");
+        letters.add("b");
+        letters.add("a");
+        letters.add("r");
+        
+        for (String s : letters) {
+            System.out.print(s);
+        }
+        
+        java.util.Collections.rotate(letters, 3);
+
+        String result = String.join("", letters);
+        System.out.println(result);
+    }
+    
     public static void main(String[] args) {
         var app = new Collections();
         app.filter();
         app.handson();
         app.generateAtoZ();
+        app.reverse();
     }
 }
