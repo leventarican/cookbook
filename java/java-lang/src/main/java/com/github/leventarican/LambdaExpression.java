@@ -44,6 +44,16 @@ public class LambdaExpression {
         pl.code();
     }
     
+    private void compare() {
+        Comparator<String> c = (String a, String b) -> {
+            System.out.println("implement compare a and b");
+            return -1;
+        };
+        
+        int result = c.compare("java", "kotlin");
+        System.out.println("compare result (java;kotlin): " + result);
+    }
+    
     /**
      * one abstract method.
      * overriding methods allowed.
@@ -81,5 +91,7 @@ public class LambdaExpression {
         app.compile(() -> {
             System.out.println("code >= Java 8.");
         });
+        
+        app.compare();
     }
 }
