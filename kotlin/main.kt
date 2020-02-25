@@ -60,4 +60,7 @@ fun main() {
     collections()
 
     label()
+
+    val y = (0..3).random()
+    log("y: $y")
 }
