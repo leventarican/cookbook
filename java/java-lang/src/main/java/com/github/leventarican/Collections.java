@@ -100,11 +100,27 @@ public class Collections {
         System.out.println(result);
     }
     
+    // parallel data processing and performance
+    void parallelism() {
+        long n = 10L;
+        long r = Stream.iterate(1L, i -> i + 1)
+                .limit(n)
+                .reduce(0L, Long::sum);
+        System.out.println("r: " + r);
+        
+        long p = Stream.iterate(1L, i -> i + 1)
+                .limit(n)
+                .parallel()
+                .reduce(0L, Long::sum);
+        System.out.println("p: " + p);
+    }
+    
     public static void main(String[] args) {
         var app = new Collections();
         app.filter();
         app.handson();
         app.generateAtoZ();
         app.reverse();
+        app.parallelism();
     }
 }
