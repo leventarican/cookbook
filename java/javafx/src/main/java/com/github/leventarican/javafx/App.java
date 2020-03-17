@@ -1,9 +1,17 @@
 package com.github.leventarican.javafx;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -11,15 +19,56 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    private Label label;
+    
     @Override
-    public void start(Stage stage) throws Exception {
+    public void init() throws Exception {
         String javaVersion = System.getProperty("java.version");
         String javafxVersion = System.getProperty("javafx.version");
-        Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        Scene scene = new Scene(new StackPane(l), 640, 480);
+        label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
+    }
+    
+    @Override
+    public void start(Stage stage) throws Exception {
+        
+        GridPane gridPane = new GridPane();
+        gridPane.setMinSize(400, 200);
+        gridPane.setPadding(new Insets(16, 16, 16, 16));
+        gridPane.setVgap(5);
+        gridPane.setHgap(5);      
+        gridPane.setAlignment(Pos.CENTER);
+        
+        Text tvUser = new Text("user");
+        Text tvPassword = new Text("password");
+        TextField teUser = new TextField();
+        PasswordField tePassword = new PasswordField();
+        Button btLogin = new Button("login");
+        Button btClear = new Button("clear");
+        
+        btLogin.setStyle("-fx-font: 20 arial; -fx-base: #b6e7c9;");
+        btLogin.setOnAction((e) -> {
+            System.out.println("action name: " + ((ActionEvent) e).getEventType().getName());
+        });
+        
+        gridPane.add(tvUser, 0, 0);
+        gridPane.add(teUser, 1, 0);
+        gridPane.add(tvPassword, 0, 1);  
+        gridPane.add(tePassword, 1, 1);
+        gridPane.add(btLogin, 0, 2);
+        gridPane.add(btClear, 1, 2);
+        
+        Scene scene = new Scene(gridPane);
+        stage.setTitle("JavaFX");
         stage.setScene(scene);
         stage.show();
     }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+    }
+    
+    
 
     public static void main(String[] args) {
         Application.launch(args);
