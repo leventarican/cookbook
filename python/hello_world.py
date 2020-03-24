@@ -25,3 +25,6 @@ print(y)
 f = i + 0.14
 print(f)
 print(f**2)
+
+numbers = range(15)
+print(','.join(str(number) for number in numbers))
