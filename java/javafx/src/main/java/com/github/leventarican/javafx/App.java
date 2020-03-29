@@ -47,6 +47,9 @@ public class App extends Application {
         btLogin.setStyle("-fx-font: 20 arial; -fx-base: #b6e7c9;");
         btLogin.setOnAction((e) -> {
             System.out.println("action name: " + ((ActionEvent) e).getEventType().getName());
+            System.out.println("open a new window");
+            var start = new Stage();
+            start.show();
         });
         
         gridPane.add(tvUser, 0, 0);
