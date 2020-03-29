@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,27 +22,27 @@ public class App extends Application {
     
     @Override
     public void init() throws Exception {
-        String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
+        var javaVersion = System.getProperty("java.version");
+        var javafxVersion = System.getProperty("javafx.version");
         label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
     }
     
     @Override
     public void start(Stage stage) throws Exception {
         
-        GridPane gridPane = new GridPane();
+        var gridPane = new GridPane();
         gridPane.setMinSize(400, 200);
         gridPane.setPadding(new Insets(16, 16, 16, 16));
         gridPane.setVgap(5);
         gridPane.setHgap(5);      
         gridPane.setAlignment(Pos.CENTER);
         
-        Text tvUser = new Text("user");
-        Text tvPassword = new Text("password");
-        TextField teUser = new TextField();
-        PasswordField tePassword = new PasswordField();
-        Button btLogin = new Button("login");
-        Button btClear = new Button("clear");
+        var tvUser = new Text("user");
+        var tvPassword = new Text("password");
+        var teUser = new TextField();
+        var tePassword = new PasswordField();
+        var btLogin = new Button("login");
+        var btClear = new Button("clear");
         
         btLogin.setStyle("-fx-font: 20 arial; -fx-base: #b6e7c9;");
         btLogin.setOnAction((e) -> {
@@ -57,7 +56,7 @@ public class App extends Application {
         gridPane.add(btLogin, 0, 2);
         gridPane.add(btClear, 1, 2);
         
-        Scene scene = new Scene(gridPane);
+        var scene = new Scene(gridPane);
         stage.setTitle("JavaFX");
         stage.setScene(scene);
         stage.show();
