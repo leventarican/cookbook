@@ -40,11 +40,12 @@ unzip netbeans.zip -d specific-dir/		// extract to dir specific dir
 zip -r -0 -s 900m archive-0.zip folder-to-archive/    // split zip each 900MB; just archive no compress; recursivly.
 ```
 
-* copy
+* copy, disc usage / free
 ```
 cp -v folder/file-* .   // copy all files with file-* to current folder. verbose on.
 for i in {1..100}; do cp free.ogg "free$i.ogg"; done    // copy files multible times
 df -h . // free disk space; human readable
+du -h --max-depth=1 /home/  // disc usage for a folder with given depth
 ```
 
 * network / openwrt
