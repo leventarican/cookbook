@@ -12,7 +12,20 @@ fun mul(x: Int, y: Int): Int {
 
 fun add(x: Int, y: Int) = x+y
 
+fun String.debug(): String {
+    return "$this debug (powered by extensions funcions)"
+}
+
 fun main() {
     higher_order_functions(3, 3, ::add)
     higher_order_functions(3, 3, ::mul)
+
+    val anon = {
+        println("anonymous / lambda functions")
+    }
+    anon()
+
+    val s = "kotlin"
+    println(s)
+    println(s.debug())
 }

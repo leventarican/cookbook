@@ -2,10 +2,17 @@
 // compile and run: kotlinc objects.kt && kotlin ObjectsKt
 // #############################################################################
 
-// only 1 instance; even if more threads use it. like a singleton.
 object Computer {
     val ramUnit: String = "GB"
     fun ram() = 16
+    fun whoami() = "an onbject. only 1 instance. even if more threads use it. like a singleton."
+}
+
+class SingleBoardComputer {
+    val design = "8bit"
+    companion object Microprocessor {
+        val os = "linux"
+    }
 }
 
 fun objectDemo() {
@@ -18,6 +25,10 @@ fun objectDemo() {
 
 
 fun main(args: Array<String>) {
-    println("computer ram: ${Computer.ram()} ${Computer.ramUnit}")
+    println("computer ram: ${Computer.ram()} ${Computer.ramUnit}; whoami: ${Computer.whoami()}")
     objectDemo()
+
+    val computer = SingleBoardComputer()
+    println(computer.design)
+    println(SingleBoardComputer.Microprocessor.os)
 }
