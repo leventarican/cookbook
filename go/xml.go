@@ -38,9 +38,18 @@ func main() {
 
 	var deserialized Dev
 	xml.Unmarshal(data, &deserialized)
-
 	fmt.Println(deserialized)
     for i := 0; i < len(deserialized.Lang); i++ {
         fmt.Println("#", deserialized.Lang[i])
-    }
+	}
+
+	createXML()
+}
+
+func createXML() {
+	serialized := Dev {
+		Lang: []string {"Python", "C++", "JavaScript"},
+	}
+	output, _ := xml.Marshal(&serialized)
+	ioutil.WriteFile("serialized.xml", output, 0644)
 }
