@@ -1,5 +1,7 @@
 # golang
 * go language
+* go compiles realy quick: the compiler look at the libs that are included.
+* go concurrency is done with goroutines and channels. with channels data can pass between goroutines in synchronized / safely way.
 
 ## get go work (= install)
 * download package from: https://golang.org/dl/
