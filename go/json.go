@@ -26,4 +26,14 @@ func main() {
 	var dev Dev
 	json.Unmarshal(data, &dev)
 	fmt.Println(dev)
+
+	createJSON()
+}
+
+func createJSON() {
+	serialized := Dev {
+		Lang: []string {"Python", "C++", "JavaScript"},
+	}
+	out, _ := json.MarshalIndent(&serialized, "", "\t")
+	_ = ioutil.WriteFile("serialized.json", out, 0644)
 }
