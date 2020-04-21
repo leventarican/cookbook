@@ -59,6 +59,26 @@ func class() {
 	fmt.Println(dev.programmingLanguage[0])
 }
 
+func anon_function() {
+	a, b := func() (int, int) {
+		fmt.Println("anonymous function")
+		return 1, 2
+	}()
+	fmt.Println("a:", a, "b:", b)
+}
+
+func pointer() {
+	// new is a built-in function: allocate memory
+	addr := new(int)
+	fmt.Println("variable address:", addr)
+	fmt.Println("value:", *addr)
+	fmt.Println("value address:", &addr)
+
+	copy := addr
+	*copy = 1
+	fmt.Println("value:", *addr)
+}
+
 func main() {
 	fmt.Println("Hello, world.")
 
@@ -67,4 +87,6 @@ func main() {
 	multi()
 	flow_control()
 	class()
+	anon_function()
+	pointer()
 }
