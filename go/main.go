@@ -15,6 +15,20 @@ func variables() {
 
 	b := byte('A')
 	fmt.Println("byte is an alias for uint8:", b)
+
+	s := string(65)
+	fmt.Println("s:",s)
+
+	var java_version, go_version = "11", "1.4"
+	fmt.Println("java:", java_version, "go version:", go_version)
+
+	const pi = 3.14
+	fmt.Println("constant PI:",pi)
+
+	const (
+		Limit := 20
+		DebugOn := true
+	)
 }
 
 func arrays() {
