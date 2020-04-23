@@ -26,8 +26,8 @@ func variables() {
 	fmt.Println("constant PI:",pi)
 
 	const (
-		Limit := 20
-		DebugOn := true
+		Limit = 20
+		DebugOn = true
 	)
 }
 
@@ -47,11 +47,7 @@ func multi() (a, b int) {
 }
 
 func flow_control() {
-	if true {
-
-	} else {
-
-	}
+	if true {} else {}
 
 	x := 3.0
 	switch x {
@@ -59,6 +55,19 @@ func flow_control() {
 	case 2:
 	case 3: fmt.Println("switch")
 	}
+
+	for i:=3; i>0; i-- {
+		fmt.Println(i)
+	}
+
+	i := 0
+	Go:
+		fmt.Println("label and goto")
+		i++
+		fmt.Println(i)
+		if i < 2 {
+			goto Go
+		}
 }
 
 func class() {
