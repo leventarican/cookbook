@@ -13,11 +13,11 @@ func variables() {
 	var unsignedInt uint = 256;
 	fmt.Println(unsignedInt)
 
-	b := byte('A')
-	fmt.Println("byte is an alias for uint8:", b)
+	a := byte('A')
+	fmt.Println("byte is an alias for uint8:", a)
 
-	s := string(65)
-	fmt.Println("s:",s)
+	sa := string(65)
+	fmt.Println("str:", sa)
 
 	var java_version, go_version = "11", "1.4"
 	fmt.Println("java:", java_version, "go version:", go_version)
@@ -29,6 +29,24 @@ func variables() {
 		Limit = 20
 		DebugOn = true
 	)
+
+	var (
+		y = 200
+		z = 300
+	)
+	fmt.Printf("y: %v; z: %v\n", y, z)
+
+	var i int
+	var s string
+	var b bool
+	var f float64
+	var c complex128
+
+	fmt.Printf("type: %T\n", i)
+	fmt.Printf("type: %T\n", s)
+	fmt.Printf("type: %T\n", b)
+	fmt.Printf("type: %T\n", f)
+	fmt.Printf("type: %T\n", c)
 }
 
 func arrays() {
@@ -43,7 +61,7 @@ func arrays() {
 }
 
 func multi() (a, b int) {
-	return 3, 1
+	return 3, 2
 }
 
 func flow_control() {
@@ -90,6 +108,20 @@ func anon_function() {
 	fmt.Println("a:", a, "b:", b)
 }
 
+func variadic_function(j ...int) {
+	for i := 0; i < len(j); i++ {
+		fmt.Printf("%v ", j[i])
+	}
+	fmt.Println()
+}
+
+func closures() func() {
+	fmt.Println("#")
+	return func() {
+		fmt.Println("##")
+	}
+}
+
 func pointer() {
 	// new is a built-in function: allocate memory
 	addr := new(int)
@@ -112,4 +144,6 @@ func main() {
 	class()
 	anon_function()
 	pointer()
+	variadic_function(1000, 2000, 3000)
+	closures()()
 }

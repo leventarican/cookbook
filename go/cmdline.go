@@ -12,9 +12,12 @@ import (
 // go run cmdline.go debug=false
 // go run cmdline.go 1 2 3
 func main() {
-	env := flag.String("env", "dev", "dev, staging, prod")
-	number := flag.Int("number", 2, "how must loops?")
-	debug := flag.Bool("debug", true, "debug on / off")
+	var (
+		env = flag.String("env", "dev", "dev, staging, prod")
+		number = flag.Int("number", 2, "how must loops?")
+		debug = flag.Bool("debug", true, "debug on / off")
+	)
+
 	flag.Parse()
 
 	if *debug {
