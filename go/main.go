@@ -41,12 +41,41 @@ func variables() {
 	var b bool
 	var f float64
 	var c complex128
+	// byte = alias uint8
+	var a_byte byte
+	var also_a_byte uint8
 
 	fmt.Printf("type: %T\n", i)
 	fmt.Printf("type: %T\n", s)
 	fmt.Printf("type: %T\n", b)
 	fmt.Printf("type: %T\n", f)
 	fmt.Printf("type: %T\n", c)
+	fmt.Printf("type: %T\n", a_byte)
+	fmt.Printf("type: %T\n", also_a_byte)
+
+	// initial value is 0, false, ""
+	fmt.Println("init value:", i)
+	fmt.Println("init value:", b)
+	fmt.Println("init value:", s)
+
+	// type conversion
+	f = float64(i+1)
+	fmt.Println("conversion:", f)
+	i = int(f)
+	fmt.Println("conversion:", i)
+
+	// type inference
+	cx := 0.8 + 0.5i
+	fmt.Println("complex128:", cx)
+	fl := 3.14
+	fmt.Printf("type: %T\n", fl)
+
+	// high precision values
+	const (
+		Big = 1 << 100
+		Small = Big >> 99	// 0010 = 2
+	)
+	// fmt.Println("this will overflow int:", Big*10 + 1)
 }
 
 func arrays() {
@@ -115,6 +144,13 @@ func variadic_function(j ...int) {
 	fmt.Println()
 }
 
+// named return values
+func named() (x, y int) {
+	x = 0
+	y = 1
+	return
+}
+
 func closures() func() {
 	fmt.Println("#")
 	return func() {
@@ -146,4 +182,6 @@ func main() {
 	pointer()
 	variadic_function(1000, 2000, 3000)
 	closures()()
+	x,y := named()
+	fmt.Println("x,y:", x, y)
 }
