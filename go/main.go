@@ -127,6 +127,14 @@ func class() {
 	dev := developer{"go", []string{"go", "rust"}}
 	fmt.Println(dev.name)
 	fmt.Println(dev.programmingLanguage[0])
+
+	type Point struct {
+		X int
+		Y int
+	}
+	p := Point{3, 2}
+	p.Y = 4
+	fmt.Println("p.Y:", p.Y)
 }
 
 func anon_function() {
@@ -168,6 +176,12 @@ func pointer() {
 	copy := addr
 	*copy = 1
 	fmt.Println("value:", *addr)
+
+	i := 7
+	p := &i
+	fmt.Println("point to i [address]:", p)
+	fmt.Println("read value of i [value]:", *p)
+	*p = *p + 1
 }
 
 func main() {
