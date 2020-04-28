@@ -6,6 +6,10 @@ func variables() {
 	var declaration int
 	declaration = 1
 	fmt.Println(declaration)
+	declaration = 1e10
+	fmt.Println(declaration)
+	declaration = 2_000_000
+	fmt.Println(declaration)
 
 	allInOne := 2
 	fmt.Println("infer type, declar, assign:", allInOne)
@@ -86,7 +90,27 @@ func arrays() {
 	fmt.Println("fixed sized array", fibonacci)
 
 	dynamicSize := []int{3, 1, 4}
-	fmt.Println("dynamic sized array", dynamicSize)
+	fmt.Println("dynamic sized array = slice", dynamicSize)
+	fmt.Println("dynamic sized array = slice", dynamicSize[1:2])
+
+	var default_slice [3]int
+	fmt.Println("default slice:", default_slice)
+
+	for i, s := range dynamicSize {
+		fmt.Println("i, s:", i, s)
+	}
+}
+
+func maps() {
+	m := make(map[int]string)
+	m[0] = "go"
+	m[1] = "java"
+	m[2] = "cpp"
+	fmt.Println("value:", m[2])
+
+	delete(m, 1)
+	v, d := m[1]
+	fmt.Println("value:", v, "deleted?", !d)
 }
 
 func multi() (a, b int) {
@@ -198,4 +222,5 @@ func main() {
 	closures()()
 	x,y := named()
 	fmt.Println("x,y:", x, y)
+	maps()
 }
