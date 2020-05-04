@@ -42,6 +42,29 @@ maps() {
     print('languages: ${languages[20]}');
 }
 
+if_and_else() {
+    if (false) {
+        print('if');
+    } else if (false) {
+        print('else if');
+    } else {
+        print('else');
+    }
+}
+
+switch_case() {
+  switch (1) {
+    case 0:
+      print('0');
+      break;
+    case 1:
+      print('1');
+      break;
+    default:
+      print('default');
+  }
+}
+
 lists() {
     var list = [1, 2, 3];
     print('list: ${list[0]}');
@@ -79,4 +102,6 @@ you can pass a function as a parameter to another function.
     print('a function with one expression: ${digit()}');
     first_class();
     classes();
+    if_and_else();
+    switch_case();
 }
