@@ -84,6 +84,34 @@ basic() {
     print('num class: int or floating number: $n');
 }
 
+// bitwise: & | ^
+// bitwise complement: ~ 
+// shift
+bitwise_shift() {
+    final value = 0xFF;
+    final bitmask = 0x0F;
+    
+    // and
+    print(
+        value & bitmask
+    );
+
+    // or
+    print(
+        value | bitmask
+    );
+
+    // not
+    print(
+        ~value
+    );
+
+    // shift right
+    print(
+        value >> 4
+    );
+}
+
 // omitting type void does work
 main() {
     String welcome = 
@@ -104,4 +132,5 @@ you can pass a function as a parameter to another function.
     classes();
     if_and_else();
     switch_case();
+    bitwise_shift();
 }
