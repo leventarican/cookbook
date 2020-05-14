@@ -13,3 +13,19 @@ print('difference: {}'.format(f - c))
 print('union: {}'.format(f | c))
 print('intersection: {}'.format(f ^ c))
 print('membership: {}'.format('o' in c))
+
+u = set([
+    'java', 
+    'java',
+    'python',
+    'go'
+    ])
+print(u)
+# {'python', 'java', 'go'}
+
+i = set({
+    'python',
+    'c++'
+})
+print( u.intersection(i) )
+# {'python'}
