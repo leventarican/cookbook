@@ -1,5 +1,4 @@
 print('''
-# tubles
 * tuples supports oppertations as in string / lists
 * tuples dont have the methods lists have
 * tuples are immutable lists
