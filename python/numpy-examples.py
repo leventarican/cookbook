@@ -138,7 +138,35 @@ def example_3():
     # [0.68036863 0.488115  ]
     # [0.46423815 0.69767461]]
 
+def example_4():
+    a = np.array([
+        [
+            []
+        ]
+    ])
+    print( a.ndim )
+    print( a.shape )
+    # 3
+    # (1, 1, 0)
+
+    b = np.array([1,2,3 ])
+    print( b.ndim )
+    print( b.shape )
+    # 1
+    # (3,)
+
+    c = np.array([
+        [],
+        [],
+        []
+    ])
+    print( c.ndim )
+    print( c.shape )
+    # 2
+    # (3, 0)
+
 # example_0()
 # example_1()
 # example_2()
-example_3()
+# example_3()
+example_4()
