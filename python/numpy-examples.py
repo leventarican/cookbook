@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 print('''
 NumPy: numerical python
@@ -110,6 +111,8 @@ def example_2():
     ])
     print(nhwc.shape)
     # (2, 6, 6, 3)
+    plt.plot(nhwc)
+    plt.show()
 
     hwc = nhwc[0]
     print(hwc.shape)
@@ -165,8 +168,22 @@ def example_4():
     # 2
     # (3, 0)
 
+def example_5():
+    image = np.random.randint(0, 255, size=(16, 16, 3)).astype(np.uint8)
+    print( image.dtype )
+    plt.imshow(image)
+    plt.show()
+
+def example_6():
+    image = np.random.randint(0, 255, size=(16, 16, 3), dtype=np.uint8)
+    print( image.dtype )
+    plt.imshow(image)
+    plt.show()
+
 # example_0()
 # example_1()
 # example_2()
 # example_3()
-example_4()
+# example_4()
+# example_5()
+example_6()
