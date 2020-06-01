@@ -1,12 +1,30 @@
 
 class Point {
     num x, y;
-    Point(this.x, this.y);
+    Point({this.x = 0, this.y = 0});
+
+    void add() {
+        this.x += 1;
+        this.y += 1;
+    }
+
+    void sub() {
+        this.x -= 1;
+        this.y -= 1;
+    }
+
+    @override
+    String toString() => 'Point: $x, $y';
 }
 
 classes() {
-    var p = new Point(3, 2);
-    print('p: ${p.x}');
+    Point p = new Point();
+    print( p );
+    print( new Point(x:3, y:2) );
+    print( new Point(y:1) );
+
+    p..add()..sub()..add()..add();
+    print("method cascade: $p");
 }
 
 first_class() {
@@ -112,6 +130,27 @@ bitwise_shift() {
     );
 }
 
+// extension methods
+extension Ping on String {
+    String ping() {
+        return "$this pong";
+    }
+}
+
+safe() {
+    var n = null;
+    var v = n ?? "n was null";
+    print(v);
+
+    var p = new Point();
+    p?.add();
+    print(p);
+
+    Point d = null;
+    d?.add();
+    print(d);
+}
+
 // omitting type void does work
 main() {
     String welcome = 
@@ -133,4 +172,7 @@ you can pass a function as a parameter to another function.
     if_and_else();
     switch_case();
     bitwise_shift();
+
+    print("foobar".ping());
+    safe();
 }
