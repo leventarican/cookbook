@@ -64,6 +64,12 @@ ln -s zulu8.40.0.25-ca-jdk8.0.222-linux_x64 jdk
 rm jdk  // remove symbolic link
 ```
 
+* image resize
+```
+# dependency: imagemagick
+convert -resize 25% screenshot.png screenshot.png
+```
+
 * config the environment variable PATH. Put that in ~/.profile (restart)
 
 __user management__
