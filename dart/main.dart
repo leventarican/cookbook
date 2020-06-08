@@ -1,6 +1,10 @@
+import 'dart:math';
+
 class Point {
   num x, y;
   Point({this.x = 0, this.y = 0});
+  // named constructor
+  Point.random(this.x, int seed) : assert(seed > 5 && seed < 10), y = Random().nextInt(seed);
 
   void add() {
     this.x += 1;
@@ -33,6 +37,9 @@ classes() {
     ..x = 10
     ..y = 20;
   print("point: $pp");
+
+  Point ppp = Point.random(7, 9);
+  print('point with named constructor: $ppp');
 }
 
 first_class() {
@@ -74,6 +81,17 @@ if_and_else() {
   }
 }
 
+// run with: dart --enable-asserts
+execution_control_with_assert() {
+  try {
+    var i = 100;
+    assert(i < 100, 'foobar');
+    print('assert: ${i * 2}');
+  } catch (e) {
+    print('exception should be AssertionError: ${e.runtimeType}.');
+  }
+}
+
 switch_case() {
   switch (1) {
     case 0:
@@ -91,11 +109,14 @@ lists() {
   var list = [1, 2, 3];
   print('list: ${list[0]}');
 
-  var l = [0, ...[1, 2, 3]];
+  var l = [
+    0,
+    ...[1, 2, 3]
+  ];
   print("list: ${l[3]}");
 }
 
-basic() {
+dynamic basic() {
   var declaration;
   var i = 1;
   print('declaration and initialization - i: $i');
@@ -180,4 +201,5 @@ you can pass a function as a parameter to another function.
 
   print("foobar".ping());
   safe();
+  execution_control_with_assert();
 }
