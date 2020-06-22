@@ -4,7 +4,9 @@ class Point {
   num x, y;
   Point({this.x = 0, this.y = 0});
   // named constructor
-  Point.random(this.x, int seed) : assert(seed > 5 && seed < 10), y = Random().nextInt(seed);
+  Point.random(this.x, int seed)
+      : assert(seed > 5 && seed < 10),
+        y = Random().nextInt(seed);
 
   void add() {
     this.x += 1;
@@ -178,15 +180,25 @@ safe() {
   print(d);
 }
 
+streams() async {
+  var s = Stream<int>.periodic(Duration(seconds: 1), (value) {
+    return value;
+  });
+
+  await for (int i in s) {
+    print(i);
+  }
+}
+
 // omitting type void does work
 main() {
   String welcome = '''
-in dart everthing is an object.
-all object inherits from class.
-
-function are first-class objects.
-you can pass a function as a parameter to another function.
-    ''';
+  in dart everthing is an object.
+  all object inherits from class.
+  
+  function are first-class objects.
+  you can pass a function as a parameter to another function.
+      ''';
   print(welcome);
 
   basic();
@@ -202,4 +214,6 @@ you can pass a function as a parameter to another function.
   print("foobar".ping());
   safe();
   execution_control_with_assert();
+
+  streams();
 }
