@@ -190,6 +190,17 @@ streams() async {
   }
 }
 
+future() async {
+  Future<int> _request() async {
+    var s = 2;
+    await Future.delayed(Duration(seconds: s));
+    return s;
+  }
+
+  int i = await _request();
+  print('future: $i');
+}
+
 // omitting type void does work
 main() {
   String welcome = '''
@@ -215,5 +226,6 @@ main() {
   safe();
   execution_control_with_assert();
 
-  streams();
+  // streams();
+  future();
 }
