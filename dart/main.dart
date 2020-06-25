@@ -201,6 +201,22 @@ future() async {
   print('future: $i');
 }
 
+named(bool debug, String message) {
+  if (debug) {
+    print('debug: $message');
+  } else {
+    print('$message');
+  }
+}
+
+optional({String message}) {
+  print('message: $message');
+}
+
+optionalRequired({bool debug, String message}) {
+
+}
+
 // omitting type void does work
 main() {
   String welcome = '''
@@ -228,4 +244,8 @@ main() {
 
   // streams();
   future();
+
+  named(true, "message");
+  optional();
+  optional(message: "message");
 }
