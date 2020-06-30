@@ -107,6 +107,7 @@ switch_case() {
   }
 }
 
+// lists and collections
 lists() {
   var list = [1, 2, 3];
   print('list: ${list[0]}');
@@ -116,6 +117,12 @@ lists() {
     ...[1, 2, 3]
   ];
   print("list: ${l[3]}");
+
+  var filtered = list.where((element) => element > 1).toList();
+  print('filtered: $filtered');
+
+  var mapped = [1, 2].map((e) => e*2);
+  print('mapped: $mapped');
 }
 
 dynamic basic() {
@@ -190,6 +197,7 @@ streams() async {
   }
 }
 
+// asynchronous programming
 future() async {
   Future<int> _request() async {
     var s = 2;
@@ -199,6 +207,16 @@ future() async {
 
   int i = await _request();
   print('future: $i');
+
+  Future<String> greetingOfTheDay() =>
+      Future.delayed(Duration(seconds: 3), () => 'hello world');
+
+  // option 0:
+  var greeting = greetingOfTheDay();
+  greeting.then((value) => print('greeting of the day: $value'));
+
+  // option 1: we can use await in a async function
+  print(await greeting);
 }
 
 named(bool debug, String message) {
@@ -213,9 +231,7 @@ optional({String message}) {
   print('message: $message');
 }
 
-optionalRequired({bool debug, String message}) {
-
-}
+optionalRequired({bool debug, String message}) {}
 
 // omitting type void does work
 main() {
