@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 class Point {
@@ -233,6 +234,31 @@ optional({String message}) {
 
 optionalRequired({bool debug, String message}) {}
 
+json() {
+  dynamic data = '''
+  [
+    {
+      "lang": "java",
+      "version": 11
+    },
+    {
+      "lang": "dart",
+      "version": 2.9
+    }
+  ]
+  ''';
+  var languages = jsonDecode(data);
+  print('dart version: ${languages[1]['version']}');
+  print(languages);
+
+  data = [
+    {'lang':'cpp', 'version':17},
+    {'lang':'python', 'version':3.8},
+  ];
+  var json = jsonEncode(data);
+  print(json);
+}
+
 // omitting type void does work
 main() {
   String welcome = '''
@@ -264,4 +290,5 @@ main() {
   named(true, "message");
   optional();
   optional(message: "message");
+  json();
 }
