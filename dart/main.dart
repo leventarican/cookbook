@@ -218,6 +218,10 @@ future() async {
 
   // option 1: we can use await in a async function
   print(await greeting);
+
+  var numbers = List.empty(growable: true);
+  await Future.forEach([10, 20, 30,], (element) => numbers.add(element));
+  print('item count: ${numbers.length}');
 }
 
 named(bool debug, String message) {
