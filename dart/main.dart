@@ -124,6 +124,9 @@ lists() {
 
   var mapped = [1, 2].map((e) => e*2);
   print('mapped: $mapped');
+
+  var items = List.generate(3, (index) => index*10);
+  print('generated list: $items');
 }
 
 dynamic basic() {
