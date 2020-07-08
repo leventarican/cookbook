@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
@@ -122,10 +123,10 @@ lists() {
   var filtered = list.where((element) => element > 1).toList();
   print('filtered: $filtered');
 
-  var mapped = [1, 2].map((e) => e*2);
+  var mapped = [1, 2].map((e) => e * 2);
   print('mapped: $mapped');
 
-  var items = List.generate(3, (index) => index*10);
+  var items = List.generate(3, (index) => index * 10);
   print('generated list: $items');
 }
 
@@ -223,7 +224,11 @@ future() async {
   print(await greeting);
 
   var numbers = List.empty(growable: true);
-  await Future.forEach([10, 20, 30,], (element) => numbers.add(element));
+  await Future.forEach([
+    10,
+    20,
+    30,
+  ], (element) => numbers.add(element));
   print('item count: ${numbers.length}');
 }
 
@@ -259,11 +264,26 @@ json() {
   print(languages);
 
   data = [
-    {'lang':'cpp', 'version':17},
-    {'lang':'python', 'version':3.8},
+    {'lang': 'cpp', 'version': 17},
+    {'lang': 'python', 'version': 3.8},
   ];
   var json = jsonEncode(data);
   print(json);
+}
+
+microtask() {
+  Future.microtask(() =>
+      Future.delayed(Duration(seconds: 2)).then((value) => print('task 0')));
+  Future.microtask(() =>
+      Future.delayed(Duration(seconds: 1)).then((value) => print('task 1')));
+  Future.microtask(() =>
+      Future.delayed(Duration(seconds: 4)).then((value) => print('task 2')));
+}
+
+zones() {
+  runZoned(() {
+    
+  });
 }
 
 // omitting type void does work
@@ -298,4 +318,6 @@ main() {
   optional();
   optional(message: "message");
   json();
+
+  microtask();
 }
