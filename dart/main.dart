@@ -20,6 +20,10 @@ class Point {
     this.y -= 1;
   }
 
+  consoleOut() {
+    print('${toString()}');
+  }
+
   @override
   String toString() => 'Point: $x, $y';
 }
@@ -37,10 +41,14 @@ classes() {
     ..add();
   print("method cascade: $p");
 
-  Point pp = new Point()
+  Point()
     ..x = 10
-    ..y = 20;
-  print("point: $pp");
+    ..y = 20
+    ..consoleOut()
+    ..x = 100
+    ..consoleOut()
+    ..y = 200
+    ..consoleOut();
 
   Point ppp = Point.random(7, 9);
   print('point with named constructor: $ppp');
@@ -281,9 +289,7 @@ microtask() {
 }
 
 zones() {
-  runZoned(() {
-    
-  });
+  runZoned(() {});
 }
 
 // omitting type void does work
