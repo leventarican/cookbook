@@ -2,13 +2,27 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
-class Point {
+mixin Color {
+  String _rgba = '0x00112200';
+
+  console() {
+    print('RGBA: ${int.parse(_rgba, radix:16)}');
+  }
+}
+
+// with mixin (Color)
+class Point with Color {
   num x, y;
   Point({this.x = 0, this.y = 0});
+
   // named constructor
   Point.random(this.x, int seed)
       : assert(seed > 5 && seed < 10),
         y = Random().nextInt(seed);
+
+  Point.fromJson(Map json)
+      : x = json['x'],
+        y = json['y'];
 
   void add() {
     this.x += 1;
@@ -24,8 +38,10 @@ class Point {
     print('${toString()}');
   }
 
+  static String get whoami => 'a point';
+
   @override
-  String toString() => 'Point: $x, $y';
+  String toString() => 'Colored Point: $x, $y, $_rgba';
 }
 
 classes() {
@@ -34,6 +50,7 @@ classes() {
   print(new Point(x: 3, y: 2));
   print(new Point(y: 1));
 
+  // invoke add / sub methods but return reference to object (builder pattern)
   p
     ..add()
     ..sub()
@@ -52,6 +69,14 @@ classes() {
 
   Point ppp = Point.random(7, 9);
   print('point with named constructor: $ppp');
+
+  print('whoami: ${Point.whoami}');
+
+  var json = Point.fromJson({
+    'x': 1000,
+    'y': 2000
+  });
+  print('with JSON constructed Point : $json');
 }
 
 first_class() {
