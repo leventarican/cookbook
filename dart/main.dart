@@ -1,16 +1,18 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
 mixin Color {
   String _rgba = '0x00112200';
 
   console() {
-    print('RGBA: ${int.parse(_rgba, radix:16)}');
+    print('RGBA: ${int.parse(_rgba, radix: 16)}');
   }
 }
 
-// with mixin (Color)
+///
+/// with mixin (Color)
 class Point with Color {
   num x, y;
   Point({this.x = 0, this.y = 0});
@@ -72,10 +74,7 @@ classes() {
 
   print('whoami: ${Point.whoami}');
 
-  var json = Point.fromJson({
-    'x': 1000,
-    'y': 2000
-  });
+  var json = Point.fromJson({'x': 1000, 'y': 2000});
   print('with JSON constructed Point : $json');
 }
 
@@ -118,7 +117,8 @@ if_and_else() {
   }
 }
 
-// run with: dart --enable-asserts
+///
+/// run with: dart --enable-asserts
 execution_control_with_assert() {
   try {
     var i = 100;
@@ -225,17 +225,64 @@ safe() {
   print(d);
 }
 
+///
+/// Stream: A source of asynchronous data events.
+/// https://api.dart.dev/stable/2.8.4/dart-async/Stream-class.html
 streams() async {
   var s = Stream<int>.periodic(Duration(seconds: 1), (value) {
     return value;
   });
 
   await for (int i in s) {
-    print(i);
+    print('streams: $i');
+    if (i == 1) break;
   }
+
+  print('### read file from 2 to 6 characters ###');
+  Stream<List<int>> file = File('README.md').openRead(2, 6);
+  file.transform(utf8.decoder).listen((event) {
+    print('file content: $event');
+  }).onDone(() {
+    print('file processed.');
+  });
+  print('### content of file will be print out after this ###');
+
+  // https://dart.dev/articles/libraries/creating-streams
+  Stream<int> giveRandomNumbers(int max) {
+    Timer timer;
+    StreamController<int> controller;
+    int counter = 0;
+
+    // parameter Timer isnt used => _
+    void tick(_) {
+      counter++;
+      controller.add(Random().nextInt(100));
+      if (counter == max) {
+        timer.cancel();
+        controller.close();
+      }
+    }
+
+    void start() {
+      timer = Timer.periodic(Duration(seconds: 1), tick);
+    }
+
+    // reference function (start, ...) after declaration
+    controller = StreamController<int>(
+      onListen: start,
+    );
+
+    return controller.stream;
+  }
+
+  giveRandomNumbers(3).listen((event) {
+    print('RANDOM: $event');
+  });
 }
 
-// asynchronous programming
+///
+/// An object representing a delayed computation.
+/// https://api.dart.dev/stable/2.8.4/dart-async/Future-class.html
 future() async {
   Future<int> _request() async {
     var s = 2;
@@ -342,7 +389,7 @@ main() {
   safe();
   execution_control_with_assert();
 
-  // streams();
+  streams();
   future();
 
   named(true, "message");
