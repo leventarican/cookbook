@@ -1,7 +1,6 @@
-import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
+import 'dart:io';
 
 mixin Color {
   String _rgba = '0x00112200';
@@ -94,19 +93,6 @@ first_class() {
 
 int digit() => 1;
 
-maps() {
-  var programming = {100: 'java', 200: 'go', 300: 'dart', 400: 'kotlin'};
-
-  print('programming: ${programming[100]}');
-
-  var languages = Map();
-  languages[10] = 'c++';
-  languages[20] = 'c';
-  languages[30] = 'python';
-
-  print('languages: ${languages[20]}');
-}
-
 if_and_else() {
   if (false) {
     print('if');
@@ -140,27 +126,6 @@ switch_case() {
     default:
       print('default');
   }
-}
-
-// lists and collections
-lists() {
-  var list = [1, 2, 3];
-  print('list: ${list[0]}');
-
-  var l = [
-    0,
-    ...[1, 2, 3]
-  ];
-  print("list: ${l[3]}");
-
-  var filtered = list.where((element) => element > 1).toList();
-  print('filtered: $filtered');
-
-  var mapped = [1, 2].map((e) => e * 2);
-  print('mapped: $mapped');
-
-  var items = List.generate(3, (index) => index * 10);
-  print('generated list: $items');
 }
 
 dynamic basic() {
@@ -225,93 +190,8 @@ safe() {
   print(d);
 }
 
-///
-/// Stream: A source of asynchronous data events.
-/// https://api.dart.dev/stable/2.8.4/dart-async/Stream-class.html
-streams() async {
-  var s = Stream<int>.periodic(Duration(seconds: 1), (value) {
-    return value;
-  });
-
-  await for (int i in s) {
-    print('streams: $i');
-    if (i == 1) break;
-  }
-
-  print('### read file from 2 to 6 characters ###');
-  Stream<List<int>> file = File('README.md').openRead(2, 6);
-  file.transform(utf8.decoder).listen((event) {
-    print('file content: $event');
-  }).onDone(() {
-    print('file processed.');
-  });
-  print('### content of file will be print out after this ###');
-
-  // https://dart.dev/articles/libraries/creating-streams
-  Stream<int> giveRandomNumbers(int max) {
-    Timer timer;
-    StreamController<int> controller;
-    int counter = 0;
-
-    // parameter Timer isnt used => _
-    void tick(_) {
-      counter++;
-      controller.add(Random().nextInt(100));
-      if (counter == max) {
-        timer.cancel();
-        controller.close();
-      }
-    }
-
-    void start() {
-      timer = Timer.periodic(Duration(seconds: 1), tick);
-    }
-
-    // reference function (start, ...) after declaration
-    controller = StreamController<int>(
-      onListen: start,
-    );
-
-    return controller.stream;
-  }
-
-  giveRandomNumbers(3).listen((event) {
-    print('RANDOM: $event');
-  });
-}
-
-///
-/// An object representing a delayed computation.
-/// https://api.dart.dev/stable/2.8.4/dart-async/Future-class.html
-future() async {
-  Future<int> _request() async {
-    var s = 2;
-    await Future.delayed(Duration(seconds: s));
-    return s;
-  }
-
-  int i = await _request();
-  print('future: $i');
-
-  Future<String> greetingOfTheDay() =>
-      Future.delayed(Duration(seconds: 3), () => 'hello world');
-
-  // option 0:
-  var greeting = greetingOfTheDay();
-  greeting.then((value) => print('greeting of the day: $value'));
-
-  // option 1: we can use await in a async function
-  print(await greeting);
-
-  var numbers = List.empty(growable: true);
-  await Future.forEach([
-    10,
-    20,
-    30,
-  ], (element) => numbers.add(element));
-  print('item count: ${numbers.length}');
-}
-
+/// 
+/// https://dart.dev/guides/language/language-tour#optional-parameters
 named(bool debug, String message) {
   if (debug) {
     print('debug: $message');
@@ -324,7 +204,15 @@ optional({String message}) {
   print('message: $message');
 }
 
-optionalRequired({bool debug, String message}) {}
+/// 
+/// To use the @required annotation, 
+/// depend on the meta package and import package:meta/meta.dart.
+/// 
+// optionalRequired({ @required bool debug, String message}) {}
+
+positionalParameters(String prefix, [String suffix]) {
+  print('$prefix.$suffix');
+}
 
 json() {
   dynamic data = '''
@@ -351,17 +239,13 @@ json() {
   print(json);
 }
 
-microtask() {
-  Future.microtask(() =>
-      Future.delayed(Duration(seconds: 2)).then((value) => print('task 0')));
-  Future.microtask(() =>
-      Future.delayed(Duration(seconds: 1)).then((value) => print('task 1')));
-  Future.microtask(() =>
-      Future.delayed(Duration(seconds: 4)).then((value) => print('task 2')));
-}
-
-zones() {
-  runZoned(() {});
+hashtagline() {
+  List.generate(80, (index) {
+    stdout.write('#');
+    if (index == 79) {
+      stdout.write('\n');
+    }
+  }, growable: false);
 }
 
 // omitting type void does work
@@ -376,8 +260,6 @@ main() {
   print(welcome);
 
   basic();
-  lists();
-  maps();
   print('a function with one expression: ${digit()}');
   first_class();
   classes();
@@ -389,13 +271,10 @@ main() {
   safe();
   execution_control_with_assert();
 
-  streams();
-  future();
-
   named(true, "message");
   optional();
   optional(message: "message");
+  positionalParameters("file");
+  positionalParameters("file", "txt");
   json();
-
-  microtask();
 }
