@@ -2,7 +2,7 @@
 
 int write() {
   FILE *fp;
-  fp = fopen("file0", "w");
+  fp = fopen("file", "w");
 
   if (fp == NULL) {
     printf("%s\n", "error");
