@@ -13,5 +13,7 @@ int main(int argc, char const *argv[]) {
   }
   printf("\n");
 
+  printf("adress: %p\n", fibbonaci);
+
   return 0;
 }
