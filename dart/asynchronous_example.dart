@@ -39,7 +39,9 @@ streams() async {
     // parameter Timer isnt used => _
     void tick(_) {
       counter++;
-      controller.add(Random().nextInt(100));
+      var randomNumber = Random().nextInt(100);
+      controller.add(randomNumber);
+      // controller.sink.add(randomNumber);
       if (counter == max) {
         timer.cancel();
         controller.close();
@@ -61,6 +63,43 @@ streams() async {
   giveRandomNumbers(3).listen((event) {
     print('RANDOM: $event');
   });
+
+  Stream<String> dataGenerator() {
+    StreamController<String> controller;
+
+    void start() {
+      for (var i = 0; i < 3; i++) {
+        controller.sink.add('# data: $i');
+      }
+    }
+
+    void stop() {
+      controller.close();
+    }
+
+    controller = StreamController<String>(
+        onListen: start, onCancel: stop, onPause: stop, onResume: start);
+    return controller.stream;
+  }
+
+  dataGenerator().listen((event) {
+    print(event);
+  });
+
+  // example with syntax sugar async* and yield
+  // async* will return a stream whereas async will return Future
+  // with async* we can also yield a value
+  Stream<int> countStream(int to) async* {
+    for (int i = 1; i <= to; i++) {
+      yield i;
+    }
+  }
+  countStream(3).listen((event) {
+    print('# count stream: $event');
+  });
+  countStream(1).expand((element) => {2, 3}).skip(1).listen((event) {
+    print('# count stream [expand, skip]: $event');
+  });
 }
 
 ///
@@ -68,7 +107,7 @@ streams() async {
 /// https://api.dart.dev/stable/2.8.4/dart-async/Future-class.html
 future() async {
   hashtagline();
-  
+
   Future<int> _request() async {
     var s = 2;
     await Future.delayed(Duration(seconds: s));
@@ -110,7 +149,7 @@ microtask() {
 ///
 /// A zone represents an environment that remains stable across asynchronous calls.
 /// https://api.flutter.dev/flutter/dart-async/Zone-class.html
-/// 
+///
 zones() {
   hashtagline();
 
@@ -119,7 +158,7 @@ zones() {
 
   runZoned(() {
     print('current zone: ${Zone.current}; value: ${Zone.current[0]}');
-  }, zoneValues: {0:'dart', 1:'flutter'});
+  }, zoneValues: {0: 'dart', 1: 'flutter'});
 }
 
 main(List<String> args) {
