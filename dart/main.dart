@@ -149,6 +149,14 @@ dynamic basic() {
   print("dynamic: $d");
 }
 
+Iterable<int> count(max) sync* {
+  var i = 0;
+  while (i < max) {
+    yield i++;
+    sleep(Duration(seconds: 1));
+  }
+}
+
 // bitwise: & | ^
 // bitwise complement: ~
 // shift
@@ -190,7 +198,7 @@ safe() {
   print(d);
 }
 
-/// 
+///
 /// https://dart.dev/guides/language/language-tour#optional-parameters
 named(bool debug, String message) {
   if (debug) {
@@ -204,10 +212,10 @@ optional({String message}) {
   print('message: $message');
 }
 
-/// 
-/// To use the @required annotation, 
+///
+/// To use the @required annotation,
 /// depend on the meta package and import package:meta/meta.dart.
-/// 
+///
 // optionalRequired({ @required bool debug, String message}) {}
 
 positionalParameters(String prefix, [String suffix]) {
@@ -277,4 +285,8 @@ main() {
   positionalParameters("file");
   positionalParameters("file", "txt");
   json();
+
+  count(3).forEach((element) {
+    print('sync* $element');
+  });
 }
