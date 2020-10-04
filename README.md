@@ -1,3 +1,12 @@
+# Content
+* [network](#network)
+* [virtualbox](#virtualbox)
+* [cryptography](#cryptography)
+* [h2 database](#h2-database)
+* [cheatsheet: linux](#cheatsheet:-linux)
+* [cheatsheet: windows](#cheatsheet:-windows)
+* [testing](#testing)
+
 # cheatsheet: intellij / android studio
 
 ```
@@ -22,6 +31,25 @@ SHIFT + ALT + left/right    // switch design / text tab in layout
 
 CTRL + ALT + L  // reformat code (Android Studio)
 ```
+
+# network
+
+## Proxy
+* there are two types of a proxy (server)
+* __forward__ proxy: the client is using the proxy
+* __reverse__ proxy: the server is using the proxy
+
+
+![](proxy.png)
+_drawn with yed_
+
+__Why use a proxy?__
+* a proxy acts as a middleman. in other words: the traffic goes through the proxy
+* protect client or server from direct interactions (=security)
+
+## Load Balancer
+* __distributes__ the total load / traffic to multiple servers
+
 
 # virtualbox
 ```
@@ -247,7 +275,8 @@ rmdir /S    // delete folder
 move source-folder .    // move folder to current folder
 ```
 
-# h2 database (embedded / payara)
+# h2 database 
+* (embedded / payara)
 * start database: ```asadmin start-database```
 * stop database: ```asadmin stop-database```
 * sql connect (e.g. payara5\h2db\bin): ```java -cp h2.jar org.h2.tools.Shell```
@@ -272,8 +301,8 @@ CREATE TABLE PUBLIC.DEVELOPER (
 ```
 * quit from sql shell: ```quit```
 
-# testing terms
-_source: ant in action _
+# testing
+_source: ant in action_
 * _Unit tests_ test a piece of a program, such as a class, a module, or a single method.
 They can identify problems in a small part of the application, and often you can
 run them without deploying the application.

@@ -28,3 +28,20 @@ print(f**2)
 
 numbers = range(15)
 print(','.join(str(number) for number in numbers))
+
+# kafka how much partitions do we need?
+print('max function')
+m = max(3, 7)
+print(m)
+# Partitions = Max(Overall Throughput/Producer Throughput, Overall Throughput/Consumer Throughput)
+partitions = max(100/(3*10), 100/(5*10))
+print(partitions)
+partitions = max(250/10, 250/12)
+print(partitions)
+
+# datetime
+# https://docs.python.org/3/library/datetime.html
+from datetime import datetime
+
+now = datetime.utcnow()
+print(f"UTC now: {now}")
