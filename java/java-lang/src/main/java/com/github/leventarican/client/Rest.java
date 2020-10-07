@@ -5,8 +5,12 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 
 /**
+ * # JAX-RS native Client example
+ * 
  * connect to a REST endpoint with javax.ws.rs.client.Client
  * consume XML or JSON
+ * 
+ * start quarkus app in order to run the REST endpoint / server: cookbook-webapps > quarkus > json-xml
  * 
  * https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/modules-and-dependencies.html
  * 
