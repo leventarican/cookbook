@@ -180,10 +180,24 @@ def example_6():
     plt.imshow(image)
     plt.show()
 
+def multi_dimensional_slicing():
+    """
+    https://www.pythonprogramming.in/numpy-tutorial-with-examples-and-solutions.html
+    """
+    array2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [0, 0, 0]], dtype=np.uint8)
+    print(f"array dimension {array2d.shape}")
+    print(f"array datatype {array2d.dtype}")
+    print(f"step 2: {array2d.shape[:2]}")
+
+    tupl = (1, 2, 3, 4, 5)
+    print(f"# {tupl[2:4]}")
+    
+
 # example_0()
 # example_1()
 # example_2()
 # example_3()
 # example_4()
 # example_5()
-example_6()
+# example_6()
+multi_dimensional_slicing()
