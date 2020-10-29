@@ -2,6 +2,7 @@
 * [network](#network)
 * [virtualbox](#virtualbox)
 * [cryptography](#cryptography)
+* [security](#security)
 * [h2 database](#h2-database)
 * [cheatsheet: linux](#cheatsheet:-linux)
 * [cheatsheet: windows](#cheatsheet:-windows)
@@ -218,6 +219,71 @@ sudo apt update
 sudo apt upgrade
 sudo apt install git
 ```
+
+# security
+
+Authentication
+* Who are you?
+* Methods: Login form, HTTP authentication, X.509 certificates, HTTP digest, ...
+
+Authorization
+* What can i do?
+* Methods: Access control for URLs, Secure objects and methods, Access control lists (ACLs)
+* Types: Role-, Claims-, Policy-based authorization
+
+SiteMinder, Single Sign-On
+* SSO is a solution that allows a user to authenticate once and gain access to all applications/resources supported by the SSO, without having to sign in separately to each application/resource.
+* with a SiteMinder Web Agent a client request is intercepted 
+    * Web Agent is a filter on the web server
+    * is the request path (resource) is protected then the request goes to Policy Server
+    * the Policy Server needs the credentials (username / password) to gave access
+* why use SSO / SiteMinder?
+    * it acts as a single point of truth
+    * otherwise the user has to login each per system (ex. apache web server, IIS windows server, ...)
+* CA Single Sign-On (formerly CA SiteMinder)
+* CA SiteMinder Policy Server
+* CA SiteMinder authentication provider
+
+HTTP authentication schemas
+* Basic: uses the easily reversible Base64 encoding instead of hashing
+* Digest: applies a hash function to the username and password before sending them over the network
+* Bearer / OAuth
+    * Token based authentication
+    * is complementary to and distinct from ODIC
+    * ODIC and OAuth are often used together
+    * OAuth act as the authorization layer
+* NTLM NT LAN Manager authentication is a challenge-response scheme. NTLM uses Windows credentials to transform the challenge data.
+
+API Keys
+* access REST api with a key (no user required)
+
+JWT
+* JSON Web Token: is an encrypted JSON (format)
+* typicalls used with Bearer auth.
+
+ODIC
+* OpenID Connect
+* OIDC providing the user _authentication layer_
+
+Integrated Windows Authentication (IWA)
+* The current Windows user information on the client computer is used by the browser.
+
+Kerberos
+* is a computer-network authentication protocol 
+
+LDAP
+* Lightweight Directory Access Protocol is a standard application protocol
+* sharing of information on users, systems, networks, services, and applications
+* LDAP authentication is the process of validating a username and password with a directory service using the LDAP protocol.
+
+Links
+* https://doubleoctopus.com/security-wiki/
+* https://www.roytuts.com/how-siteminder-works/
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication
+* https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/understanding-http-authentication
+* https://docs.microsoft.com/en-us/aspnet/core/security/?view=aspnetcore-3.1
+* https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
+* https://jwt.io/introduction/
 
 # cryptography
 * encryption / ciphering / encoding
