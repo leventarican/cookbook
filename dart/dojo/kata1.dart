@@ -9,13 +9,23 @@
 
 // return nth triangular number
 triangular(n) {
-  print(n);
-
-  
-
-  return 3;
+  // ex. 2:
+  // **
+  // *
+  var sum = 0;
+  for (var i = n; i > 0; i--) {
+    print("*"*i);
+    sum += i;
+  }
+  return sum;
 }
 
+// triangular(n) => n < 0 ? 0 : (n+1)/2 * n;
+
 main(List<String> args) {
-  assert(triangular(2)==3);
+  // assert(triangular(2)==3);
+  triangular(0);
+  triangular(2);
+  triangular(3);
+  triangular(-10);
 }
