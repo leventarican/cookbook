@@ -256,6 +256,18 @@ hashtagline() {
   }, growable: false);
 }
 
+debug() {
+  // Stream<int>.value(3).forEach((element) {
+  //   print(element);
+  // });
+
+  // list.sort();
+
+  // var t = list.map((e) => e.toString()).toSet();
+
+  // var double_divide_int = 10 ~/ 3;
+}
+
 // omitting type void does work
 main() {
   String welcome = '''
