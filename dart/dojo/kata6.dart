@@ -18,6 +18,8 @@ int rowSumOddNumbers(int n) {
   return solution;
 }
 
+// int rowSumOddNumbers(int n) => n * n * n;
+
 main(List<String> args) {
   assert(rowSumOddNumbers(2) == 8);
   assert(rowSumOddNumbers(3) == 27);
