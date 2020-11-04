@@ -1,0 +1,63 @@
+/*
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+*/
+
+void cleanTheRoom()
+{
+    // we have 10,10 (rows,cols)
+    line();
+    nextLeft();
+    line();
+    nextRight();
+    line();
+    nextLeft();
+    line();
+    nextRight();
+    line();
+    nextLeft();
+    line();
+    nextRight();
+    line();
+    nextLeft();
+    line();
+    nextRight();
+    line();
+    nextLeft();
+    line();
+}
+
+void nextRight() 
+{
+    turnRight();
+    move();
+    turnRight();
+}
+
+void nextLeft() 
+{
+    turnLeft();
+    move();
+    turnLeft();
+}
+
+void line()
+{
+    repeat(9)
+    {
+        move();
+    }
+}
+
+void move()
+{
+    moveForward();
+    if (onBeeper())
+    {
+        pickBeeper();
+    }
+}
