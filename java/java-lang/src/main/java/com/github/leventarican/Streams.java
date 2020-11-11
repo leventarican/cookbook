@@ -71,9 +71,20 @@ public class Streams {
         System.out.println("all match 100: " + allMatch100);
     }
     
+    // do operations parallel: each operation is done in a cpu core
+    void parallelism() {
+        List<Integer> list = Arrays.asList(1,2,3,4);
+        System.out.println(list);
+        var a = list.parallelStream()
+                .mapToInt(i -> i)
+                .sum();
+        System.out.println(a);
+    }
+    
     public static void main(String[] args) {
         var app = new Streams();
-        app.code();
-        app.search();
+//        app.code();
+//        app.search();
+        app.parallelism();
     }
 }
