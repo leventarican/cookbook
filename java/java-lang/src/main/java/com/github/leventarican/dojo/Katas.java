@@ -30,7 +30,20 @@ public class Katas {
 
     //return an array with count of positives and sum of negatives
     public static int[] countPositivesSumNegatives(int[] input) {
-        return null; 
+        if ((input == null) || (input.length == 0)) return new int[] {};
+//        IntStream.of(input).filter(i -> i>0).reduce((a,b) -> a+b).ifPresent(System.out::println);
+        var s = IntStream.of(input).collect(StringBuilder::new,
+                StringBuilder::append, 
+                StringBuilder::append).toString();
+        System.out.println(s);
+        var count = IntStream.of(input)
+                .filter(i -> i>0)
+                .count();
+        var sum = IntStream.of(input)
+                .filter(i -> i<0)
+                .sum();
+        System.out.println(count + "; " + sum);
+        return new int[] {(int)count, sum};
     }
 
     public static void main(String[] args) {
@@ -43,10 +56,7 @@ public class Katas {
         abbrevName("Sam Harris");
         
         int[] expectedResult = new int[] {8, -50};
-        var a = IntStream.of(expectedResult)
-                .mapToObj(i -> "{i}")
-                .collect(Collectors.joining());
-        System.out.println(a);
-        countPositivesSumNegatives(new int[] {0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14});
+        int[] input = new int[] {0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14};
+        countPositivesSumNegatives(input);
     }
 }
