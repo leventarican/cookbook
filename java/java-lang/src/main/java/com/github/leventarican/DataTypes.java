@@ -16,6 +16,7 @@ public class DataTypes {
         {   // arrays
             int[] numbers = new int[3];
             String[] programmingLang = {"java", "python"};
+            String[] paradigm = new String[] {"oop", "functional programming"};
 
             for (int i = 0; i < numbers.length; i++) {
                 numbers[i] = new Random().nextInt(10);
