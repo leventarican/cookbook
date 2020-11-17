@@ -7,7 +7,7 @@ import com.github.leventarican.designpattern.factory.Car;
 import com.github.leventarican.designpattern.iterator.IteratorDemo;
 
 
-public class JavaLanguage {
+public class Main {
     public static void main( String[] args ) throws Exception {
         System.out.println( "#############" );
         System.out.println( "java language" );
@@ -64,9 +64,6 @@ public class JavaLanguage {
 //        
 //        IteratorDemo demo = new IteratorDemo();
 //        demo.exec();
-
-//        DataTypes dt = new DataTypes();
-//        dt.exec();
         
 //        Concurrency con = new Concurrency();
 //        con.exec();

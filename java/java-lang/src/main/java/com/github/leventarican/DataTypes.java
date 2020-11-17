@@ -1,5 +1,6 @@
 package com.github.leventarican;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,8 +13,10 @@ public class DataTypes {
     
     Logger log = Logger.getLogger(DataTypes.class.getSimpleName());
     
-    public void exec() {
-        {   // arrays
+
+    void arrays() {
+        System.out.println("#");
+        {
             int[] numbers = new int[3];
             String[] programmingLang = {"java", "python"};
             String[] paradigm = new String[] {"oop", "functional programming"};
@@ -39,6 +42,11 @@ public class DataTypes {
             log.log(Level.INFO, "array2D[0][1]: {0}", array2D[0][1]);
             log.log(Level.INFO, "array2D[1][1]: {0}", array2D[1][1]);
         }
+    }
+    
+    public static void main(String[] args) {
+        var app = new DataTypes();
+        app.arrays();
     }
 }
 

@@ -1,6 +1,6 @@
 package com.github.leventarican.neuronalnetwork;
 
-import com.github.leventarican.JavaLanguage;
+import com.github.leventarican.Main;
 
 /**
  * simple neuronal network: perceptron model.

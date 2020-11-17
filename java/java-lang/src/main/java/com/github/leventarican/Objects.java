@@ -1,5 +1,10 @@
 package com.github.leventarican;
 
+/**
+ * the type of an object is defined by its class or interface
+ * 
+ * @author levent
+ */
 public class Objects {
 
     String field0 = "every objects is based on class Object.";
