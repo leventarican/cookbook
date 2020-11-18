@@ -19,11 +19,6 @@ public class Main {
 //        Collections collections = new Collections();
 //        collections.exec();
 //
-//        Loops loops = new Loops();
-//        loops.exec();
-//
-//        new Clazz().new MemberClass();
-//        Clazz.StaticClass.whoami();
 //        /*
 //        inner class: LocalClass
 //        inner class: anonymous
@@ -64,9 +59,6 @@ public class Main {
 //        
 //        IteratorDemo demo = new IteratorDemo();
 //        demo.exec();
-        
-//        Concurrency con = new Concurrency();
-//        con.exec();
 
         Files f = new Files();
         f.exec();

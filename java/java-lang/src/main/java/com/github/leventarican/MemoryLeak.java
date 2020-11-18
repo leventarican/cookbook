@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * REMARK: 
+ * garbage collection dramatically reduces the incidence of memory leaks.
+ * but a memory leak can still occurs.
+ * 
+ * A memory leak occurs when memory is allocated and never reclaimed.
+ * 
+ * DEMO: how to force a memory leak.
  * limit your heap size. e.g. set maximum Java heap size to 1024 to force a memory exception
  * create objects, reference it but don't use it --> memory leak
  * use visualvm (visualvm.exe --jdkhome) for memory monitoring. also with a usual task memory manager you can see the memory rising
