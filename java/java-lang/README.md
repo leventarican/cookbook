@@ -19,3 +19,6 @@ Java is a conservative language.
 # Pass by reference
 * java is a pass-by-reference language; not a pass by value lang.
 * values are not directly passed in methods; instead the reference.
+
+# Design
+* use SOLID principles to avoid bad design

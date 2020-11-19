@@ -1,4 +1,4 @@
-package com.github.leventarican.solid.liskovsubstitution;
+package com.github.leventarican.solid.liskovsubstitution.example0;
 
 /**
  * we assume that a java developer write code in JVM compatible code: java,

@@ -1,4 +1,4 @@
-package com.github.leventarican.solid.liskovsubstitution;
+package com.github.leventarican.solid.liskovsubstitution.example0;
 
 /**
  * @author levent

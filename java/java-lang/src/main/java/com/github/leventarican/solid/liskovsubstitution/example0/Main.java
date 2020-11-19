@@ -1,4 +1,4 @@
-package com.github.leventarican.solid.liskovsubstitution;
+package com.github.leventarican.solid.liskovsubstitution.example0;
 
 /**
  * every subclass or derived class should be substitutable for their parent or
