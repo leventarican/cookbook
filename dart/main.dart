@@ -266,6 +266,29 @@ debug() {
   // var t = list.map((e) => e.toString()).toSet();
 
   // var double_divide_int = 10 ~/ 3;
+
+  // var listOfInts = [1, 2, 3];
+  // var listOfStrings = [
+  // '#0',
+  // for (var i in listOfInts) '#$i'
+  // ];
+
+  // var b = [
+  //   for (var i = 0; i < alphabet.length; i++) // abcdef...
+  //   for (var a in arr)  // "example"
+  //   for (var c in a.split(""))  // e
+  //   if (alphabet[i] == c) c = i.toString()
+  // ];
+
+  // var numbers = [for(int i=1; i<n; i++) i%2!=0 ? i :-1].where((element) => element > -1);
+  // (1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41)
+  // print(numbers);
+
+  // gaussian sum: 1 + 2 + 3 ...
+  // var gaussiansum = List.generate(n+n, (index) => index + 1)
+  //     .reduce((value, element) => value + element);
+
+  // new String.fromCharCode(str.runes.elementAt(index)).toUpperCase();
 }
 
 // omitting type void does work

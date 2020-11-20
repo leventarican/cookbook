@@ -3,9 +3,10 @@
 import 'dart:math';
 
 int movie(int card, int ticket, double perc) {
-  var c = 1;
+  var c = 0;
   print(pow(perc, c).ceil());
-  var d = card + (ticket.toDouble()*pow(perc, c)).ceil();
+  var d = (card + ticket.toDouble()*pow(perc, c)).ceil();
+  print(d);
   // ceil(price of System B) < price of System A.
   while(d > ticket*c++) {
     var t = ticket.toDouble()*pow(perc, c);
@@ -17,6 +18,6 @@ int movie(int card, int ticket, double perc) {
 }
 
 main(List<String> args) {
-  // assert(movie(500, 15, 0.9) == 43);
-  assert(movie(0, 10, 0.95) == 2);
+  assert(movie(500, 15, 0.9) == 43);
+  // assert(movie(0, 10, 0.95) == 2);
 }
