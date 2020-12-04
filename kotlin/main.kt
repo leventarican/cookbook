@@ -4,6 +4,8 @@ compile:    kotlinc main.kt
 run:        kotlin MainKt
 
 or:         kotlinc main.kt && kotlin MainKt
+or:         kotlinc main.kt -include-runtime -d main.jar
+run:        java -jar main.jar
 */
 
 fun label() {

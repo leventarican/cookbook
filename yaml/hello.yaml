@@ -4,22 +4,21 @@ kind: Pod
 
 # a list
 programming_lang:
-        - java
-        - kotlin
-        - python
+  - java
+  - kotlin
+  - python
 
 programming_language: [java, kotlin, python]
 
 # a dictionary: collection of key: value mappings
 java:
-        version: 11
-        type: 'object oriented programming language'
+  version: 11
+  type: 'object oriented programming language'
 
 
 # maps in lists
 users:
-        - user: 'foo'
-          pass: 'java'
-        - user: 'bar'
-          pass: 'kotlin'
-
+  - user: 'foo'
+    pass: 'java'
+  - user: 'bar'
+    pass: 'kotlin'
