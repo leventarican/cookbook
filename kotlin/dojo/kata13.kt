@@ -11,7 +11,12 @@ fun containAllRots(strng:String, arr:ArrayList<String>):Boolean {
     println("string has $rotations rotations")
 
     strng.forEachIndexed {
-        k, v -> println("$k; $v")
+        k, _ -> run {
+            val s = strng.substring(k+1..rotations-1) + strng.substring(0..k)
+            val i = s in arr
+            println("$s in array: ${i}")
+            if (i == false) return false
+        }
     }
 
     return true
@@ -21,3 +26,5 @@ fun main() {
     var a = arrayListOf("bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs")
     containAllRots("bsjq", a)
 }
+
+// return arr.containsAll(List(strng.length) { (strng.drop(it) + strng.take(it)) })
