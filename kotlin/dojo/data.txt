@@ -1,0 +1,2 @@
+www.firefox.com|www.codewars.com|www.github.com
+EOF
