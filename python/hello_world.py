@@ -38,10 +38,3 @@ partitions = max(100/(3*10), 100/(5*10))
 print(partitions)
 partitions = max(250/10, 250/12)
 print(partitions)
-
-# datetime
-# https://docs.python.org/3/library/datetime.html
-from datetime import datetime
-
-now = datetime.utcnow()
-print(f"UTC now: {now}")
