@@ -10,3 +10,7 @@ if __name__ == "__main__":
     a = ['3', '123124234', None, 'needle', 'world', 'hay', 2, '3', True, False]
     e = "found the needle at position 3"
     assert(find_needle(a) == e)
+
+# return [sum(n > 0 for n in arr), sum(n for n in arr if n < 0)] if arr else []
+
+# return [len([x for x in arr if x > 0])] + [sum(y for y in arr if y < 0)] if arr else []
