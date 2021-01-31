@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 /**
  * @author Levent
  */
-public class App extends Application {
+public class LoginExample extends Application {
 
     private Label label;
     
@@ -73,6 +73,6 @@ public class App extends Application {
     
 
     public static void main(String[] args) {
-        Application.launch(args);
+        launch(args);
     }
 }
