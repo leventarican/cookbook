@@ -5,6 +5,7 @@ package com.github.leventarican.javafx;
  */
 public class Main {
     public static void main(String[] args) {
-        LoginExample.main(args);
+//        LoginExample.main(args);
+        Code.main(args);
     }
 }

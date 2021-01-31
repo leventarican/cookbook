@@ -30,3 +30,7 @@
 </actions>
 ```
 
+## Links
+* https://o7planning.org/11009/javafx
+* https://dzone.com/refcardz/javafx-8-1?chapter=6
+* https://github.com/jjenkov/javafx-examples/blob/main/src/main/java/com/jenkov/javafx/gfx2d/Gfx2DExample.java
