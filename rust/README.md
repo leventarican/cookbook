@@ -3,6 +3,7 @@
 * _cargo_ is the build system and package manager. dependencies will be automatically downloaded.
 * _crates_ are _libraries_
 * _modules_ code organizing
+* _attributes_ are _annotations_ / attributes
 
 ## Install
 * use `rustup`
