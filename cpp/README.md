@@ -1,3 +1,11 @@
+# ISO C++
+
+## compile and run
+```
+g++ i.cpp && ./a.out
+g++ -std=c++11 i.cpp && ./a.out
+```
+
 # OpenGL with GLFW
 * install under linux
     * cmake: generate build files
