@@ -5,6 +5,9 @@ Java is a conservative language.
 * are wrapper around the data source
 * do bulk operations on the data source in concise way
 
+## Links
+https://docs.oracle.com/javase/tutorial/collections/streams/parallelism.html
+
 # Java Syntax
 * __operators__ group tokens intro larger expressions
 * __statements__ group of expressions and other statements

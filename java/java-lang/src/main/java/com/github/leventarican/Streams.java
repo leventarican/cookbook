@@ -72,7 +72,7 @@ public class Streams {
     }
     
     // do operations parallel: each operation is done in a cpu core
-    void parallelism() {
+    void parallelism0() {
         List<Integer> list = Arrays.asList(1,2,3,4);
         System.out.println(list);
         var a = list.parallelStream()
@@ -81,10 +81,24 @@ public class Streams {
         System.out.println(a);
     }
     
+    void parallelism1() {
+        List<Integer> list = Arrays.asList(1,2,3,4);
+        list.parallelStream()
+                .map(Code::process)
+                .forEach(i -> System.out.println(i));
+    }
+    
+    static class Code {
+        static Integer process(Integer i) {
+            return i + 100;
+        }
+    }
+    
     public static void main(String[] args) {
         var app = new Streams();
 //        app.code();
 //        app.search();
-        app.parallelism();
+//        app.parallelism0();
+        app.parallelism1();
     }
 }
