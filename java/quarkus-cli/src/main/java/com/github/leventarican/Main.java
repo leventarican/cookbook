@@ -1,13 +1,12 @@
 package com.github.leventarican;
 
 import io.quarkus.runtime.QuarkusApplication;
-import io.quarkus.runtime.annotations.QuarkusMain;
 import javax.inject.Inject;
 
 /**
  * @author levent
  */
-@QuarkusMain
+//@QuarkusMain
 public class Main implements QuarkusApplication {
     
     @Inject
