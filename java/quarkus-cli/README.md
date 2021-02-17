@@ -16,3 +16,8 @@ Java version: 15
 Quarkus application exited with code 100
 Press Enter to restart or Ctrl + C to quit
 ```
+* run with QUARKUS_PROFILE
+* example `%staging` in `application.properties`
+```
+mvn -Dquarkus-profile=staging compile quarkus:dev
+```
