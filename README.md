@@ -4,12 +4,12 @@
 * [cryptography](#cryptography)
 * [security](#security)
 * [h2 database](#h2-database)
-* [cheatsheet: linux](#cheatsheet:-linux)
-* [cheatsheet: windows](#cheatsheet:-windows)
+* [cheatsheet: linux](#cheatsheet-linux)
+* [cheatsheet: windows](#cheatsheet-windows)
 * [testing](#testing)
 
-# cheatsheet: intellij / android studio
-
+# shortcuts
+* intellij, android studio
 ```
 SHIFT + F6  // rename
 CTRL + SHIFT + R    // find and replace

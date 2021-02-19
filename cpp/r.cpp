@@ -14,6 +14,5 @@ int main() {
     std::cout << b << std::endl;
 }
 
-// $ g++ -std=c++11 kata5.cpp && ./a.exe
 // 100
 // 101
