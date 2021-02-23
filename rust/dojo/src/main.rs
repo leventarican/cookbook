@@ -37,11 +37,46 @@ mod kata3 {
     }
 }
 
+// https://www.codewars.com/kata/576bb71bbbcf0951d5000044/solutions/rust
+mod kata4 {
+    #[allow(unused)]
+    pub fn count_positives_sum_negatives(input: Vec<i32>) -> Vec<i32> {
+        if input.len() < 1 {
+            return vec![];
+        }
+
+        let mut p = 0;
+        let mut n = 0;
+
+        for i in 0..input.len() {
+            if input[i] > 0 {
+                println!("p: {}", input[i]);
+                p += 1
+            } else {
+                println!("n: {}", input[i]);
+                n += input[i]
+            }
+        }
+
+        println!("#");
+
+        let out = vec![p, n];
+        for i in 0..out.len() {
+            println!("{}", out[i]);
+        }
+        return out;
+    }
+}
+
+#[allow(unused)]
 static RUST: &str = "RUST";
 
 fn main() {
     // kata0::code();
     // kata1::code();
     // kata2::switch();
-    kata3::to_base64(&RUST)
+    // kata3::to_base64(&RUST)
+
+    let k4 = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
+    kata4::count_positives_sum_negatives(k4);
 }
