@@ -61,6 +61,16 @@ class CodeComputer(ram: Int, batteryLifetimeInH: Int) {
     }
 }
 
+class Properties {
+    var id: Int = 0
+    get() = field
+    set(value) {
+        field = value + 100
+    }
+
+
+}
+
 fun main() {
     val fc = FinalClass()
     fc.introduce()
@@ -80,5 +90,10 @@ fun main() {
     println(Code("java"))
 
     val cc = CodeComputer(16)
-    println(cc)   
+    println(cc)
+
+    val p = Properties()
+    println("${p.id}")
+    p.id = 2
+    println("${p.id}")
 }
