@@ -2,6 +2,8 @@
 // compile and run: kotlinc classes.kt && kotlin ClassesKt
 // #############################################################################
 
+import kotlin.reflect.KProperty
+
 class FinalClass {
     fun introduce() = println("class is by default final")
 }
@@ -81,6 +83,18 @@ class Properties {
     val print = {
         println("access _backing: $_backing")
     }
+
+    var del: String by Delegated()
+}
+
+class Delegated {
+    // operator function: using . operator
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
+        return "getting: $thisRef"
+    }
+    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
+        println("setting $thisRef to $value")
+    }
 }
 
 fun main() {
@@ -108,6 +122,7 @@ fun main() {
     println("${p.field}")
     println("${p.id}")
     p.id = 2
-
     p.print()
+    println(p.del)
+    p.del = "works"
 }
