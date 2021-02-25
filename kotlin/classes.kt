@@ -62,13 +62,25 @@ class CodeComputer(ram: Int, batteryLifetimeInH: Int) {
 }
 
 class Properties {
+    val field: String = "a field"
+
+    // property: a private field with getter / setter
     var id: Int = 0
     get() = field
     set(value) {
         field = value + 100
+        println("setting id to: $id")
     }
 
+    private val _backing: String = "backing field with underscore"
+    val backing: String 
+    get() {
+        return _backing
+    }
 
+    val print = {
+        println("access _backing: $_backing")
+    }
 }
 
 fun main() {
@@ -93,7 +105,9 @@ fun main() {
     println(cc)
 
     val p = Properties()
+    println("${p.field}")
     println("${p.id}")
     p.id = 2
-    println("${p.id}")
+
+    p.print()
 }
