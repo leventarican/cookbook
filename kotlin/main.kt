@@ -17,18 +17,6 @@ fun label() {
     }
 }
 
-fun collections() {
-    val numbers = listOf(0, 1, 2, 3, 4);
-    val even = numbers.filter { it % 2 == 0 }
-    log("even: $even")
-    
-    numbers.forEach { log("each number: $it") }
-    numbers.iterator().forEach { log("it numbers: $it") }
-
-    val computer = listOf("cpu", "memory", "disk")
-    computer.forEach { log("computer: $it") }
-}
-
 fun loops(): Unit {
     for (i in (0..4)) {
         log("as usual: $i")
@@ -59,8 +47,7 @@ fun main() {
     val x = 7; add(3, x)
 
     loops()
-    collections()
-
+    
     label()
 
     val y = (0..3).random()
