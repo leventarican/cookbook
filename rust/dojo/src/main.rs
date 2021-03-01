@@ -68,6 +68,16 @@ mod kata4 {
     }
 }
 
+// https://www.codewars.com/kata/54edbc7200b811e956000556/train/rust
+mod kata5 {
+    #[allow(unused)]
+    pub fn count_sheep(sheep: &[bool]) -> u8 {
+        let a = sheep.iter().filter(|x| **x == true).count() as u8;
+        println!("{}", a);
+        return a
+    }
+}
+
 #[allow(unused)]
 static RUST: &str = "RUST";
 
@@ -77,6 +87,8 @@ fn main() {
     // kata2::switch();
     // kata3::to_base64(&RUST)
 
-    let k4 = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
-    kata4::count_positives_sum_negatives(k4);
+    // let k4 = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
+    // kata4::count_positives_sum_negatives(k4);
+
+    kata5::count_sheep(&[true, true, true, false, true, false, true, false]);
 }
