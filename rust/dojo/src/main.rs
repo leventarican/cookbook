@@ -78,6 +78,17 @@ mod kata5 {
     }
 }
 
+// https://www.codewars.com/kata/5583090cbe83f4fd8c000051/train/rust
+// example: 348597 => [7,9,5,8,4,3]
+mod kata6 {
+    #[allow(unused)]
+    pub fn digitize(n: u64) -> Vec<u8> {
+        let a: u8 = 1;
+
+        vec![a, 2]
+    }
+}
+
 #[allow(unused)]
 static RUST: &str = "RUST";
 
@@ -90,5 +101,8 @@ fn main() {
     // let k4 = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
     // kata4::count_positives_sum_negatives(k4);
 
-    kata5::count_sheep(&[true, true, true, false, true, false, true, false]);
+    // kata5::count_sheep(&[true, true, true, false, true, false, true, false]);    
+    let n: u64 = 700;
+    let v = kata6::digitize(n);
+    println!("{}", v.len());
 }
