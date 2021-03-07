@@ -79,13 +79,20 @@ mod kata5 {
 }
 
 // https://www.codewars.com/kata/5583090cbe83f4fd8c000051/train/rust
+// https://www.codewars.com/kata/5583090cbe83f4fd8c000051/solutions/rust
 // example: 348597 => [7,9,5,8,4,3]
 mod kata6 {
     #[allow(unused)]
     pub fn digitize(n: u64) -> Vec<u8> {
-        let a: u8 = 1;
-
-        vec![a, 2]
+        let str: String = n.to_string();
+        let mut chars:Vec<char> = str.chars().collect();
+        chars.reverse();
+        let mut v: Vec<u8> = Vec::new();
+        for c in chars {
+            let d = c.to_digit(10).unwrap() as u8;
+            v.push(d);
+        }
+        return v;
     }
 }
 
@@ -103,6 +110,5 @@ fn main() {
 
     // kata5::count_sheep(&[true, true, true, false, true, false, true, false]);    
     let n: u64 = 700;
-    let v = kata6::digitize(n);
-    println!("{}", v.len());
+    kata6::digitize(n);
 }
