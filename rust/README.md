@@ -23,6 +23,7 @@ __example projects__
 * https://github.com/getzola/zola   // static site generator
 * https://github.com/hecrj/zelda
 * https://github.com/tari-project/tari
+* https://github.com/maxmcc/rust-jvm
 
 __GDNative__
 * write Godot games in Rust

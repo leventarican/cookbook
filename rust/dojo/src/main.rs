@@ -96,6 +96,48 @@ mod kata6 {
     }
 }
 
+mod kata7 {
+    #[allow(unused)]
+    pub fn code() -> () {
+        let data = vec![0, 1, 1, 1];
+        let s: String = data.iter().map(|d| d.to_string()).rev().collect();
+        println!("# {}", s)
+    }
+}
+
+mod kata8 {
+    #[allow(unused)]
+    pub fn code() {
+        println!("# nested functions ready.");
+
+        fn fetch_data() -> String {
+            return String::from("01001010");
+        }
+
+        println!("# fetching data");
+
+        let data: String = fetch_data();
+        println!("# data fetched: {}", data)
+    }
+}
+
+mod kata9 {
+    #[allow(unused)]
+    pub fn code() {
+        println!("# match: like switch in java");
+
+        for x in 0..7 {
+            print!("{}: ", x);
+
+            match x {
+                0 | 1 => println!("binary"),
+                2 | 4 => println!("even number"),
+                _ => println!("undefined number")
+            }
+        }
+    }
+}
+
 #[allow(unused)]
 static RUST: &str = "RUST";
 
@@ -108,7 +150,12 @@ fn main() {
     // let k4 = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
     // kata4::count_positives_sum_negatives(k4);
 
-    // kata5::count_sheep(&[true, true, true, false, true, false, true, false]);    
-    let n: u64 = 700;
-    kata6::digitize(n);
+    // kata5::count_sheep(&[true, true, true, false, true, false, true, false]);
+
+    // let n: u64 = 700;
+    // kata6::digitize(n);
+
+    // kata7::code();
+    // kata8::code();
+    kata9::code();
 }
