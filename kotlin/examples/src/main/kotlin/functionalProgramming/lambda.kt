@@ -1,10 +1,10 @@
 package functionalProgramming
 
-fun example0(i: Int, count: () -> Long) {
+private fun example0(i: Int, count: () -> Long) {
     println("# type of parameter count is: () -> Long; result: ${i + count()}")
 }
 
-fun example1(a: () -> Int, b: () -> Int) {
+private fun example1(a: () -> Int, b: () -> Int) {
     println("# a: ${a()}; b: ${b()}")
 }
 
@@ -24,4 +24,13 @@ fun main() {
 
     val example3: (Int) -> Int = { i -> i * 3 }
     println("# ${example3(2)}")
+
+    val example4: () -> Unit = {
+        println("# variable with type: () -> Unit")
+    }
+    example4()
+
+    val example5: (String, String) -> String = { x, y -> "$x$y"}
+    val concat = example5("kot", "lin")
+    println("# $concat")
 }
