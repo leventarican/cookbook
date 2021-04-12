@@ -5,3 +5,5 @@ karel.jar
 /java/javafx/netbeans-example/target/
 /java/javafx/login/target/
 /java/javafx/examples/target/
+
+*.out

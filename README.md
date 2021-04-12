@@ -99,7 +99,7 @@ rm jdk  // remove symbolic link
 convert -resize 25% screenshot.png screenshot.png
 ```
 
-* config the environment variable PATH. Put that in ~/.profile (restart)
+* config the environment variable PATH. Put that in `~/.profile` (restart)
 
 __user management__
 * create user: `useradd guest`
@@ -161,12 +161,6 @@ PATH="$HOME/development/netbeans/bin:$PATH"
 ```
 
 ## general
-
-__image resize__
-```
-# imagemagic must installed
-convert -resize 70% sketch.png sketch-.png
-```
 
 __iso to usb stick__
 
