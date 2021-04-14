@@ -138,6 +138,22 @@ mod kata9 {
     }
 }
 
+mod kata10 {
+    #[allow(unused)]
+    pub fn code() {
+        let a: i8 = 127;
+
+        let v = a.to_string().chars()
+        .map(|c| c.to_digit(10).unwrap() as u8)
+        // .rev()
+        .collect::<Vec<u8>>();
+
+        for i in 0..v.len() {
+            println!("{:?}", v[i]);
+        }
+    }
+}
+
 #[allow(unused)]
 static RUST: &str = "RUST";
 
@@ -157,5 +173,6 @@ fn main() {
 
     // kata7::code();
     // kata8::code();
-    kata9::code();
+    // kata9::code();
+    kata10::code();
 }
