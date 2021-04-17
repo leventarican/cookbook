@@ -3,6 +3,8 @@ package com.github.leventarican;
 import java.nio.charset.StandardCharsets;
 
 /**
+ * bits := binary digits
+ * 
  * boolean 1 bit
  * byte    8 bits
  * char    16 bits
