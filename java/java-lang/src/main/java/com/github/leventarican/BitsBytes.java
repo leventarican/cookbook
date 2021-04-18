@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
  * double  64 bits
  */
 public class BitsBytes {
-    public void exec() {
+    static void exec() {
         System.out.println("\nBits and Bytes:");
 
         System.out.println("0b0000_0001: " + 0b00000001);
@@ -51,10 +51,31 @@ public class BitsBytes {
         dtype(max_32bit >> 24);
     }
     
-    void dtype(int x) {
+    static void dtype(int x) {
         System.out.println("int: " + x);
     }
-    void dtype(long x) {
+    static void dtype(long x) {
         System.out.println("long: " + x);
+    }
+    
+    static void operators() {
+        // 0000 0011
+        byte eight = 3;
+        // 1111 1100
+        byte guesswhat = ~3;
+        System.out.println(eight);
+        System.out.println(guesswhat);
+        
+        // 0000 0100
+        byte a = 4;
+        // 0000 0101
+        byte b = 5;
+        // 0000 0100
+        System.out.println(a & b);
+    }
+    
+    public static void main(String[] args) {
+        exec();
+        operators();
     }
 }
