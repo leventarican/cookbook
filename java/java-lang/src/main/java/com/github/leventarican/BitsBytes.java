@@ -61,7 +61,7 @@ public class BitsBytes {
     static void operators() {
         // 0000 0011
         byte eight = 3;
-        // 1111 1100
+        // invert (unary bitwise complement operator): 1111 1100
         byte guesswhat = ~3;
         System.out.println(eight);
         System.out.println(guesswhat);
@@ -74,8 +74,15 @@ public class BitsBytes {
         System.out.println(a & b);
     }
     
+    static void wise_shift() {
+        int mask = 0x0F;
+        int val = 0xFF;
+        System.out.println(val & mask);
+    }
+    
     public static void main(String[] args) {
         exec();
         operators();
+        wise_shift();
     }
 }
