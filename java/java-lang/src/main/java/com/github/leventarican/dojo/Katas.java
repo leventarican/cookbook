@@ -88,6 +88,22 @@ public class Katas {
         return "";
     }
     
+    static void factorial1(int n) {
+        // n! = 1 * 2 * ... * n
+        int result = 1;
+        for (int i=1; i<=n; i++) {
+            result *= i;
+        }
+        System.out.println("factorial of " + n + " = " + result);
+    }
+    
+    static void factortial2(int start, int end, int n) {
+        System.out.println(String.format("factorial (recursive) s=%d; e=%d; n=%d", start, end, n));
+        if (start < end) {
+            factortial2(++start, end, start*n);
+        }
+    }
+    
     public static void main(String[] args) {
         makeNegative(-42);
         makeNegative(42);
@@ -106,5 +122,9 @@ public class Katas {
         factorial(5);
         
         makeComplement("GTAT");
+        
+        factorial1(5);
+        
+        factortial2(1, 5, 1);
     }
 }
