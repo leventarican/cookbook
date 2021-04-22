@@ -104,6 +104,14 @@ public class Katas {
         }
     }
     
+    static void positiveSum(int[] n) {
+        int sum = 0;
+        for (int i=0; i<n.length; i++) {
+            sum += n[i]>0 ? n[i] : 0;
+        }
+        System.out.println("sum: " + sum);
+    }
+    
     public static void main(String[] args) {
         makeNegative(-42);
         makeNegative(42);
@@ -126,5 +134,7 @@ public class Katas {
         factorial1(5);
         
         factortial2(1, 5, 1);
+        
+        positiveSum(new int[] {1, -4, 3, 4});
     }
 }
