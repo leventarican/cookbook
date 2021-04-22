@@ -80,9 +80,30 @@ public class BitsBytes {
         System.out.println(val & mask);
     }
     
+    // negative bit representation
+    static void binary(int n) {
+        String b = Integer.toBinaryString(n);
+        String r = String.format("%32s", b).replaceAll(" ", "0");
+        System.out.println(b + "; " + r);
+    }
+    
+    static boolean isPalindromic(String n) {
+        for (int i=0, j=n.length()-1; i<j; i++, j--) {
+            if (n.charAt(i) != n.charAt(j)) {
+                System.out.println("palindromic? no");
+                return false;
+            }
+        }
+        System.out.println("palindromic? yes");
+        return true;
+    }
+    
     public static void main(String[] args) {
         exec();
         operators();
         wise_shift();
+        binary(2);
+        binary(-2);
+        isPalindromic("abccba");
     }
 }
