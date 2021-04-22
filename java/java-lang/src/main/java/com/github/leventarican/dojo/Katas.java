@@ -112,6 +112,24 @@ public class Katas {
         System.out.println("sum: " + sum);
     }
     
+    /*
+    a prime number (or a prime) 
+    is a natural number greater than 1 
+    that has no positive divisors other than 1 and itself.
+    */
+    static boolean isPrime(int n) {
+        if (n > 1) {
+            for (int i=2; i<n; i++) {
+                if (n%i == 0) {
+                    System.out.println(n + " is NOT a prime.");
+                    return false;
+                }
+            }
+        }
+        System.out.println(n + " is a prime.");
+        return true;
+    }
+    
     public static void main(String[] args) {
         makeNegative(-42);
         makeNegative(42);
@@ -136,5 +154,7 @@ public class Katas {
         factortial2(1, 5, 1);
         
         positiveSum(new int[] {1, -4, 3, 4});
+        
+        isPrime(73);
     }
 }
