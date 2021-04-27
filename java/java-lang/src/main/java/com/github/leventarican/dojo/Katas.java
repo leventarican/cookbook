@@ -130,6 +130,16 @@ public class Katas {
         return true;
     }
     
+    // https://www.codewars.com/kata/525e5a1cb735154b320002c8/train/java
+    static int tringular(int n) {
+        int dots = 0;
+        for (int i=0; i<=n; i++) {
+            dots += i;
+        }
+        System.out.println(dots);
+        return dots;
+    }
+    
     public static void main(String[] args) {
         makeNegative(-42);
         makeNegative(42);
@@ -156,5 +166,7 @@ public class Katas {
         positiveSum(new int[] {1, -4, 3, 4});
         
         isPrime(73);
+        
+        tringular(4);
     }
 }
