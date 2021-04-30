@@ -5,8 +5,11 @@
 
 package com.github.leventarican.dojo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -163,6 +166,173 @@ public class Katas {
             .allMatch(arr::contains);
     */
     
+    
+    // https://www.codewars.com/kata/5526fc09a1bbd946250002dc/train/java
+    /*
+    [2, 4, 0, 100, 4, 11, 2602, 36]
+    Should return: 11 (the only odd number)
+    */
+    static int parityOutlier(int[] n) {
+        /*
+        1. find number of odds
+        2. find number of evens
+        compare which is bigger
+        the lower should be exactly once.
+        */
+        
+        // corner case
+        if (n.length < 3) {
+            return 0;
+        }
+
+        int o = 0;
+        int e = 0;
+        for (int i=0; i<n.length; i++) {
+            if ((n[i] % 2) != 0) {
+                o++;
+            } else {
+                e++;
+            }
+        }
+        
+        System.out.println("o: " + o + "; e: " + e);
+        
+        if (o == 1) {
+            for (int i=0; i<n.length; i++) {
+                if ((n[i] % 2) != 0) {
+                    System.out.println("o: " + n[i]);
+                    return n[i];
+                }
+            }
+        } else if (e == 1) {
+            for (int i=0; i<n.length; i++) {
+                if ((n[i] % 2) == 0) {
+                    System.out.println("e: " + n[i]);
+                    return n[i];
+                }
+            }
+        }
+        
+        // O(2n)
+        
+        return 0;
+    }
+    /*
+    int[] odd = Arrays.stream(integers).filter(n -> n % 2 != 0).toArray();
+    int[] even = Arrays.stream(integers).filter(n -> n % 2 == 0).toArray();
+    return odd.length == 1 ? odd[0] : even[0];
+    */
+    
+    // https://www.codewars.com/kata/5659c6d896bc135c4c00021e/train/java
+    /*
+    nextSmaller(21) == 12
+    nextSmaller(531) == 513
+    nextSmaller(2071) == 2017
+    */
+    static long nextSmaller(long n) {
+        /*
+        0. iterate reverse and compare if all numbers contained
+        1. corner cases: duplicates number e.g. 900
+        */
+        
+        System.out.println("# INPUT: " + n);
+        
+        if (n < 0) {
+            return -1L;
+        }
+        
+        List<String> a = List.of(String.valueOf(n).split(""));
+        System.out.println(a);
+        
+        for (long i=n-1; i>0; i--) {
+            
+            System.out.println(i);
+            
+            if (i < n-100) {
+                return -1L;
+            }
+            
+            String[] b = String.valueOf(i).split("");
+            
+            // corner case: e.g. 111
+            if (a.size() != b.length) {
+                System.out.println("# RETURN -1");
+                return -1L;
+            }
+            
+            List<String> c = new ArrayList<>();
+            for (String bb : b) {
+                c.add(bb);
+            }
+            
+            if (c.containsAll(a)) {
+                System.out.println("CONTAINS");
+                return -1L;
+                // corner case: 441
+//                for (String aa : a) {
+//                    if (c.contains(aa)) {
+//                        c.remove(aa);
+//                    }
+//                }
+//                if (c.isEmpty()) {
+//                    
+//                    // corner case: skip 0
+//                    if (b[0].equals("0")) {
+//                        System.out.println("# RETURN -1");
+//                        return -1L;
+//                    }
+//                    
+//                    System.out.println("# RETURN " + i);
+//                    return i;
+//                }
+            }
+        }
+        
+        // O(n²)
+        
+        System.out.println("# RETURN -1");
+        return -1L;
+    }
+    
+    static void code1() {
+        long a = 123456789;
+        String b = String.valueOf(a);
+        long c = 123456739;
+        String d = String.valueOf(c); 
+        
+        for (int i=0; i<b.length(); i++) {
+            System.out.println("# " + b.charAt(i));
+            
+        }
+        
+        // O(n²)
+    }
+    
+    static void code0() {
+        long a = 123456789;
+        List<String> b = List.of(String.valueOf(a).split(""));
+        
+        long c = 123456739;
+        String[] d = String.valueOf(c).split("");
+        List<String> e = new ArrayList<>();
+        for (String s : d) {
+            e.add(s);
+        }
+        
+        /*
+        iterate 123456789
+        1 in 123456739 ? 
+        2 in 123456739 ? 
+        ...
+        8 in 123456739 ? --> FALSE
+        ...
+        */
+        for (String s : d) {
+            System.out.println("#" + e.contains(s));
+            e.remove(s);
+        }
+    }
+    
     public static void main(String[] args) {
         makeNegative(-42);
         makeNegative(42);
@@ -194,5 +364,21 @@ public class Katas {
         
         List<String> a = Arrays.asList("abc", "cab", "bca");
         rotations("abc", a);
+        
+//        parityOutlier(new int[] {2, 4, 0, 100, 4, 11, 2602, 36});
+        parityOutlier(new int[] {2, -6, 8, -10, -3});
+        
+//        nextSmaller(441);
+//        nextSmaller(907);
+//        nextSmaller(55);
+//        nextSmaller(1027);
+        
+        // 21.308 s
+//        nextSmaller(123456789);
+//        123456739
+        
+        code0();
+        code1();
+        
     }
 }
