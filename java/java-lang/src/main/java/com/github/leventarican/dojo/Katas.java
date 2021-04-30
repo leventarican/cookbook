@@ -6,6 +6,7 @@
 package com.github.leventarican.dojo;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -140,6 +141,28 @@ public class Katas {
         return dots;
     }
     
+    // https://www.codewars.com/kata/5700c9acc1555755be00027e/train/java
+    static boolean rotations(String s, List<String> a) {        
+        StringBuilder b = new StringBuilder(s);
+        for (int i=0; i<s.length(); i++) {
+            b.insert(0, b.charAt(b.length()-1));
+            b.delete(b.length()-1, b.length());
+            String r = b.toString();
+            System.out.println(r);
+            
+            if (!a.contains(r)) {
+                System.out.println("array doesn't contain all rotations");
+                return false;
+            }
+        }
+        return true;
+    }
+    /*
+    return IntStream.range(0, strng.length())
+            .mapToObj(i -> strng.substring(i) + strng.substring(0, i))
+            .allMatch(arr::contains);
+    */
+    
     public static void main(String[] args) {
         makeNegative(-42);
         makeNegative(42);
@@ -167,6 +190,9 @@ public class Katas {
         
         isPrime(73);
         
-        tringular(4);
+        tringular(1275);
+        
+        List<String> a = Arrays.asList("abc", "cab", "bca");
+        rotations("abc", a);
     }
 }
