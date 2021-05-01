@@ -7,9 +7,14 @@ package com.github.leventarican.dojo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -294,16 +299,186 @@ public class Katas {
         return -1L;
     }
     
-    static void code1() {
-        long a = 123456789;
-        String b = String.valueOf(a);
-        long c = 123456739;
-        String d = String.valueOf(c); 
+    static long nextSmallerEnhanced(long n) {
+        String[] a = String.valueOf(n).split("");
+        String[] backup = a.clone();
         
-        for (int i=0; i<b.length(); i++) {
-            System.out.println("# " + b.charAt(i));
+        for (long i=n-1; i>0; i--) {
+            String[] b = String.valueOf(i).split("");
             
+            if (b.length < a.length) {
+                System.out.println("# NOTHING FOUND; BREAK ");
+                return -1L;
+            }
+            
+            // 531 -> 513
+            for (int j = 0; j<a.length; j++) {
+                for (int k = 0; k<b.length; k++) {
+                    if (a[j].equals(b[k])) {
+                        a[j] = "";
+                        b[k] = "";
+                    }
+                }
+            }
+            a = backup.clone();
+
+            String c = String.join("", b);
+            if (c.isEmpty()) {
+                System.out.println("# FOUND " + i);
+                return i;
+            }
         }
+        
+        System.out.println("# NOTHING FOUND ");
+        return -1L;
+    }
+    
+    static long nextSmallerEnhanced1(long n) {
+        String[] a = String.valueOf(n).split("");
+        String[] backup = a.clone();
+        
+        for (long i=n-1; i>0; i--) {
+//            String s = String.valueOf(i);
+            String s = Long.toString(i);
+            
+            if (n - (n-100) == i) {
+                return -1L;
+            }
+            
+            if (s.length() < a.length) {
+                System.out.println("# NOTHING FOUND; BREAK ");
+                return -1L;
+            }
+
+//            String[] b = s.split("");
+//            String[] b = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "1"};
+            String[] b = new String[s.length()];
+            for (int t = 0; t < b.length; t++) {
+                char c = s.charAt(t);
+                b[t] = Character.toString(c);
+            }
+            
+            a = backup.clone();
+            boolean skip = false;
+            
+            for (int j = 0; j<a.length; j++) {
+                for (int k = 0; k<b.length; k++) {
+                    if (a[j].equals(b[k])) {
+                        a[j] = "";
+                        b[k] = "";
+                    }
+                }
+                if (!a[j].equals("")) {
+                    skip = true;
+                    break;
+                }
+            }
+
+            if (!skip) {
+                String c = String.join("", b);
+                if (c.isEmpty()) {
+                    System.out.println("# FOUND " + i);
+                    return i;
+                }
+            }
+        }
+        
+        System.out.println("# NOTHING FOUND ");
+        return -1L;
+    }
+    
+    static long nextSmallerEnhanced2(long n) {
+        String[] a = String.valueOf(n).split("");
+        String[] backup = a.clone();
+        
+        // corner case: equal number. e.g. 111
+        boolean skip = true;
+        for (int j = 0; j<a.length; j++) {
+            if (!a[0].equals(a[j])) {
+                skip = false;
+            }
+        }
+        if (skip) {
+            System.out.println("# NOTHING FOUND; CORNER CASE");
+            return -1L;
+        }
+        
+        for (long i=n-1; i>0; i--) {
+            String s = Long.toString(i);
+            
+            if (s.length() < a.length) {
+                System.out.println("# NOTHING FOUND; BREAK ");
+                return -1L;
+            }
+
+            String[] b = new String[s.length()];
+            for (int t = 0; t < b.length; t++) {
+                char c = s.charAt(t);
+                b[t] = Character.toString(c);
+            }
+            
+            a = backup.clone();
+            skip = false;
+            
+            for (int j = 0; j<a.length; j++) {
+                for (int k = 0; k<b.length; k++) {
+                    if (a[j].equals(b[k])) {
+                        a[j] = "";
+                        b[k] = "";
+                    }
+                }
+                if (!a[j].equals("")) {
+                    skip = true;
+                    break;
+                }
+            }
+
+            if (!skip) {
+                String c = String.join("", b);
+                if (c.isEmpty()) {
+                    System.out.println("# FOUND " + i);
+                    return i;
+                }
+            }
+        }
+        
+        System.out.println("# NOTHING FOUND ");
+        return -1L;
+    }
+    
+    static void code1() {
+//        long a = 123456789;
+//        String[] b = String.valueOf(a).split("");
+//        long c = 123456739;
+//        String[] d = String.valueOf(c).split("");
+        
+        // we assume strings must have same length
+//        for (int i=0; i<b.length; i++) {
+//            for (int j=0; j<d.length; j++) {
+//                if (b[i].equals(d[j])) {
+//                    System.out.println("####");
+//                    d[i] = "";
+//                }
+//            }
+//        }
+  
+
+        long a = 123456789;
+        long b = 123456739;
+        String c = String.valueOf(a);
+        String[] d = String.valueOf(b).split("");
+        
+        for (int i=0; i<d.length; i++) {
+            if (c.charAt(i) == d[i].charAt(0)) {
+                d[i] = "";
+            }
+        }
+        
+        System.out.println("#");
+        for (String z : d) {
+            System.out.print(z);
+        }
+        System.out.println("##");
         
         // O(n²)
     }
@@ -331,6 +506,149 @@ public class Katas {
             System.out.println("#" + e.contains(s));
             e.remove(s);
         }
+    }
+ 
+    static long nextSmallerEnhanced4(long n) {
+        Collection<String> uniques = new HashSet<>();
+        Collection<String> duplicates = new ArrayList<>();
+        
+        for (String s : String.valueOf(n).split("")) {
+            if (!uniques.add(s)) {
+                duplicates.add(s);
+            }
+        }
+        
+        Collection<String> duplicatesCopy = new ArrayList<>(duplicates);
+  
+        duplicates.forEach( z -> System.out.print(z));
+        System.out.println("#");
+        uniques.forEach( z -> System.out.print(z));
+        System.out.println("##");
+        
+        for (long i=n-1; i>0; i--) {
+            Collection<String> u = new HashSet<>();
+            Collection<String> d = new ArrayList<>();            
+            for (String s : String.valueOf(i).split("")) {
+                if (!u.add(s)) {
+                    d.add(s);
+                }
+            }
+            
+//            d.forEach( z -> System.out.print(z));
+//            u.forEach( z -> System.out.print(z));
+//            System.out.println("#");
+            
+            if ((uniques.size()+duplicates.size()) != (u.size()+d.size())) {
+                return -1L;
+            }
+            
+            duplicates.removeAll(d);
+            uniques.removeAll(u);
+            
+            if ((duplicates.isEmpty()) && (uniques.isEmpty())) {
+                
+                // re-init
+                duplicates.clear();
+                uniques.clear();
+                for (String s : String.valueOf(n).split("")) {
+                    if (!uniques.add(s)) {
+                        duplicates.add(s);
+                    }
+                }
+                
+                if (duplicates.size() == d.size()) {                 
+                    duplicates.forEach( x -> d.remove(x));
+                    if (d.isEmpty()) {
+                        System.out.println("# FOUND " + i);
+                        return i;
+                    }                   
+                }
+            }
+            
+            /*
+            15755354873198872
+            15755354873198827
+            15755354873198852
+            */
+            
+            // re-init
+            duplicates.clear();
+            uniques.clear();
+            for (String s : String.valueOf(n).split("")) {
+                if (!uniques.add(s)) {
+                    duplicates.add(s);
+                }
+            }
+        }
+        
+        return -1L;
+    }
+    
+    static long nextSmallerEnhanced3(long n) {
+//        Collection<String> a = new ArrayList<String>();
+//        Collection<String> da = new LinkedHashSet<>();
+//        for (String s : String.valueOf(n).split("")) {
+//            a.add(s);
+//        }
+//        
+//        for (long i=n-1; i>0; i--) {
+//            Collection<String> b = new ArrayList<String>();
+//            for (String s : String.valueOf(i).split("")) {
+//                b.add(s);
+//            }
+//            
+//            a.removeAll(b);
+//            System.out.println("# " + i);
+//            System.out.println(a.size());
+//            a.clear();
+//            for (String s : String.valueOf(n).split("")) {
+//                a.add(s);
+//            }
+//        }
+        
+        return -1L;
+    }
+    
+    static long nextSmallerEnhanced5(long n) {
+        Map<String, Integer> a = new HashMap<>();
+        a.put("0", 0);
+        a.put("1", 0);
+        a.put("2", 0);
+        a.put("3", 0);
+        a.put("4", 0);
+        a.put("5", 0);
+        a.put("6", 0);
+        a.put("7", 0);
+        a.put("8", 0);
+        a.put("9", 0);
+        for (String s : String.valueOf(n).split("")) {
+            if (a.containsKey(s)) {
+                a.put(s, a.get(s) + 1);
+            }
+        }
+        
+//        a.values().forEach(System.out::println);
+
+        for (long i=n-1; i>0; i--) {
+            Map<String, Integer> b = new HashMap<>();
+            b.put("0", 0);
+            b.put("1", 0);
+            b.put("2", 0);
+            b.put("3", 0);
+            b.put("4", 0);
+            b.put("5", 0);
+            b.put("6", 0);
+            b.put("7", 0);
+            b.put("8", 0);
+            b.put("9", 0);
+            for (String s : String.valueOf(i).split("")) {
+                b.put(s, b.get(s) + 1);
+//                b.values().forEach(System.out::print);
+//                System.out.println("");
+            }
+        }
+        
+        return -1L;
     }
     
     public static void main(String[] args) {
@@ -377,8 +695,16 @@ public class Katas {
 //        nextSmaller(123456789);
 //        123456739
         
-        code0();
-        code1();
-        
+//        code0();
+//        code1();
+        long difficult = 123456789;
+        long y = 123456798;
+//        nextSmallerEnhanced(difficult);
+//        nextSmallerEnhanced2(9999999999L);
+//        nextSmallerEnhanced2(1023456789);
+//        nextSmallerEnhanced(907);
+//        nextSmallerEnhanced4(920607841);
+//        nextSmallerEnhanced5(12345678999L);
+        nextSmallerEnhanced5(122345678L);
     }
 }
