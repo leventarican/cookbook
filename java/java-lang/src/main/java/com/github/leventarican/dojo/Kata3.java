@@ -1,7 +1,5 @@
 package com.github.leventarican.dojo;
 
-import jdk.jfr.Unsigned;
-
 /**
  * https://www.codewars.com/kata/526571aae218b8ee490006f4/train/java
  * 
@@ -101,6 +99,8 @@ public class Kata3 {
         
         System.out.println("#".repeat(80));
         
+        System.out.println(">>>=");
+        
         /*
         0000 0000 0000 0000 0000 0000 0000 1011
         0000 0000 0000 0000 0000 0000 0000 0101
@@ -116,6 +116,74 @@ public class Kata3 {
         n = -11;
         System.out.println(Integer.toBinaryString(n));
         System.out.println(n);
+        n >>>= 1;
+        System.out.println(Integer.toBinaryString(n));
+        System.out.println(n);
+        
+        System.out.println("#".repeat(80));
+        
+        System.out.println(">>=");
+        
+        /*
+        n >>= 1: 0000 0000 0000 0000 0000 0000 0000 0101
+        n = -11: 1111 1111 1111 1111 1111 1111 1111 0101
+        n >>= 1: 1111 1111 1111 1111 1111 1111 1111 1010
+                 1111 1111 1111 1111 1111 1111 1111 1110
+        */
+        
+        n = 11;
+        n >>= 1;
+        System.out.println(Integer.toBinaryString(n));
+        System.out.println(n);
+        n = -11;
+        System.out.println(Integer.toBinaryString(n));
+        n >>= 1;
+        System.out.println(Integer.toBinaryString(n));
+        System.out.println(n);
+        n = -2;
+        System.out.println(Integer.toBinaryString(n));
+        
+        System.out.println("#".repeat(80));
+        
+        for (int k = 12; k > 0; k--) {
+            System.out.println(k + "=" + Integer.toBinaryString(k));
+        }
+        /*
+        8= 0000 0000 0000 0000 0000 0000 0000 1000
+        7= 0000 0000 0000 0000 0000 0000 0000 0111
+        6= 0000 0000 0000 0000 0000 0000 0000 0110
+        */
+        for (int k = 0; k > -12; k--) {
+            System.out.println(k + "=" + Integer.toBinaryString(k));
+        }
+        /*
+        -1= 1111 1111 1111 1111 1111 1111 1111 1111
+        -2= 1111 1111 1111 1111 1111 1111 1111 1110
+        -3= 1111 1111 1111 1111 1111 1111 1111 1101
+        -4= 1111 1111 1111 1111 1111 1111 1111 1100
+        -5= 1111 1111 1111 1111 1111 1111 1111 1011
+        -6= 1111 1111 1111 1111 1111 1111 1111 1010        
+        -7= 1111 1111 1111 1111 1111 1111 1111 1001
+        */
+        n = -20;
+        System.out.println(Integer.toBinaryString(n));
+        
+        System.out.println("#".repeat(80));
+        
+        /*
+        1111 1111 1111 1111 1111 1111 1111 1011
+        1111 1111 1111 1111 1111 1111 1111 1101
+        -3
+        0111 1111 1111 1111 1111 1111 1111 1101
+        2147483646
+        */
+        
+        n = -5;
+        System.out.println(Integer.toBinaryString(n));
+        n >>= 1;
+        System.out.println(Integer.toBinaryString(n));
+        System.out.println(n);
+        n = -5;
         n >>>= 1;
         System.out.println(Integer.toBinaryString(n));
         System.out.println(n);
