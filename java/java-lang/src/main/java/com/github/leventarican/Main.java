@@ -1,11 +1,5 @@
 package com.github.leventarican;
 
-import com.github.leventarican.designpattern.factory.TheFactory;
-import com.github.leventarican.designpattern.TheImmutable;
-import com.github.leventarican.designpattern.iterator.TheIterator;
-import com.github.leventarican.designpattern.factory.Car;
-import com.github.leventarican.designpattern.iterator.IteratorDemo;
-
 
 public class Main {
     public static void main( String[] args ) throws Exception {
@@ -50,9 +44,6 @@ public class Main {
 //        DataStructures ds = new DataStructures();
 //        ds.exec();
 //        
-//        TheImmutable im = new TheImmutable("python");
-//        im.getProgrammingLang();
-//        System.out.println(im.isJVMcomptabile());
 //        
 //        Car car = TheFactory.build();
 //        System.out.println(car);

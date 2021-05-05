@@ -7,3 +7,6 @@ karel.jar
 /java/javafx/examples/target/
 
 *.out
+
+ignore*
+Ignore*

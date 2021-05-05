@@ -1,9 +1,22 @@
-# ISO C++
+# C++
+
+C++ is an effective language and it's standard library contains a large collection of data structures and algorithms.
 
 ## compile and run
-```
+```bash
 g++ i.cpp && ./a.out
 g++ -std=c++11 i.cpp && ./a.out
+```
+
+If you use sublime and linux then build and run with `SHIFT + CTRL + B`.
+
+## C++ Version
+C++98 C++03 C++11 C++14 C++17 C++20 C++23
+
+# bits header file
+A header file which include all standard libraries.
+```c++
+#include <bits/stdc++.h>
 ```
 
 # OpenGL with GLFW

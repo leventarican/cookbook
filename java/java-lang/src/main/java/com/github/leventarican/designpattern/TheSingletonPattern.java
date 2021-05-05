@@ -3,7 +3,7 @@ package com.github.leventarican.designpattern;
 /**
  * Singleton pattern used on enum
  */
-public enum ProgrammingLanguages {
+public enum TheSingletonPattern {
     INSTANCE;
     public String kotlin() { return "kotlin"; }
     public String kotlinVersion() { return "v 1.3.0"; }
