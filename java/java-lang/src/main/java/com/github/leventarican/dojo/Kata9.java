@@ -5,6 +5,7 @@ package com.github.leventarican.dojo;
  * https://www.codewars.com/kata/5412509bd436bd33920011bc/train/java
  * https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/java
  * https://www.codewars.com/kata/5583d268479559400d000064/train/java
+ * https://www.codewars.com/kata/57cc981a58da9e302a000214/train/java
  *
  * @author levent
  */
@@ -170,10 +171,20 @@ public class Kata9 {
         return solution;
     }
     
+    static boolean smallEnough(int[] a, int limit) {
+        for(int i=0; i<a.length; i++) {
+            if (a[i] > limit) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
         maskify("4556364607935616");
         isSquare(9);
         binaryToText("0100100001100101011011000110110001101111");
+        smallEnough(new int[]{66, 101}, 200);
     }
 }
