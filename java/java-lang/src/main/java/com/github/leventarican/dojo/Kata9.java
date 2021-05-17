@@ -180,11 +180,33 @@ public class Kata9 {
         return true;
     }
     
+    // 4 3 5 -> 4*3; 4*5; 3*5
+    static long maxProduct(int[] numbers, int sub_size) {
+        int max = 0;
+        if (numbers.length >= 3) {
+            for (int i = 0; i < numbers.length; i++) {
+                int tmp = numbers[i];
+                System.out.println(tmp);
+                for (int j = 1; j <= sub_size; j++) {
+                    if (i+j > numbers.length-1) {
+                        break;
+                    }
+                    tmp *= numbers[i+j];
+                }
+                max = tmp > max ? tmp : max;
+                System.out.println(tmp);
+            }
+        }        
+        return max;
+    }
+    
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
         maskify("4556364607935616");
         isSquare(9);
         binaryToText("0100100001100101011011000110110001101111");
         smallEnough(new int[]{66, 101}, 200);
+//        maxProduct(new int[]{4,3,5}, 2);
+        maxProduct(new int[]{10,8,7,9}, 3);
     }
 }
