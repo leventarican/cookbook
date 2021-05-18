@@ -1,5 +1,7 @@
 package com.github.leventarican.dojo;
 
+import java.util.Arrays;
+
 /**
  * https://www.codewars.com/kata/5b180e9fedaa564a7000009a/train/java
  * https://www.codewars.com/kata/5412509bd436bd33920011bc/train/java
@@ -181,24 +183,38 @@ public class Kata9 {
     }
     
     // 4 3 5 -> 4*3; 4*5; 3*5
+    // 10,8,7,9
     static long maxProduct(int[] numbers, int sub_size) {
-        int max = 0;
+        Arrays.sort(numbers);
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + ", ");
+        }
+        System.out.println("size: " + sub_size);
         if (numbers.length >= 3) {
-            for (int i = 0; i < numbers.length; i++) {
-                int tmp = numbers[i];
-                System.out.println(tmp);
-                for (int j = 1; j <= sub_size; j++) {
-                    if (i+j > numbers.length-1) {
-                        break;
-                    }
-                    tmp *= numbers[i+j];
-                }
-                max = tmp > max ? tmp : max;
-                System.out.println(tmp);
+            long a = 1;
+            for (int i = 0; i < sub_size; i++) {
+                int b = numbers[numbers.length-1-i];
+                a *= b;
             }
-        }        
-        return max;
+            System.out.println("return a " + a);
+            return a;
+        }
+        return 0;
     }
+    /*
+    Arrays.sort(numbers);
+    long result = 1;
+    for (int i = numbers.length-1;sub_size > 0;sub_size--,i--) {
+        result*=numbers[i];
+    }
+    return result;
+    
+    return stream(numbers)
+        .sorted()
+        .skip(numbers.length-subSize)
+        .mapToLong(Long::valueOf)
+        .reduce(1, (x,y)->x*y);
+    */
     
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
@@ -207,6 +223,9 @@ public class Kata9 {
         binaryToText("0100100001100101011011000110110001101111");
         smallEnough(new int[]{66, 101}, 200);
 //        maxProduct(new int[]{4,3,5}, 2);
-        maxProduct(new int[]{10,8,7,9}, 3);
+//        maxProduct(new int[]{10,8,7,9}, 3);
+//        maxProduct(new int[]{10,3,-27,-1}, 3);
+//        maxProduct(new int[]{14, 29, -28, 39, -16, -48}, 4);
+        maxProduct(new int[]{-100, -99, -99, -99, -98, -98, -96, -95, -95, -95, -95, -91, -91, -91, -87, -87, -85, -84, -84, -83, -83, -79, -79, -78, -78, -77, -77, -77, -76, -75, -74, -71, -65, -64, -60, -59, -58, -58, -57, -56, -55, -55, -54, -53, -52, -50, -49, -49, -49, -49, -48, -48, -46, -45, -42, -42, -37, -37, -36, -35, -35, -34, -33, -32, -30, -29, -27, -24, -23, -21, -21, -20, -18, -18, -17, -17, -16, -16, -15, -14, -11, -9, -9, -8, -7, -6, -6, -5, -5, -4, -4, -4, -3, 0, 1, 1, 1, 2, 3, 6, 7, 8, 9, 9, 11, 12, 13, 13, 13, 14, 15, 15, 16, 16, 17, 19, 19, 19, 20, 21, 21, 22, 23, 26, 27, 29, 29, 30, 31, 31, 34, 34, 36, 36, 38, 39, 40, 40, 40, 41, 42, 42, 45, 45, 47, 47, 47, 48, 49, 49, 50, 50, 52, 52, 54, 55, 56, 56, 56, 58, 59, 60, 61, 62, 62, 67, 67, 68, 69, 70, 71, 72, 73, 73, 74, 76, 78, 79, 79, 80, 80, 81, 81, 81, 82, 82, 84, 84, 85, 85, 86, 87, 94, 94, 96, 97, 99, 99}, 49);
     }
 }
