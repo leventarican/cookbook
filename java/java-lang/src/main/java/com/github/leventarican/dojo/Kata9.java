@@ -235,7 +235,35 @@ public class Kata9 {
         System.out.println("solution: " + d);
         return d;
     }
+    /*
+    return Arrays.stream(values)
+       .distinct()
+       .sorted()
+       .reduce(0, (a, b) -> 10 * a + b);
+    */
 
+    /*
+    null is argument is null or empty
+    */
+    static String capitalizeWords(String s) {
+        System.out.println();
+        if (s != null) {
+            if (!s.isEmpty()) {
+                StringBuilder solution = new StringBuilder();
+                String[] words = s.split(" ");
+                for (int i = 0; i < words.length; i++) {
+                    String word = words[i];
+                    String w = word.substring(0, 1).toUpperCase() + word.substring(1, word.length());
+                    solution.append(w);
+                    solution.append(" ");
+                }
+                System.out.println(solution);
+                return solution.toString().trim();
+            }
+        }
+        return null;
+    }
+    
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
         maskify("4556364607935616");
@@ -244,5 +272,6 @@ public class Kata9 {
         smallEnough(new int[]{66, 101}, 200);
         maxProduct(new int[]{4,3,5}, 2);
         minValue(new int[] {4, 7, 5, 7});
+        capitalizeWords("java And kotlin runs on JVM");
     }
 }
