@@ -3,6 +3,7 @@ package com.github.leventarican.dojo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -273,15 +274,19 @@ public class Kata9 {
      */
 
     static int[] flattenAndSort(int[][] array) {
-        ArrayList a = new ArrayList<Integer>();
+        List<Integer> a = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 int b = array[i][j];
-                a.add(b);
-                System.out.print(b);
+                a.add((Integer) b);
             }
         }
-        return new int[0];
+        int[] c = a.stream().mapToInt(i -> i).toArray();
+        Arrays.sort(c);
+        for (int i = 0; i < c.length; i++) {
+            System.out.print(c[i]);
+        }
+        return c;
     }
 
     public static void main(String[] args) {
