@@ -1,5 +1,6 @@
 package com.github.leventarican.dojo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.Set;
  * https://www.codewars.com/kata/5583d268479559400d000064/train/java
  * https://www.codewars.com/kata/57cc981a58da9e302a000214/train/java
  * https://www.codewars.com/kata/5ac6932b2f317b96980000ca/train/java
+ * https://www.codewars.com/kata/57ee99a16c8df7b02d00045f/train/java
  *
  * @author levent
  */
@@ -217,7 +219,6 @@ public class Kata9 {
         .mapToLong(Long::valueOf)
         .reduce(1, (x,y)->x*y);
      */
-
     static int minValue(int[] values) {
         Arrays.sort(values);
         Set<String> a = new HashSet();
@@ -235,16 +236,17 @@ public class Kata9 {
         System.out.println("solution: " + d);
         return d;
     }
+
     /*
     return Arrays.stream(values)
        .distinct()
        .sorted()
        .reduce(0, (a, b) -> 10 * a + b);
-    */
+     */
 
-    /*
+ /*
     null is argument is null or empty
-    */
+     */
     static String capitalizeWords(String s) {
         System.out.println();
         if (s != null) {
@@ -263,15 +265,34 @@ public class Kata9 {
         }
         return null;
     }
-    
+
+    /*
+    return Arrays.stream(phrase.split(" "))
+        .map(i -> i.substring(0, 1).toUpperCase() + i.substring(1, i.length()))
+        .collect(Collectors.joining(" "));
+     */
+
+    static int[] flattenAndSort(int[][] array) {
+        ArrayList a = new ArrayList<Integer>();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                int b = array[i][j];
+                a.add(b);
+                System.out.print(b);
+            }
+        }
+        return new int[0];
+    }
+
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
         maskify("4556364607935616");
         isSquare(9);
         binaryToText("0100100001100101011011000110110001101111");
         smallEnough(new int[]{66, 101}, 200);
-        maxProduct(new int[]{4,3,5}, 2);
-        minValue(new int[] {4, 7, 5, 7});
+        maxProduct(new int[]{4, 3, 5}, 2);
+        minValue(new int[]{4, 7, 5, 7});
         capitalizeWords("java And kotlin runs on JVM");
+        flattenAndSort(new int[][]{{3, 2, 1}, {7, 9, 8}, {6, 4, 5}});
     }
 }
