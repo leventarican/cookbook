@@ -14,6 +14,7 @@ import java.util.Set;
  * https://www.codewars.com/kata/57cc981a58da9e302a000214/train/java
  * https://www.codewars.com/kata/5ac6932b2f317b96980000ca/train/java
  * https://www.codewars.com/kata/57ee99a16c8df7b02d00045f/train/java
+ * https://www.codewars.com/kata/5583090cbe83f4fd8c000051/train/java
  *
  * @author levent
  */
@@ -284,11 +285,27 @@ public class Kata9 {
         int[] c = a.stream().mapToInt(i -> i).toArray();
         Arrays.sort(c);
         for (int i = 0; i < c.length; i++) {
-            System.out.print(c[i]);
+            System.out.print(c[i]); 
         }
         return c;
     }
 
+    static int[] digitize(long n) {
+        String[] a = String.valueOf(n).split("");
+        int[] b = new int[a.length];
+        for (int i = 0; i < b.length; i++) {
+            b[i] = Integer.valueOf(a[b.length -1 - i]);
+        }
+        return b;
+    }
+    /*
+    return new StringBuilder().append(n)
+                          .reverse()
+                          .chars()
+                          .map(Character::getNumericValue)
+                          .toArray();
+    */
+    
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
         maskify("4556364607935616");
@@ -299,5 +316,6 @@ public class Kata9 {
         minValue(new int[]{4, 7, 5, 7});
         capitalizeWords("java And kotlin runs on JVM");
         flattenAndSort(new int[][]{{3, 2, 1}, {7, 9, 8}, {6, 4, 5}});
+        digitize(718);
     }
 }
