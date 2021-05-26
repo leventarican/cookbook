@@ -296,6 +296,7 @@ public class Kata9 {
         for (int i = 0; i < b.length; i++) {
             b[i] = Integer.valueOf(a[b.length -1 - i]);
         }
+        System.out.println(b);
         return b;
     }
     /*
@@ -305,6 +306,28 @@ public class Kata9 {
                           .map(Character::getNumericValue)
                           .toArray();
     */
+    
+    static int findIt(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            Arrays.sort(a);
+            int n = a[i];
+            int c = 0;
+            if (i != 0 && a[i-1] == n) {
+                continue;
+            }
+            for (int j = i; j < a.length; j++) {
+                int m = a[j];
+                if (n == m) {
+                    c++;
+                }
+            }
+            if (c % 2 > 0) {
+                System.out.println(n + " -> " + c);
+                return n;
+            }
+        }
+        return 0;
+    }
     
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
@@ -317,5 +340,6 @@ public class Kata9 {
         capitalizeWords("java And kotlin runs on JVM");
         flattenAndSort(new int[][]{{3, 2, 1}, {7, 9, 8}, {6, 4, 5}});
         digitize(718);
+        findIt(new int[]{20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5});
     }
 }
