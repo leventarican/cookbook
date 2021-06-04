@@ -1,5 +1,6 @@
 /*
 https://play.kotlinlang.org/byExample/01_introduction/04_Null%20Safety
+https://kotlinlang.org/docs/null-safety.html#nullable-types-and-non-null-types
 
 By default kotlin don't allow assigning null to a variable.
  */
