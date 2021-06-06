@@ -24,7 +24,8 @@ class FunctionalProgramming(private val d: String) : Paradigm {
 old school way of delegation pattern implementation.
  */
 class Java(private val d: String) {
-    fun description() = ObjectOrientatedProgramming(d).description()
+    private val p: Paradigm = ObjectOrientatedProgramming(d)
+    fun description() = p.description()
 }
 
 /*
