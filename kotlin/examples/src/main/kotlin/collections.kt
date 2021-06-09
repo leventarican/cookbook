@@ -9,6 +9,8 @@ https://play.kotlinlang.org/byExample/05_Collections/11_partition
 demonstration of collection extension functions
  */
 
+private data class Data(val header: String, val payload: String, val category: String)
+
 fun collections() {
     // list: an ordered (access by index) collection. read-only or mutable
     val a = mutableListOf(1, 2, 0)
@@ -79,6 +81,18 @@ fun partition() {
     val (x, y) = a.partition { i -> i <= 100 }
     x.forEach { print("x: $it ") }
     y.forEach { print("y: $it ") }
+    println()
+}
+
+
+fun groupby() {
+    val data = listOf(
+        Data("id#100", payload = "this is a sample data", category = "A"),
+        Data(payload = "another data", header = "id#200", category = "A"),
+        Data("id#300", "data from cat B", "B")
+    )
+    val categoryA = data.groupBy(Data::category)
+    categoryA.forEach { (k, v) -> println("$k:$v") }
 }
 
 fun main() {
@@ -86,4 +100,5 @@ fun main() {
     ordering()
     transformation()
     partition()
+    groupby()
 }
