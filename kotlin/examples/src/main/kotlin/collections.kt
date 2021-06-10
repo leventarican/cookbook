@@ -84,7 +84,6 @@ fun partition() {
     println()
 }
 
-
 fun groupby() {
     val data = listOf(
         Data("id#100", payload = "this is a sample data", category = "A"),
@@ -95,10 +94,19 @@ fun groupby() {
     categoryA.forEach { (k, v) -> println("$k:$v") }
 }
 
+fun allanynone() {
+    val a = listOf(1, 100, 7, 4, 39, 19, 27)
+    val b = a.any { i -> i > 10 }
+    println(b)
+    println(a.all { it > 0 })
+    println(a.none { it < 0 })
+}
+
 fun main() {
     collections()
     ordering()
     transformation()
     partition()
     groupby()
+    allanynone()
 }
