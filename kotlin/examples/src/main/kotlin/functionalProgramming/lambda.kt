@@ -33,4 +33,8 @@ fun main() {
     val example5: (String, String) -> String = { x, y -> "$x$y"}
     val concat = example5("kot", "lin")
     println("# $concat")
+
+    // with function pointers ::
+    val example6: (String) -> String = String::toUpperCase
+    println(example6("kotlin"))
 }

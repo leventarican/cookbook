@@ -29,6 +29,14 @@ fun collections() {
     val e = mapOf(0 to "kotlin", 1 to "java", 2 to "rust")
     val f = mutableMapOf(1 to 100, 2 to 200)
     e.forEach { (k, v) -> println("key: $k; value: $v") }
+
+    println("map element access: ${e[2]}")
+    println("map element access: ${e.getValue(1)}")
+
+    // map with destructuring declaration
+    for ((id, programmingLanguage) in e) {
+        println("id: $id; programming language: $programmingLanguage")
+    }
 }
 
 fun ordering() {
