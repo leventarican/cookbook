@@ -81,6 +81,10 @@ fun transformation() {
     println(e)  // programming languages: kotlin, java, rust
     val f = a.joinToString()
     println(f)
+
+    listOf("kotlin", "java", "rust").flatMap {
+        it.toList()
+    }
 }
 
 // split collection to pairs of lists using predicate
@@ -110,6 +114,17 @@ fun allanynone() {
     println(a.none { it < 0 })
 }
 
+fun moreexamples() {
+//    val a = listOf(3, 19, 2, 1, 5, 9, 33, 0)
+    val a = listOf(2, 2, 2)
+    val b = a.sum()
+    val c = a.average()
+    val d = a.reduce { acc, value -> acc * value }
+    println(b)
+    println(c)
+    println(d)
+}
+
 fun main() {
     collections()
     ordering()
@@ -117,4 +132,5 @@ fun main() {
     partition()
     groupby()
     allanynone()
+    moreexamples()
 }
