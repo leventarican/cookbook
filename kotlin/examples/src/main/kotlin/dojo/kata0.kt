@@ -145,12 +145,16 @@ fun main() {
     countRedBeads(3)
     moneyValue("$$$")
     bouncingBall(61.0, 1.1, 6.1)
-//    bingo(arrayOf("ABC" to 65, "HGR" to 74, "BYHT" to 74), 2)
-    /*
-    HVAY; 89; 3
-    LYH; 65; 3
-    WEHEV; 89; 3
-    MMQOZTB; 77; 3
-    */
-    bingo(arrayOf("HVAY" to 89, "LYH" to 65, "WEHEV" to 89, "MMQOZTB" to 77), 3)
+
+    val data = arrayOf("HVAY" to 89, "LYH" to 65, "WEHEV" to 89, "MMQOZTB" to 77)
+    bingo(data, 3)
+
+    val s = data.sumBy { (a, b) ->
+        if (b.toChar() in a) 1
+        else 0
+    }.let {
+        if (it >= 1) "winner"
+        else "looser"
+    }
+    println(s)
 }
