@@ -8,6 +8,7 @@ https://www.codewars.com/kata/58712dfa5c538b6fc7000569/train/kotlin
 https://www.codewars.com/kata/587309155cfd6b9fb60000a0/train/kotlin
 https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/kotlin
 https://www.codewars.com/kata/57f625992f4d53c24200070e/train/kotlin
+https://www.codewars.com/kata/5839edaa6754d6fec10000a2/train/kotlin
 */
 
 /*
@@ -140,6 +141,28 @@ fun bingo(ticket: Array<Pair<String, Int>>, win: Int): String = ticket
     }
  */
 
+fun findMissingLetter(array: CharArray): Char {
+    var z = ' '.toChar()
+    array.toList().zipWithNext { a, b ->
+        val c = a.toInt() + 1
+        if (c != b.toInt()) {
+            z = c.toChar()
+        }
+    }
+    println(z)
+    return z
+}
+/*
+fun findMissingLetter(array: CharArray) = (array.first()..array.last()).first { it !in array }
+fun findMissingLetter(array: CharArray) = (array[0]..array[array.size - 1]).find { !array.contains(it) }
+fun findMissingLetter(array: CharArray): Char = (array.first()..array.last()).subtract(array.toList()).first()
+fun findMissingLetter(array: CharArray): Char = array.toList().zipWithNext().first { (current, next) -> next - current == 2}.second -1
+for (i in 0 until arr.size - 1)
+    if (arr[i] + 1 !in arr)
+        return arr[i] + 1
+return ' '
+ */
+
 fun main() {
     gps(s = 100, doubleArrayOf(0.0, 0.23, 0.46, 0.69, 0.92, 1.15, 1.38, 1.61))
     countRedBeads(3)
@@ -157,4 +180,6 @@ fun main() {
         else "looser"
     }
     println(s)
+
+    findMissingLetter(charArrayOf('a', 'b', 'c', 'd', 'f'))
 }
