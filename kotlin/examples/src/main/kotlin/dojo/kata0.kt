@@ -182,4 +182,28 @@ fun main() {
     println(s)
 
     findMissingLetter(charArrayOf('a', 'b', 'c', 'd', 'f'))
+
+    val a = charArrayOf('a', 'b', 'c', 'e', 'f')
+    for (i in 0 until a.size -1 ) {
+        val b = a[i].toInt() + 1
+        if (a[i+1].toInt() != b) {
+            println("# ${b.toChar()}")
+        }
+    }
+
+    val b = (a.first()..a.last()).toList()
+    val c = a.toList()
+    println(b)
+    println(c)
+    println(b - c)
+    /*
+    [a, b, c, d, e, f]
+    [a, b, c, e, f]
+    [d]
+    */
+    val d = ('a'..'z').toList()
+    println(d)
+    /*
+    [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z]
+    */
 }
