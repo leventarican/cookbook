@@ -30,4 +30,11 @@ fun main() {
 
     f.run { println("run (object reference = this): $length") }
     f.let { println("let (object reference = it): ${it.length}") }
+
+    val a = with(10) {
+        val a = (0..this).toList()
+        println(a)
+        a.reversed()
+    }.joinToString { "$it" }
+    println(a)
 }
