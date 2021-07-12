@@ -206,4 +206,13 @@ fun main() {
     /*
     [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z]
     */
+
+    (0 until 10).toList().forEach {
+        print(it)
+    }
+    val e = (0 .. 10).toList().windowed(2, 3).joinToString("")
+    println(e)
+
+    println(1.inc())
+    println(1.inv())
 }

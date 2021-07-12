@@ -19,6 +19,11 @@ class Developer {
     fun favouriteLanguage(): String = programmingLanguages.random()
 }
 
+fun randomPassword(length: Int): String =
+    with('a' until 'l' ) {
+        return toList().shuffled().subList(0, length).joinToString("")
+    }
+
 fun main() {
     val d = Developer()
     d.apply {
@@ -61,4 +66,6 @@ fun main() {
     d.apply {
         put("scope function: apply")
     }.code()
+
+    println(randomPassword(10))
 }
