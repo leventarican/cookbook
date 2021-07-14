@@ -163,6 +163,7 @@ for (i in 0 until arr.size - 1)
 return ' '
  */
 
+@OptIn(ExperimentalStdlibApi::class)
 fun main() {
     gps(s = 100, doubleArrayOf(0.0, 0.23, 0.46, 0.69, 0.92, 1.15, 1.38, 1.61))
     countRedBeads(3)
@@ -215,4 +216,17 @@ fun main() {
 
     println(1.inc())
     println(1.inv())
+
+    val f = charArrayOf('k', 'o', 't', 'l', 'i', 'n')
+    f.toList().zipWithNext().forEach { p -> println("f: ${p.first} s: ${p.second}") }
+
+    val g = f.filterIndexed { index, c -> index > 2 }.first()
+    println(g)
+
+    // sequence like iterable
+    val h = f.asSequence().filter { it == 'l' }.first()
+    println(h)
+
+    val i = listOf("abc", "bca", "acb").groupBy { it.first().uppercase() }
+    println(i)
 }
