@@ -15,6 +15,7 @@ import java.util.Set;
  * https://www.codewars.com/kata/5ac6932b2f317b96980000ca/train/java
  * https://www.codewars.com/kata/57ee99a16c8df7b02d00045f/train/java
  * https://www.codewars.com/kata/5583090cbe83f4fd8c000051/train/java
+ * https://www.codewars.com/kata/54da5a58ea159efa38000836/train/java
  *
  * @author levent
  */
@@ -328,6 +329,35 @@ public class Kata9 {
         }
         return 0;
     }
+    /*
+    int xor = 0;
+    for (int i = 0; i < A.length; i++) {
+      xor ^= A[i];
+    }
+    return xor;
+    
+    return stream(arr).reduce(0, (x, y) -> x ^ y);
+    
+    final TreeSet<Integer> set = new TreeSet<>();
+    for (int x : A) {
+        if (set.contains(x)) {
+            set.remove(x);
+        } else {
+            set.add(x);
+        }
+    }
+    return set.first();
+    
+    return Arrays.stream(a)
+                 .boxed()
+                 .collect(Collectors.groupingBy(Function.identity()))
+                 .entrySet()
+                 .stream()
+                 .filter(e -> e.getValue().size() % 2 == 1)
+                 .mapToInt(e -> e.getKey())
+                 .findFirst()
+                 .getAsInt();
+    */
     
     public static void main(String[] args) {
         upperOrLowerCaseOnly("COde");
