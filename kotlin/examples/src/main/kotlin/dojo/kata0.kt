@@ -1,5 +1,6 @@
 package dojo
 
+import staticFunctions.packageLevel
 import kotlin.system.exitProcess
 
 /**
@@ -211,7 +212,7 @@ fun main() {
     (0 until 10).toList().forEach {
         print(it)
     }
-    val e = (0 .. 10).toList().windowed(2, 3).joinToString("")
+    val e = (0..10).toList().windowed(2, 3).joinToString("")
     println(e)
 
     println(1.inc())
