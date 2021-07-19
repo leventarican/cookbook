@@ -2,7 +2,6 @@ package javaInteroperability;
 
 import objectOrientedProgramming.Data;
 import objectOrientedProgramming.DataJava;
-import objectOrientedProgramming.Java;
 import staticFunctions.ExampleKt;
 import staticFunctions.JavaStyle;
 
