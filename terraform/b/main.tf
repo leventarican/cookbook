@@ -1,6 +1,9 @@
 # example need AWS credentials
+
 # terraform init
 # terraform apply
+# terraform destroy - revert everthiny
+# terraform show - current resource state
 
 provider "aws" {
   region = "us-west-2"
