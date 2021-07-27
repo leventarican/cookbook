@@ -6,10 +6,9 @@
 * Write code with domain-specific configuration language called HashiCorp Configuration Language (HCL)
 * HCL is fully compatible with JSON
 * __Providers__ are __plugins__ for Terraform that are designed to interface with external APIs.
-* When Terraform runs, it will read all files in the working directory that have a .tf
-  extension and __concatenate__ them together.
-* Fundamentally, Terraform is a state management tool that performs
-  CRUD operations (create, read, update, delete) on managed resources.
+* When Terraform runs, it will read all files in the working directory that have a .tf extension and __concatenate__ them together.
+* Fundamentally, Terraform is a state management tool that performs CRUD operations (create, read, update, delete) on managed resources.
+* Terraform does not directly support procedural programming, so any logic you want to express needs to be declarative and functional.
   
 ## Commands
 ```bash

@@ -3,13 +3,26 @@ terraform {
 }
 
 locals {
-  numbers = [0, 1, 2]
+  numbers = [
+    0,
+    1,
+    2]
   result = sum([for x in local.numbers : 1 * x])
   dirname = dirname("foo/bar/file.txt")
   fileexists = fileexists("${path.module}/data.txt")
   file64 = filebase64("${path.module}/data.txt")
-  a = ["a", "b"]
-  b = [1, 2]
+  a = [
+    "a",
+    "b"]
+  b = [
+    1,
+    2]
+}
+
+resource "random_password" "password" {
+  length = 16
+  special = true
+  override_special = "_%@/'\""
 }
 
 output "a" {
@@ -38,7 +51,11 @@ output "f" {
 }
 
 output "g" {
-  value = distinct([1, 1, 1, 2])
+  value = distinct([
+    1,
+    1,
+    1,
+    2])
 }
 
 output "h" {
@@ -46,5 +63,6 @@ output "h" {
 }
 
 output "i" {
-  value = "###"
+  value = random_password.password
+  sensitive = true
 }

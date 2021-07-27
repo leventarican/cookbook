@@ -1,0 +1,24 @@
+{
+  "DocId": "ABC",
+  "User1": {
+    "Id": 1234,
+    "Username": "sam1234",
+    "Name": "Sam",
+    "ShippingAddress": {
+      "Address1": "123 Main St.",
+      "Address2": null,
+      "City": "Durham",
+      "State": "NC"
+    },
+    "Orders": [
+      {
+        "ItemId": 6789,
+        "OrderDate": "11/11/2012"
+      },
+      {
+        "ItemId": 4352,
+        "OrderDate": "12/12/2012"
+      }
+    ]
+  }
+}
