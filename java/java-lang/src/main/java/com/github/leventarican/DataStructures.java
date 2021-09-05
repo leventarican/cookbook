@@ -1,6 +1,7 @@
 package com.github.leventarican;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +19,7 @@ public class DataStructures {
     public void exec() {
         list();
         set();
+        map();
     }
     
     private void list() {
@@ -40,5 +42,16 @@ public class DataStructures {
         unique.add("java");
         unique.add("java");
         log.log(Level.INFO, "expected:2 - actual:{0}", unique.size());
+    }
+    
+    private void map() {
+        log.log(Level.INFO, "map");
+        
+        var m = new HashMap();
+        m.put(0, "java");
+        m.put(1, "kotlin");
+        m.values().stream().forEach(c -> {
+            System.out.println(c);
+        });
     }
 }

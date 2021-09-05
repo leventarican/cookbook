@@ -41,9 +41,8 @@ public class Main {
 //        LoggingJUL jul = new LoggingJUL();
 //        jul.exec();
 
-//        DataStructures ds = new DataStructures();
-//        ds.exec();
-//        
+        DataStructures ds = new DataStructures();
+        ds.exec();
 //        
 //        Car car = TheFactory.build();
 //        System.out.println(car);
@@ -51,7 +50,7 @@ public class Main {
 //        IteratorDemo demo = new IteratorDemo();
 //        demo.exec();
 
-        Files f = new Files();
-        f.exec();
+//        Files f = new Files();
+//        f.exec();
     }
 }

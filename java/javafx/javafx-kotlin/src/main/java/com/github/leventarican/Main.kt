@@ -1,6 +1,8 @@
 package com.github.leventarican
 
 import javafx.application.Application
+import javafx.event.ActionEvent
+import javafx.event.Event
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Scene
@@ -24,26 +26,30 @@ class Main : Application() {
 
         val tvUser = Text("user")
         val tvPassword = Text("password")
-        val teUser = TextField()
-        val tePassword = PasswordField()
+        val tfUser = TextField()
+        val tfPassword = PasswordField()
         val btLogin = Button("login")
         btLogin.style = "-fx-font: 20 arial; -fx-base: #b6e7c9;"
         val event = UserEvent(UserEvent.LOGIN_SUCCEEDED)
         btLogin.setOnMouseClicked {
             println("login")
-            btLogin.fireEvent(event)
+            Event.fireEvent(tvUser, event)
+            btLogin.fire()
         }
         val btClear = Button("clear")
         gridPane.add(tvUser, 0, 0)
-        gridPane.add(teUser, 1, 0)
+        gridPane.add(tfUser, 1, 0)
         gridPane.add(tvPassword, 0, 1)
-        gridPane.add(tePassword, 1, 1)
+        gridPane.add(tfPassword, 1, 1)
         gridPane.add(btLogin, 0, 2)
         gridPane.add(btClear, 1, 2)
 
         tvUser.addEventHandler(UserEvent.LOGIN_SUCCEEDED) { event ->
-            println("####")
-            println(event.source)
+            event.consume()
+            tfUser.text = "event consumed: ${event.isConsumed}"
+        }
+        tvPassword.addEventHandler(ActionEvent.ACTION) { event ->
+            println("user is trying to login")
         }
 
         val scene = Scene(gridPane)
