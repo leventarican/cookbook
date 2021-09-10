@@ -24,7 +24,7 @@ fun randomPassword(length: Int): String =
         return toList().shuffled().subList(0, length).joinToString("")
     }
 
-fun main() {
+private fun main() {
     val d = Developer()
     d.apply {
         put("kotlin")

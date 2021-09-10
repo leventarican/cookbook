@@ -2,7 +2,7 @@
 https://play.kotlinlang.org/byExample/08_productivity_boosters/04_Smart%20Casts
  */
 
-fun main() {
+private fun main() {
 //    val a: String? = null
     val a: String? = "200"
 

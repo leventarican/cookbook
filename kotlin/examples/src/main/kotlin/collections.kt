@@ -125,7 +125,7 @@ fun moreexamples() {
     println(d)
 }
 
-fun main() {
+private fun main() {
     collections()
     ordering()
     transformation()

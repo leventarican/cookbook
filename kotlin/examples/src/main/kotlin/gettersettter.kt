@@ -15,7 +15,7 @@ class Properties() {
 }
 
 
-fun main() {
+private fun main() {
     val a = Properties()
     a.property = 100
     println(a.property)

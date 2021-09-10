@@ -6,7 +6,7 @@ Kotlin does not enforce immutability, though it is recommended.
 
 fun aCondition() = true;
 
-fun main() {
+private fun main() {
     var a: String = "java"
     val b: String = "kotlin"
     a = "kotlin" // mutable

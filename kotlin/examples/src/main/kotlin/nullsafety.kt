@@ -4,7 +4,7 @@ https://kotlinlang.org/docs/null-safety.html#nullable-types-and-non-null-types
 
 By default kotlin don't allow assigning null to a variable.
  */
-fun main() {
+private fun main() {
     var a: String = "kotlin"
     // a = null
 

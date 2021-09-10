@@ -14,7 +14,7 @@ class NamedArg(arg0 : Int, arg1: Int) {
     }
 }
 
-fun main() {
+private fun main() {
     val a = NamedArg(arg1 = 100, arg0 = 10)
     a.str("200", "works.")
     a.print()

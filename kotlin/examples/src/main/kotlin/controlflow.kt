@@ -23,7 +23,7 @@ fun whenStatement() {
     println(c)
 }
 
-fun main() {
+private fun main() {
     equalityChecks()
     whenStatement()
 }

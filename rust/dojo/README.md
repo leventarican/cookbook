@@ -1,0 +1,1 @@
+Intellij project for Rust

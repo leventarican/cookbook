@@ -16,7 +16,7 @@ fun double(x: Int) =
 
 data class Programmer(val name: String, val exp: Int)
 
-fun main() {
+private fun main() {
     println("kotlin in action")
 
     val keyValue0 = "key" to "value"

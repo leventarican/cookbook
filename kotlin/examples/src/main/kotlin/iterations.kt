@@ -19,7 +19,7 @@ fun arrays() {
     print("\n")
 }
 
-fun main() {
+private fun main() {
     ranges()
     arrays()
 }

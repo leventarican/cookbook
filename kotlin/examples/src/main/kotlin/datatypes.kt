@@ -15,7 +15,7 @@ fun unit() {
     println("Unit: $u")
 }
 
-fun main() {
+private fun main() {
     datatypes()
     unit()
 }
