@@ -1,4 +1,4 @@
-package staticFunctions
+package objectOrientedProgramming
 
 fun packageLevel() {
     println("package level function in kotlin. " +

@@ -1,5 +1,7 @@
 package objectOrientedProgramming;
 
+import java.util.Objects;
+
 /**
  * Java old style way (POJO) to implement a data class in kotlin.
  *
@@ -25,8 +27,19 @@ public class DataJava {
      */
     @Override
     public String toString() {
-        return "DataJava{" +
-                "payload='" + payload + '\'' +
-                '}';
+        return String.format("DataJava{payload=%s}; hashCode: %d", payload, hashCode());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DataJava dataJava = (DataJava) o;
+        return Objects.equals(payload, dataJava.payload);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(payload);
     }
 }

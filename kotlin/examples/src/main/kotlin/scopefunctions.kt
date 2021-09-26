@@ -1,6 +1,7 @@
 /*
 https://kotlinlang.org/docs/scope-functions.html#function-selection
 
+contained in Kotlin standard library
 scope functions: let, run, with, apply, also
  */
 
@@ -68,4 +69,14 @@ private fun main() {
     }.code()
 
     println(randomPassword(10))
+
+    with(object {
+        val payload = "anonymous object"
+        fun iCanThis() {
+            println("i can this")
+            println("and that")
+        }
+    }) {
+        println("parse data: $payload")
+    }
 }

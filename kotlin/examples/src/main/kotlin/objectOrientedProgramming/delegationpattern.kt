@@ -35,7 +35,19 @@ no need to implement the method.
  */
 class Kotlin(d: String) : Paradigm by FunctionalProgramming(d)
 
+class StandardDelegates() {
+    val lazyValue: String by lazy {
+        // not init yet
+        // println("# ${this.lazyValue}")
+        println("# by lazy delegate is provided by kotlin std library")
+        "a lazy value"
+    }
+}
+
 fun main() {
     Java("java").description()
     Kotlin("kotlin").description()
+
+    val a = StandardDelegates()
+    println(a.lazyValue)
 }

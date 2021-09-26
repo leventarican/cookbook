@@ -1,6 +1,5 @@
 package dojo
 
-import staticFunctions.packageLevel
 import kotlin.system.exitProcess
 
 /**

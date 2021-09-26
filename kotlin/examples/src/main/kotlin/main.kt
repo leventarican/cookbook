@@ -1,5 +1,3 @@
-import staticFunctions.JavaStyle
-import staticFunctions.packageLevel
 
 // memoized function: TODO
 // fun double(x: Int) = x * 2
@@ -34,7 +32,4 @@ private fun main() {
     println(b)
     val c = a.joinToString(" ", transform = { p: Programmer -> p.name })
     println(c)
-
-    packageLevel()
-    JavaStyle.staticFunction()
 }
