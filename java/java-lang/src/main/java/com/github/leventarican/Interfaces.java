@@ -26,3 +26,7 @@ interface ProgrammingLang {
     
     void code(String language);
 }
+
+interface Z {
+    void code();
+}

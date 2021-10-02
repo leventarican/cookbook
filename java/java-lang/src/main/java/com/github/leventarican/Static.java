@@ -1,16 +1,21 @@
 package com.github.leventarican;
 
 /**
+ * What is the output?
+ * 
  * @author levent
  */
 public class Static {
     public static void main(String[] args) {
-        new Java7();
-        var packages = Java7.getPackages();
-        System.out.println(packages);
-        // 210
+        
+        System.out.println(Java7.getPackages());
         System.out.println(Java7.CODENAME);
-        // Dolpin
+        
+        new Java7();
+        new Java7();
+        new Java7();
+        
+        System.out.println(Java7.getPackages());
     }
 }
 
@@ -22,6 +27,7 @@ class Java7 {
 
     static {
         CODENAME = "Dolphin";
+        System.out.println("static block: " + CODENAME);
     }
     
     public Java7() {
