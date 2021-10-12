@@ -1,3 +1,5 @@
+import java.lang.Math.random
+import kotlin.system.measureTimeMillis
 
 // memoized function: TODO
 // fun double(x: Int) = x * 2
@@ -12,9 +14,7 @@ fun double(x: Int) =
         result
     }
 
-data class Programmer(val name: String, val exp: Int)
-
-private fun main() {
+fun code0() {
     println("kotlin in action")
 
     val keyValue0 = "key" to "value"
@@ -32,4 +32,34 @@ private fun main() {
     println(b)
     val c = a.joinToString(" ", transform = { p: Programmer -> p.name })
     println(c)
+}
+
+fun expensiveCalculate() {
+    Thread.sleep(100)
+    println("expensive calculation done.")
+}
+
+data class Programmer(val name: String, val exp: Int)
+
+private fun main() {
+    val a = Programmer("kotlin", exp = 1)
+    val b = Programmer("java", exp = 5)
+    val developers = listOf(a, b)
+    val c = developers.joinToString { p: Programmer -> p.exp.toString() }
+
+    println(c)
+
+    val d = { i: Int -> i + 30 + 10 }
+    val e = d(100)
+    println(e)
+
+    val f = developers.maxByOrNull { p: Programmer -> p.exp }
+    println(f)
+
+    println("Kotlin version current: ${KotlinVersion.CURRENT}")
+
+    val time = measureTimeMillis {
+        expensiveCalculate()
+    }
+    println("time: $time")
 }
