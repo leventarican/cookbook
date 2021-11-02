@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.*;
 
 public class Main {
     class A extends Machine implements D {
@@ -10,7 +11,7 @@ public class Main {
             }
         }
     }
-    static class B extends Machine implements D {
+    static class B extends Machine implements Main.D {
         void code() {
             var data = popData();
             System.out.println(B.class.getName() + " consumed data: " + data);
@@ -43,6 +44,8 @@ public class Main {
         var c = new B();
         b.code();
         c.code();
+
+        IntStream.range(1, 5).forEach(System.out::println);
     }
 }
 
